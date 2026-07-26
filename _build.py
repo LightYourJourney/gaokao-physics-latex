@@ -53,8 +53,8 @@ def clean_latex(m) -> str:
     body = re.sub(r"\\text\{([(),.\-+='·　])\}", r"\1", body)
     # \text{2} 这类纯数字上下标
     body = re.sub(r"\\text\{(\d+)\}", r"\1", body)
-    # \text{π} → \pi
-    body = body.replace(r"\text{π}", r"\pi").replace(r"\text{°}", r"^\circ")
+    # \text{π} → \pi（必须补尾空格，否则 \text{π}n 会粘连成未定义命令 \pin）
+    body = body.replace(r"\text{π}", r"\pi ").replace(r"\text{°}", r"^\circ ")
     body = body.replace("·", r"\cdot ")
     # 合并相邻 \text{}：\text{m/s}\text{2} 情况已在上面处理
     body = re.sub(r"\s{2,}", " ", body)
@@ -76,9 +76,16 @@ def clean(md: str) -> str:
 
     md = re.sub(r'<img\s+src="([^"]+)"[^>]*?/>', img_repl, md, flags=re.S)
 
-    # 3. 题号统一为 **N.**（两种源格式：**11***.* 和全角 11．）
-    md = re.sub(r"\*\*(\d+)\*\*\*\.\*", r"**\1.**", md)
-    md = re.sub(r"^(\d{1,2})[．.](?=[^\d])", r"**\1.**", md, flags=re.M)
+    # 3. 题号先降级为中性标记 @@N@@，避免被后续的斜体清理规则误伤
+    #    （规则 5 会删掉"后跟空白的孤立 **"，正好命中 **11.** 的结尾）
+    #    卷头「注意事项 1./2./3.」不是题目，切出来不做转换
+    sec = re.search(r"^一[、．]", md, re.M)
+    head, body = (md[: sec.start()], md[sec.start():]) if sec else ("", md)
+    body = re.sub(r"\*\*(\d+)\*\*\*\.\*\s*", r"@@\1@@", body)
+    body = re.sub(r"^(\d{1,2})[．.]\s*(?=[^\d\s])", r"@@\1@@", body, flags=re.M)
+    # 卷头里 pandoc 残留的 **1***.* 也要还原成朴素文本
+    head = re.sub(r"\*\*(\d+)\*\*\*\.\*\s*", r"\1. ", head)
+    md = head + body
 
     # 4. 纯标点/空白被斜体包裹 → 去掉斜体
     #    覆盖 *.*  *=*  *-*  *,*  *　*  *(*  *)* 等
@@ -88,8 +95,16 @@ def clean(md: str) -> str:
     md = re.sub(r"(?<!\*)\*\*(?!\*)(?=\s|$)", "", md)
     md = re.sub(r"\*{4,}", "**", md)
 
+    # 5b. 题号还原为 "**N.** "
+    #     末尾必须留空格：GFM 中 `**1.**中文` 的右定界符紧跟标点会解析失败，不显示粗体
+    md = re.sub(r"@@(\d+)@@\s*", r"**\1.** ", md)
+
     # 6. 方正软回车残留
     md = md.replace("　　", "　")
+
+    # 6b. 孤立的 = / - 行会被 Markdown 当成 Setext 标题（把上一行整段放大成 <h1>）。
+    #     这类行来自被 pandoc 跨行拆开的公式（如「将 r = nR 代入」），与上一行接回去。
+    md = re.sub(r"(?<=\S)\n([=\-])\n(?=\S)", r"\1", md)
 
     # 7. 压缩 3 个以上连续空行
     md = re.sub(r"\n{3,}", "\n\n", md)
