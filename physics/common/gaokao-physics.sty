@@ -1,0 +1,17 @@
+% ============================================================
+% common/gaokao-physics.sty —— 物理卷排版公共宏包
+% 内容与 preamble.tex / macros.tex 互补：本文件只放物理特有的
+% 题图环境与页码无关的版式小件，供四个入口壳文件统一加载。
+% ============================================================
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{gaokao-physics}[2026/08/05 v1.0 高考物理真题排版]
+
+% 非矢量例外图（保留原照片/扫描件）：\gkphoto{width}{path}
+% 输出带图注的居中插图，图注说明该图为原图保留。
+\newcommand{\gkphoto}[3][0.8\textwidth]{%
+  \begin{center}
+    \includegraphics[width=#1]{#2}\\
+    {\small\color{gray}（#3）}
+  \end{center}}
+
+\endinput

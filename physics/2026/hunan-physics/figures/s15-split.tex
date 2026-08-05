@@ -1,0 +1,27 @@
+% 第 15 题（3）解析：分裂示意图（TikZ 线稿）
+% 分裂前小球以速度 v 撞地反弹，随后分裂为质量 m0 与 km0 两部分，
+% 速度方向与分裂前速度方向成 θ 角
+\begin{tikzpicture}[font=\small, >=Stealth]
+  % 地面
+  \draw[thick] (-1.8,0) -- (1.8,0);
+  \fill[pattern=north east lines] (-1.8,0) rectangle (1.8,-0.12);
+  % 分裂前速度方向（与水平面成 α 角）
+  \coordinate (A) at (0,0.35);       % 分裂点
+  \coordinate (B) at (1.15,1.05);    % 分裂前速度终点
+  \coordinate (H) at (1.15,-0.4);    % 水平参考
+  \coordinate (C) at (1.9,0.1);      % km0 部分速度终点
+  \coordinate (D) at (-1.0,1.7);     % m0 部分速度终点
+  \draw[->, thick] (A) -- (B) node[above]{$\vec{v}$};
+  \node[right] at (1.25,1.35) {分裂前速度};
+  % α 角
+  \pic[draw, angle radius=0.4cm, angle eccentricity=1.7, "$\alpha$"]
+      {angle = H--A--B};
+  % 分裂后两部分（与 v 方向成 θ 角）
+  \draw[->, thick] (A) -- (D) node[left]{$m_0\vec{v}_3$};
+  \draw[->, thick] (A) -- (C) node[right]{$km_0\vec{v}_2$};
+  \pic[draw, angle radius=0.35cm, angle eccentricity=1.7, "$\theta$"]
+      {angle = A--B--C};
+  \pic[draw, angle radius=0.35cm, angle eccentricity=1.7, "$\theta$"]
+      {angle = D--A--B};
+  \node at (0,-0.6) {分裂瞬间：两部分速度与 $\vec{v}$ 均成 $\theta$ 角};
+\end{tikzpicture}

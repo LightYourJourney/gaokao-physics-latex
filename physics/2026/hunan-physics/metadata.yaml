@@ -1,0 +1,20 @@
+# 试卷元数据 —— 2026 年湖南卷物理
+paper_id: 2026-hunan
+year: 2026
+region: 湖南
+paper_name: 2026 年普通高中学业水平选择性考试物理（湖南卷）
+paper_type: 自主命题
+subject_form: 物理独立卷
+source_path: ../../../2026/2026_物理真题_含解析.md
+source_pages: N/A（Word 版转 Markdown）
+source_hash: N/A
+question_count: 15
+has_official_answer: true
+has_official_solution: true
+solution_type: source_embedded   # 解析来自源文档内嵌解析（官方 Word 版）
+status: in-progress
+notes: >
+  结构：单选 6×4 + 多选 4×5 + 实验 2 题 + 计算 3 题，满分 100，限时 75 分钟。
+  图策略：image2-5,8-9,11,13-20 重绘为 TikZ/circuitikz/pgfplots；
+  image6（心形气球）、image10（单摆装置照片）、image12（表盘照片）为非矢量例外，
+  保留原图。

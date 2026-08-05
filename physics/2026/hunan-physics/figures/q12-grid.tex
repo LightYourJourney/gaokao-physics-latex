@@ -1,0 +1,13 @@
+% 第 12 题（5）：z-U 坐标网格（pgfplots，仅坐标轴与网格，供学生描点作图）
+\begin{tikzpicture}
+  \begin{axis}[
+      width=8cm, height=5.5cm,
+      axis lines=middle,
+      xlabel={$z$/mm}, ylabel={$U$/mV},
+      xmin=11.2, xmax=15.2, ymin=0, ymax=95,
+      xtick={11.5,12,12.5,13,13.5,14,14.5,15},
+      ytick={0,20,40,60,80},
+      grid=both, grid style={line width=0.3pt, draw=gray!50},
+      font=\small]
+  \end{axis}
+\end{tikzpicture}

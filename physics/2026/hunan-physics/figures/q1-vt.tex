@@ -1,0 +1,17 @@
+% 第 1 题：舰载机第 2 s 内的 v-t 图像（pgfplots）
+% 数据来自解析：t=1 s → v=50 m/s，t=2 s → v=30 m/s（直线）
+\begin{tikzpicture}
+  \begin{axis}[
+      width=7cm, height=5cm,
+      axis lines=middle,
+      xlabel={$t$/s}, ylabel={$v$/(m/s)},
+      xmin=0, xmax=3.2, ymin=0, ymax=65,
+      xtick={1,2}, ytick={30,50},
+      yticklabels={$30$,$50$}, xticklabels={$1$,$2$},
+      grid=none, xlabel style={anchor=west}, ylabel style={anchor=south},
+      font=\small]
+    \addplot[thick] coordinates {(1,50) (2,30)};
+    \draw[dashed] (1,50) -- (1,0) node[pos=0.55, left]{};
+    \draw[dashed] (2,30) -- (2,0);
+  \end{axis}
+\end{tikzpicture}

@@ -1,0 +1,17 @@
+% 第 10 题：磁悬浮装置示意（TikZ 线稿，剖面）
+% 环形通电线圈（截面两小圆）+ 环形细管道（上方大环）+ 带正电小球
+\begin{tikzpicture}[font=\small, >=Stealth]
+  % 俯视环形管道：外圆（管道）
+  \draw[thick] (0,0) circle (2.2);
+  % 管道截面放大示意（右侧）
+  \draw[thick] (2.6,0.9) ellipse (0.5 and 0.25);
+  \fill (2.6,0.9) circle (1.8pt) node[right]{小球（带正电）};
+  \node[right] at (3.4,1.15) {环形细管道};
+  % 环形线圈（俯视：内圆虚线）
+  \draw[dashed] (0,0) circle (1.0);
+  \draw[thick] (0,0) circle (0.6);
+  \node at (0,-1.35) {环形通电线圈（固定于水平面）};
+  \node at (0,2.5) {俯视图};
+  % 磁场方向（45°）示意
+  \draw[->, thick] (1.7,-0.4) -- (2.2,0.35) node[above right]{$\vec{B}$};
+\end{tikzpicture}

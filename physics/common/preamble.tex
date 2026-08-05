@@ -1,0 +1,65 @@
+% ============================================================
+% common/preamble.tex —— 高考物理真题 LaTeX 项目 · 公共导言区
+% 引擎：XeLaTeX；文档类 ctexart 由各版本壳文件自行声明
+% 物理专用：
+%   - 增加 siunitx / circuitikz / bm
+%   - tasks 环境改用物理选项版式（列数由内容片段写定 4/2/1）
+% ============================================================
+
+% ---------- 数学 ----------
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{bm}           % 矢量粗体
+
+% ---------- 绘图 ----------
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows.meta, calc, patterns, angles, quotes, positioning, intersections}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{circuitikz}   % 电路图
+
+% ---------- 单位 ----------
+% 中文正文里单位以 \si{} 排版；物理量斜体、单位正体由 siunitx 保证
+\usepackage[per-mode=symbol, exponent-product=\cdot, inter-unit-product=\ensuremath{{}\cdot{}}]{siunitx}
+\DeclareSIUnit\degreeC{°C}
+
+% ---------- 版面 ----------
+\usepackage{geometry}
+\geometry{a4paper, margin=2.2cm, headheight=15pt}
+% 紧凑版式（印刷版）可在壳文件中于 \begin{document} 前再次调用 \geometry 覆盖
+\usepackage{enumitem}
+\setlist{itemsep=2pt, topsep=4pt, parsep=0pt}
+
+% 中文与行内公式混排的断行弹性：
+% emergencystretch 允许段落末路不通时追加伸展量；
+% 降低二元/关系符罚分，允许行内长公式在 = 、+ 等处断行（否则整段外溢）
+\emergencystretch=2em
+\binoppenalty=700
+\relpenalty=500
+\usepackage{booktabs}      % 三线表
+\usepackage[most]{tcolorbox}
+
+% ---------- 选择题选项对齐 ----------
+% tasks 宏包：\begin{gkopts}(列数) \task ... \end{gkopts}
+% 自动等宽分栏，选项天然对齐；列数已由内容片段按选项长度写定（4/2/1）
+\usepackage{tasks}
+\settasks{label={}, label-width=0pt, item-indent=1.2em,
+          column-sep=1em, after-item-skip=2pt, before-skip=2pt, after-skip=4pt}
+\NewTasksEnvironment[style=itemize]{gkopts}[\task](4)
+
+% ---------- 页眉页脚 ----------
+\newcommand{\gkheadL}{}   % 左页眉：卷名（壳文件 \renewcommand 设置）
+\newcommand{\gkheadR}{}   % 右页眉：版本名（壳文件 \renewcommand 设置）
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\gkheadL}
+\fancyhead[R]{\small\gkheadR}
+\fancyfoot[C]{\small —— 第 \thepage\ 页 ——}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% ---------- 超链接（须最后加载）----------
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, linkcolor=blue!55!black,
+            bookmarksnumbered=true, unicode=true}

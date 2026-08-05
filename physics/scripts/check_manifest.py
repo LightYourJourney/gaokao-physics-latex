@@ -1,0 +1,69 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""check_manifest.py —— 校验 manifest.csv 与磁盘结构的机械一致性。
+
+检查项：
+  1. manifest 中的每个 paper 目录是否存在；
+  2. 每个标记 complete 的试卷四入口 PDF 是否都存在且非零字节；
+  3. 题量字段与 content/questions.tex 中 \begin{question} 计数是否一致；
+  4. 试卷目录是否都有 metadata.yaml。
+"""
+import csv
+import re
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+
+
+def count_questions(content_tex: Path) -> int:
+    text = content_tex.read_text(encoding="utf-8")
+    return len(re.findall(r"\\begin\{question\}", text))
+
+
+def main() -> int:
+    manifest = ROOT / "manifest.csv"
+    if not manifest.exists():
+        print("❌ manifest.csv 不存在")
+        return 1
+    rows = list(csv.DictReader(manifest.open(encoding="utf-8")))
+    print(f"manifest 共 {len(rows)} 行\n")
+    problems = []
+    for r in rows:
+        d = ROOT / r["paper_id"].replace("-", "/").replace("/2021", "/2021")
+        # paper_id 形如 2026-hunan → 目录 2026/hunan-physics 需单独映射
+        year = r["year"]
+        # 目录名约定：年份/短名（从 paper_id 第二段取）
+        pdir = ROOT / year / f"{r['paper_id'].split('-')[1]}-physics"
+        status = r["status"]
+        if status in ("missing-source", "pending"):
+            continue  # 无来源/待发布，本就无目录
+        if not pdir.exists():
+            problems.append(f"[{r['paper_id']}] 目录缺失: {pdir.relative_to(ROOT)}")
+            continue
+        if not (pdir / "metadata.yaml").exists():
+            problems.append(f"[{r['paper_id']}] 缺 metadata.yaml")
+        if status == "complete":
+            for entry in ("exam", "answer-key", "solutions", "complete"):
+                pdf = pdir / f"{entry}.pdf"
+                if not pdf.exists() or pdf.stat().st_size == 0:
+                    problems.append(f"[{r['paper_id']}] 缺 {entry}.pdf")
+        qtex = pdir / "content" / "questions.tex"
+        if qtex.exists() and r.get("question_count"):
+            n = count_questions(qtex)
+            if n != int(r["question_count"]):
+                problems.append(
+                    f"[{r['paper_id']}] 题量不符: manifest={r['question_count']} "
+                    f"questions.tex={n}")
+
+    if problems:
+        print("发现 " + str(len(problems)) + " 个问题：")
+        for p in problems:
+            print("  ⚠️", p)
+        return 1
+    print("✅ manifest 与磁盘结构一致")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

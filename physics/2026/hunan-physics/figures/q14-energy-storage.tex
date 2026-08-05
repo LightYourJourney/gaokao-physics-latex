@@ -1,0 +1,37 @@
+% 第 14 题：储能器电路 + 导轨装置（circuitikz）
+% 电源 E、开关 S（a/b/c 触点）、储能器、R、导轨 L 与导体棒
+\begin{tikzpicture}[font=\small, scale=0.8, every node/.style={transform shape=false}]
+  % 导轨（水平两条平行线，间距 L）
+  \draw[thick] (-3.4,0) -- (0.4,0);
+  \draw[thick] (-3.4,-1.0) -- (0.4,-1.0);
+  \draw[<->] (0.0,0.1) -- (0.0,-1.1) node[midway, right]{$L$};
+  % 导体棒（竖直短线，垂直导轨）
+  \draw[very thick] (-1.2,0.1) -- (-1.2,-1.1);
+  \node[right] at (-1.05,-0.5) {导体棒 $r$};
+  % 磁场符号（× 表示向里）
+  \foreach \x in {-2.6,-2.2,-1.8,-1.4} {
+    \foreach \y in {-0.75,-0.25} {
+      \node[gray] at (\x,\y) {$\times$};}}
+  \node[gray] at (-2.6,0.45) {$\times$};
+  \node[gray] at (-2.2,0.45) {$\times$};
+  \node[gray] at (-1.8,0.45) {$\times$};
+  \node[gray] at (-1.4,0.45) {$\times$};
+  \node[gray] at (-2.4,0.9) {\small $\vec{B}$ 垂直纸面向里};
+  % 电路侧：电源 E、R、S（a/b/c 触点）
+  \draw (0.4,-0.5) -- (1.6,-0.5) to[short] (1.6,-0.5) node[circ]{};
+  \draw (1.6,-0.5) -- (2.0,-0.5) to[battery1, l=$E$] (2.0,1.6);
+  \draw (2.0,1.6) -- (0.6,1.6);
+  \draw (0.6,1.6) to[R, l=$R$] (0.6,0.6);
+  \draw (0.6,0.6) node[circ, label=above:$a$]{} -- (0.6,0.3);
+  \draw (0.6,0.3) -- (0.9,0.3) node[circ, label=above:$b$]{} -- (1.2,0.3) node[circ, label=above:$c$]{};
+  \draw (1.2,0.3) -- (1.2,-0.5) -- (0.4,-0.5);
+  \draw (0.6,0.6) to[short, -o] (0.6,0.3);
+  % 开关 S 示意（a 触点，实线连接）
+  \draw (0.3,0.3) -- (0.6,0.3);
+  % 储能器（虚线框 + 符号）
+  \draw[dashed] (1.5,0.8) rectangle (2.6,1.9);
+  \draw (2.05,1.35) -- (2.05,1.1);
+  \draw (2.05,1.1) -- (2.3,1.25); \draw (2.05,1.1) -- (1.8,1.25);
+  \node[above] at (2.05,1.9) {储能器};
+  \draw (2.05,1.1) -- (2.05,0.9);
+\end{tikzpicture}

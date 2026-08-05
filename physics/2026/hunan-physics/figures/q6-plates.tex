@@ -1,0 +1,19 @@
+% 第 6 题：三个平行金属板 A/B/C（TikZ 线稿）
+% A、C 接地；B 板到 A、C 距离分别为 d1、d2（d1<d2）；a、b 为场中两点
+\begin{tikzpicture}[font=\small, >=Stealth]
+  % 板 A、B、C（竖线表示板面）
+  \draw[thick] (0,-1.2) -- (0,1.2) node[above]{$A$};
+  \draw[thick] (2.2,-1.2) -- (2.2,1.2) node[above]{$B$};
+  \draw[thick] (4.4,-1.2) -- (4.4,1.2) node[above]{$C$};
+  % 接地符号（A、C 下端）
+  \draw (0,-1.2) -- (0,-1.7); \draw (-0.3,-1.9) -- (0.3,-1.9);
+  \draw (-0.2,-2.1) -- (0.2,-2.1); \draw (-0.1,-2.3) -- (0.1,-2.3);
+  \draw (4.4,-1.2) -- (4.4,-1.7); \draw (4.1,-1.9) -- (4.7,-1.9);
+  \draw (4.2,-2.1) -- (4.6,-2.1); \draw (4.3,-2.3) -- (4.5,-2.3);
+  % 距离标注
+  \draw[<->] (0,1.35) -- (2.2,1.35) node[midway, above]{$d_1$};
+  \draw[<->] (2.2,1.35) -- (4.4,1.35) node[midway, above]{$d_2$};
+  % 场点 a、b（带括号间距标注）
+  \fill (1.1,0) circle (1.5pt) node[above]{$a$};
+  \fill (3.3,0) circle (1.5pt) node[above]{$b$};
+\end{tikzpicture}

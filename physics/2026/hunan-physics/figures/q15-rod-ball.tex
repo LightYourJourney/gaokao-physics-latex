@@ -1,0 +1,16 @@
+% 第 15 题：竖直轻杆 + 小球（TikZ 线稿）
+\begin{tikzpicture}[font=\small, >=Stealth]
+  % 地面
+  \draw[thick] (-1.6,0) -- (1.6,0);
+  \fill[pattern=north east lines] (-1.6,0) rectangle (1.6,-0.15);
+  % 固定点（下端铰支）
+  \fill (0,0) circle (2.5pt) node[below left]{固定点};
+  % 竖直轻杆
+  \draw[very thick] (0,0) -- (0,2.2);
+  % 小球（上端）
+  \fill (0,2.2) circle (0.32);
+  \node[above right] at (0,2.5) {小球 $m$};
+  % 尺寸标注
+  \draw[<->] (0.5,0) -- (0.5,2.2) node[midway, right]{$L$};
+  \node at (0,-0.6) {杆可绕固定点无摩擦转动};
+\end{tikzpicture}

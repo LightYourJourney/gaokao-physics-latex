@@ -1,0 +1,26 @@
+% 第 15 题（2）解析：小球脱离轻杆时刻，杆与竖直方向夹角 β（TikZ 线稿）
+\begin{tikzpicture}[font=\small, >=Stealth]
+  % 地面
+  \draw[thick] (-1.8,0) -- (1.8,0);
+  \fill[pattern=north east lines] (-1.8,0) rectangle (1.8,-0.15);
+  % 固定点
+  \fill (0,0) circle (2.5pt) node[below left]{$O$};
+  % 杆（倾斜，与竖直方向成 β）
+  \coordinate (O) at (0,0);          % 固定点
+  \coordinate (V) at (0,3.0);        % 竖直线上端点
+  \coordinate (T) at (2.0,2.5);      % 杆顶端（小球位置）
+  \draw[very thick] (O) -- (T);
+  % 小球
+  \fill (T) circle (0.3);
+  \node[above right] at (T) {小球};
+  % 竖直参考线（虚线）
+  \draw[dashed] (O) -- (V);
+  % β 角
+  \pic[draw, angle radius=0.55cm, angle eccentricity=1.5, "$\beta$"]
+      {angle = V--O--T};
+  % 速度方向示意
+  \draw[->, thick] (T) -- (3.1,3.0) node[right]{$\vec{v}_1$};
+  % 尺寸标注
+  \draw[<->] (2.35,0) -- (2.35,2.5) node[midway, right]{$L$};
+  \node at (0.2,-0.75) {脱离瞬间：杆与竖直方向夹角 $\beta$};
+\end{tikzpicture}

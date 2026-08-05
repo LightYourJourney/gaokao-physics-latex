@@ -1,0 +1,22 @@
+% 第 9 题：两气球系绳示意（侧视图，TikZ 线稿）
+% 侧视时两球重叠为一线：球心在绳的延长线上、球心连线水平；
+% 两绳所在平面与水平面夹角 θ。
+\begin{tikzpicture}[font=\small, >=Stealth]
+  % 水平参考线（虚线）
+  \draw[dashed] (-0.9,0.9) -- (2.4,0.9);
+  \node[right] at (2.4,0.9) {水平线};
+  % 绳（从球心系点延伸到人手）
+  \coordinate (H) at (-0.6,-0.9);      % 人手系点
+  \coordinate (S) at (1.1,0.9);        % 球心（侧视重叠）
+  \coordinate (L) at (0.9,-0.9);       % 水平参考方向（θ 的另一边）
+  \draw[thick] (S) -- (H);
+  % 球（侧视：一个圆）
+  \fill (S) circle (0.5);
+  \node at (1.9,0.9) {气球};
+  \fill (H) circle (2.5pt) node[below right]{人};
+  % θ：绳与水平线的夹角（即两绳平面与水平面的夹角，侧视投影）
+  \pic[draw, angle radius=0.45cm, angle eccentricity=1.5, "$\theta$"]
+      {angle = S--H--L};
+  % 说明
+  \node at (0.4,-1.6) {$\theta<90^{\circ}$：两绳平面与水平面的夹角};
+\end{tikzpicture}

@@ -1,0 +1,15 @@
+% ============================================================
+% common/questions_env.tex —— 题目 / 解析的语义包装环境
+%
+% questions.tex 中每道题包在 \begin{question}...\end{question} 里，
+% answers.tex 中每题解析包在 \begin{answer}...\end{answer} 里；
+% 题头排版仍由内容行中的 \gkti / \gksolhead 完成（见 macros.tex）。
+%
+% 环境本身不产生任何盒子或垂直间距（只引入一个 TeX 分组），
+% 排版结果与不包裹时逐点一致。它的价值在于：
+%   1. 给每道题一个机器可数的结构边界（校验脚本数环境数 = 题量）；
+%   2. 为将来的条件编译留钩子——某版本可重定义环境实现按题取舍。
+% ============================================================
+
+\newenvironment{question}{}{}
+\newenvironment{answer}{}{}

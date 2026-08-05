@@ -1,0 +1,20 @@
+% 第 8 题：均热板散热器剖面示意（TikZ 线稿）
+% 扁平密封铜腔：底部高温芯片、上部低温冷凝端、内部水汽循环箭头
+\begin{tikzpicture}[font=\small, >=Stealth]
+  % 空腔轮廓
+  \draw[thick] (0,0) rectangle (5,1.6);
+  \draw[thick, dashed] (0.4,0.3) rectangle (4.6,1.3);  % 内部水汽区
+  % 芯片（底部）
+  \fill[pattern=north east lines] (1.2,-0.6) rectangle (2.4,0);
+  \node[below] at (1.8,-0.6) {芯片（高温）};
+  % 冷凝端（顶部右侧）
+  \fill[pattern=north west lines] (3.6,1.6) rectangle (4.6,2.1);
+  \node[above] at (4.1,2.1) {冷凝端};
+  % 循环箭头：底部受热汽化向上、顶部冷凝回流向下
+  \draw[->, thick] (1.8,0.15) -- (1.8,1.15);
+  \draw[->, thick] (3.6,1.15) -- (3.6,0.15);
+  \node at (2.0,0.8) {水蒸气};
+  \node at (3.4,0.7) {回流};
+  % 均热板说明
+  \node at (2.5,-1.15) {均热板（扁平密封纯铜空腔）};
+\end{tikzpicture}

@@ -1,0 +1,20 @@
+% 第 12 题：霍尔元件测位移装置示意（TikZ 线稿）
+% 图1：螺旋测微器+铜杆+霍尔元件伸入两磁体间隙（同极相对），z 轴竖直
+\begin{tikzpicture}[font=\small, >=Stealth]
+  % 两磁体（同极相对，画为两块矩形，标注 N/N 相对）
+  \fill[pattern=north east lines] (-1.7,0) rectangle (-0.6,2.2);
+  \fill[pattern=north east lines] (0.6,0) rectangle (1.7,2.2);
+  \node at (-1.15,1.1) {\small$N$};
+  \node at (1.15,1.1) {\small$N$};
+  % 霍尔元件（间隙中矩形片）
+  \draw[thick] (-0.22,0.9) rectangle (0.22,1.3);
+  \node[above] at (0,1.5) {霍尔元件};
+  % 铜杆 + 螺旋测微器（上方）
+  \draw[thick] (0,1.9) -- (0,3.0);
+  \draw[thick] (-0.5,3.0) -- (0.5,3.0);
+  \node[right] at (0.5,3.0) {螺旋测微器};
+  % z 轴
+  \draw[->] (1.9,0) -- (1.9,3.3) node[above]{$z$};
+  % 图2 简述（工作电路：电流水平穿过霍尔片，电压表接 c、d）
+  \node at (0,-0.5) {\small 图 1：装置示意（图 2 工作电路见解析）};
+\end{tikzpicture}

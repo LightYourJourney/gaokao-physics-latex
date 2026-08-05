@@ -1,0 +1,28 @@
+% 第 13 题：摄像头嵌入矩形均匀透明介质（TikZ 线稿）
+% 截面：矩形介质 + 中心摄像头（拍摄角 120°）+ 光线 1（几乎贴表面入射）
+\begin{tikzpicture}[font=\small, >=Stealth]
+  % 矩形介质截面
+  \draw[thick] (0,0) rectangle (5,2.2);
+  % 摄像头（中心梯形）
+  \fill[gray!30] (2.15,0.9) -- (2.85,0.9) -- (2.5,0.3) -- (2.5,-0.0);
+  \draw[thick] (2.15,0.9) -- (2.85,0.9) -- (2.5,0.3) -- cycle;
+  \node at (2.5,0.6) {\small 摄像头};
+  \node at (2.5,-0.35) {拍摄角 $120^{\circ}$};
+  % 光线 1：几乎贴着介质表面（左上）入射，经折射恰好射入摄像头
+  \coordinate (P) at (0.05,2.15);   % 入射点
+  \coordinate (N) at (0.05,2.85);   % 法线上端
+  \coordinate (In) at (-1.2,2.35);  % 入射光线起点
+  \coordinate (R) at (2.5,1.55);    % 折射光线终点（摄像头）
+  \draw[->, thick] (In) -- (P);
+  \draw[->, thick] (P) -- (R);
+  \node at (-0.3,2.6) {光线 1};
+  \node at (0.6,2.0) {介质};
+  % 表面法线（入射点）
+  \draw[dashed] (P) -- (N);
+  \draw (P) -- (0.05,1.45);
+  % 标注角度（入射 90°、折射 60°）
+  \pic[draw, angle radius=0.4cm, angle eccentricity=1.6, "$\approx 90^{\circ}$"]
+      {angle = N--P--In};
+  \pic[draw, angle radius=0.5cm, angle eccentricity=1.6, "$60^{\circ}$"]
+      {angle = P--N--R};
+\end{tikzpicture}

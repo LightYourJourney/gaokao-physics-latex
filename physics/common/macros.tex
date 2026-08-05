@@ -1,0 +1,56 @@
+% ============================================================
+% common/macros.tex —— 自定义命令与环境（题号、解析头、提示框等）
+% 物理卷专用：实验题填空 \gkblank、物理量矢量、题图引用环境。
+% ============================================================
+
+% ---------- 试卷标识（壳文件 \renewcommand 设置，用于 label 命名空间）----------
+\newcommand{\gkpaperid}{none}
+
+% ---------- 题号 ----------
+% 试题部分的题号：加粗编号 + 自动 \label{q:<卷id>:<题号>}
+% 物理卷题号带分值与题型，题头写法示例：
+%   \gkti{1} 单选第 1 题；实验/解答题用 \gkti{11}（分值另起）
+\newcommand{\gkti}[1]{\par\medskip\noindent
+  \textbf{#1．}\phantomsection\label{q:\gkpaperid:#1}\ignorespaces}
+
+% 解析部分的题头：小标题 + 回链到试题页
+% （仅在题目与解析同文档的版本中回链有效；试题版不含解析头，无悬空引用）
+\newcommand{\gksolhead}[2]{%
+  \subsubsection*{第 #1 题（#2）}%
+  \phantomsection\label{s:\gkpaperid:#1}%
+  {\small\color{gray}（题目见第~\pageref{q:\gkpaperid:#1}~页）}\par\nopagebreak}
+
+% ---------- 填空题空位 ----------
+\newcommand{\gkblank}{\underline{\hspace{2.2em}}}
+
+% ---------- 提示框 ----------
+% 卷种提示 / 解析归属声明（醒目，浅黄）
+\newtcolorbox{gknotice}{colback=yellow!8, colframe=orange!60!black,
+  boxrule=0.5pt, arc=1.5pt, left=6pt, right=6pt, top=4pt, bottom=4pt,
+  before skip=8pt, after skip=8pt}
+
+% 方法提示 / 注（浅蓝，用于解析后的点评与题量说明）
+\newtcolorbox{gktip}{colback=blue!4, colframe=blue!35!black,
+  boxrule=0.4pt, arc=1.5pt, left=6pt, right=6pt, top=4pt, bottom=4pt,
+  before skip=6pt, after skip=6pt, fontupper=\small}
+
+% ---------- 答案行 ----------
+% 解析中独立成段的"答案：X"用带底色的行呈现
+\newcommand{\gkanswer}[1]{\par\smallskip\noindent
+  \tcbox[colback=green!6, colframe=green!35!black, boxrule=0.4pt,
+         arc=1.5pt, left=4pt, right=4pt, top=2pt, bottom=2pt,
+         nobeforeafter]{\textbf{#1}}\par\smallskip}
+
+% ---------- 结构标题 ----------
+\newcommand{\gkpart}[1]{\subsection*{#1}\nopagebreak}      % 一、选择题
+\newcommand{\gksubpart}[1]{\par\medskip\noindent\textbf{#1}\par\nopagebreak\smallskip}
+
+% ---------- 物理专用 ----------
+% 矢量：\gv{F} → 粗体斜体 \bm{F}
+\newcommand{\gv}[1]{\bm{#1}}
+% 题图引用：\gkfig{figures/q2-vt} 插入 TikZ 图文件（无浮动，紧跟题干）
+\newcommand{\gkfig}[1]{\par\medskip\noindent\input{#1}\par\smallskip}
+
+% 罗马数字Ⅰ-Ⅻ（U+2160）与圈号①②③（U+2460）划入 CJK 字符类，
+% 用中文字体渲染——西文字体 Latin Modern 缺这些字形，否则整段静默丢字
+\xeCJKDeclareCharClass{CJK}{"2160 -> "217F, "2460 -> "24FF}

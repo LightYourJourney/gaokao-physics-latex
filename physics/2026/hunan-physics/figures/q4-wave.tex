@@ -1,0 +1,11 @@
+% 第 4 题：点波源与 A(4,3)、B(4,0) 的坐标示意图（TikZ）
+\begin{tikzpicture}[>=Stealth, font=\small]
+  \draw[->] (-0.4,0) -- (5.2,0) node[below]{$x$/m};
+  \draw[->] (0,-0.4) -- (0,4.2) node[left]{$y$/m};
+  \fill (0,0) circle (1.5pt) node[below left]{$O$};
+  \fill (4,3) circle (1.5pt) node[above right]{$A(4,3)$};
+  \fill (4,0) circle (1.5pt) node[below right]{$B(4,0)$};
+  \draw[dashed] (4,3) -- (4,0);
+  \node at (2.2,0.35) {$r_B=4$ m};
+  \node at (2.4,1.9) {$r_A=5$ m};
+\end{tikzpicture}
