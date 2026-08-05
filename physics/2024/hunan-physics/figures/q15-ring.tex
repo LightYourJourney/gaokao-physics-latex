@@ -1,0 +1,20 @@
+% 第 15 题：水平圆环内 A、B 两小球（TikZ 线稿，俯视图）
+% A 以初速度 v0 沿圆环切线方向运动，B 静止；mA > mB
+\begin{tikzpicture}[font=\small, >=Stealth]
+  % 圆环（俯视）
+  \draw[thick] (0,0) circle (1.9);
+  % 圆心与半径标注
+  \fill (0,0) circle (1.2pt);
+  \draw[<->] (0,0) -- (0,1.9) node[midway, right] {$R$};
+  % B 球（静止，左上）
+  \coordinate (B) at (-1.34,1.34);
+  \fill (B) circle (0.16);
+  \node[left] at (-1.78,1.62) {$B$（静止）};
+  % A 球（右下，沿切线方向运动）
+  \coordinate (A) at (1.34,-1.34);
+  \fill (A) circle (0.16);
+  \node[right] at (1.66,-1.66) {$A$};
+  \draw[->, very thick] (A) -- (2.14,-0.56) node[midway, above right] {$\vec{v}_0$};
+  % 说明
+  \node at (0,-2.5) {圆环水平放置（俯视图）};
+\end{tikzpicture}

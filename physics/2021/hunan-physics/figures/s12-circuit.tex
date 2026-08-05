@@ -1,0 +1,19 @@
+% 第 12 题解析：测量 r0 的电路图（单刀双掷开关 + 电流表 + R0 / 电阻丝 Rx）
+% S 打 b 端接电阻丝 Rx 读出 I；打 a 端接 R0，移动金属夹使电流相同，则 Rx = R0。
+\begin{tikzpicture}[font=\small, scale=0.95, every node/.style={transform shape=false}]
+  % 电池（待测）
+  \draw (0,0) to[battery1, l_={$E,\,r$}] (0,2.2);
+  % 电流表
+  \draw (0,2.2) to[ammeter, l=$A$] (2.4,2.2);
+  % 单刀双掷开关 S（公共端在 (2.4,1.0)）
+  \draw (2.4,2.2) to[switch, l=$S$] (2.4,1.0);
+  % a 支路：R0
+  \draw (2.4,1.0) -- (3.9,1.0);
+  \draw (3.9,1.0) to[R, l=$R_{0}$] (3.9,0) -- (0,0);
+  % b 支路：电阻丝 Rx（可变电阻符号）
+  \draw (2.4,1.0) -- (5.4,1.0);
+  \draw (5.4,1.0) to[vR, l=$R_{x}$] (5.4,0) -- (0,0);
+  % 触点标注
+  \node[above] at (3.0,1.05) {$a$};
+  \node[above] at (4.2,1.05) {$b$};
+\end{tikzpicture}

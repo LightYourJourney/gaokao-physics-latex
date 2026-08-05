@@ -1,0 +1,14 @@
+% 第 12 题图 4：压力报警系统电路（circuitikz）
+% 电源 E 与水泥块 R1、滑动变阻器 R2 串联；报警器待并联（位置由 (5) 判断）。
+\begin{tikzpicture}[font=\small, scale=0.9, every node/.style={transform shape=false}]
+  % 电源 E（左上）
+  \draw (0,2.2) to[battery, l=$E$] (0,0);
+  % 下滑至底部，接滑动变阻器 R2（底部水平）
+  \draw (0,0) -- (0,-1.8);
+  \draw (0,-1.8) to[vR, l_=$R_{2}$] (4.6,-1.8);
+  \draw (4.6,-1.8) -- (4.6,-0.6);
+  % 右侧上接水泥块 R1（垂直）
+  \draw (4.6,-0.6) to[R, l=$R_{1}$] (4.6,1.6);
+  % 回接电源顶部
+  \draw (4.6,1.6) -- (4.6,2.2) -- (0,2.2);
+\end{tikzpicture}

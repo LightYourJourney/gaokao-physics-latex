@@ -1,0 +1,35 @@
+% 第 8 题：电磁缓冲装置（TikZ 线稿，俯视图）
+% 两平行导轨，左端定值电阻 R；BC/B1C1 段粗糙（阴影）；AA1 右侧有竖直向下的匀强磁场（×）；
+% 金属杆以 v0 向右运动，AB=BC=d
+\begin{tikzpicture}[font=\small, >=Stealth]
+  % 导轨（上下两条）
+  \draw[thick] (-1.2,0.9) -- (8.8,0.9);
+  \draw[thick] (-1.2,-0.9) -- (8.8,-0.9);
+  % 左端定值电阻 R
+  \draw (-1.2,0.9) -- (-1.9,0.9) to[R, l=$R$] (-1.9,-0.9) -- (-1.2,-0.9);
+  % 竖直线 AA1、BB1、CC1（虚线）
+  \draw[dashed] (1.4,-1.2) -- (1.4,1.2) node[above] {$AA_1$};
+  \draw[dashed] (3.4,-1.2) -- (3.4,1.2) node[above] {$BB_1$};
+  \draw[dashed] (5.4,-1.2) -- (5.4,1.2) node[above] {$CC_1$};
+  % 粗糙段 BC（阴影）
+  \fill[pattern=north east lines, pattern color=gray!55]
+    (3.4,-0.72) rectangle (5.4,0.72);
+  \node[above] at (4.4,1.2) {粗糙段};
+  % 磁场区域（×，AA1 右侧）
+  \foreach \x in {1.75,2.25,2.75,3.75,4.25,4.75,5.75,6.25,6.75,7.25,7.75,8.25} {
+    \foreach \y in {-0.45,0.45} {
+      \node[gray] at (\x,\y) {$\times$};
+    }
+  }
+  \node[gray, below right] at (6.3,0.35) {匀强磁场};
+  % 金属杆（垂直导轨）
+  \draw[very thick] (0.55,-0.95) -- (0.55,0.95);
+  \node[above] at (0.55,1.2) {金属杆};
+  % 速度方向 v0
+  \draw[->, thick] (2.2,0) -- (3.0,0) node[midway, below] {$v_0$};
+  % 距离标注 d
+  \draw[<->] (1.4,-1.35) -- (3.4,-1.35) node[midway, below] {$d$};
+  \draw[<->] (3.4,-1.35) -- (5.4,-1.35) node[midway, below] {$d$};
+  % 磁场方向说明
+  \node[gray] at (7.2,1.5) {$\vec{B}$ 竖直向下（垂直纸面向里）};
+\end{tikzpicture}

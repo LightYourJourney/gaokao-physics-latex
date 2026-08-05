@@ -1,0 +1,28 @@
+% 第 6 题：模拟风力发电输电网络（circuitikz）
+% 发电机（转子角速度 ω）→ 升压变压器 → 输电线（总电阻 R0）→ 降压变压器 → 用户端电阻 R
+\begin{tikzpicture}[font=\small, scale=0.9, every node/.style={transform shape=false}]
+  % 发电机（交流电源）
+  \draw (0,0) to[sinusoidal voltage source, l=$E$] (0,2.2);
+  \node[above] at (0,2.55) {发电机};
+  \node[below] at (0,-0.35) {转子角速度 $\omega$};
+  % 升压变压器
+  \node[transformer] (T1) at (2.7,1.1) {};
+  \draw (0,2.2) -- (T1.A1);
+  \draw (0,0) -- (T1.A2);
+  \draw (T1.B1) -- (5.0,2.2);
+  \draw (T1.B2) -- (5.0,0);
+  \node[above] at (2.7,2.45) {升压变压器};
+  % 输电线（回路上串入总电阻 R0）
+  \draw (5.0,2.2) to[R, l=$R_0$] (8.4,2.2);
+  \draw (8.4,2.2) -- (9.6,2.2);
+  \draw (5.0,0) -- (9.6,0);
+  \node[above] at (6.7,2.45) {输电线总电阻};
+  % 降压变压器
+  \node[transformer] (T2) at (10.7,1.1) {};
+  \draw (9.6,2.2) -- (T2.A1);
+  \draw (9.6,0) -- (T2.A2);
+  \node[above] at (10.7,2.45) {降压变压器};
+  % 用户端负载
+  \draw (T2.B1) -- (12.2,2.2) to[R, l=$R$] (12.2,0) -- (T2.B2);
+  \node[above] at (12.2,2.45) {用户端};
+\end{tikzpicture}

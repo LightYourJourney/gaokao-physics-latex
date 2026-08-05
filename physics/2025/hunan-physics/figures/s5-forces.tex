@@ -1,0 +1,27 @@
+% 第 5 题解析：小球 A 受力分析（TikZ）
+% 三力平衡：轻绳拉力 F_T（沿绳向上左，与竖直成 60°）、
+% 库仑力 F_库（沿两球连线，与水平成 60° 向下）、重力 mg 竖直向下；
+% 由平行四边形定则：F_T = mg，F_库 = √3·mg。
+\begin{tikzpicture}[font=\small, scale=1.0]
+  % 小球 A 与受力作用点
+  \coordinate (A) at (0,0);
+  \fill (A) circle (0.14);
+  \node[below right] at (A) {$A$};
+  % 轻绳方向（向上左，与竖直成 60°，即与水平成 30°）
+  \coordinate (T) at (-2.6,1.5);
+  % 库仑力方向（向下右，与水平成 60°）
+  \coordinate (F) at (1.6,-2.77);
+  % 三个力
+  \draw[-{Stealth}, very thick] (A) -- (T) node[above left] {$\bm{F}_{T}$};
+  \draw[-{Stealth}, very thick] (A) -- (F) node[below right] {$\bm{F}_{\text{库}}$};
+  \draw[-{Stealth}, very thick] (A) -- (0,-2.8) node[below] {$m\bm{g}$};
+  % 辅助虚线：竖直方向与角度
+  \draw[dashed] (A) -- (0,2.0);
+  \coordinate (V) at (0,2.0);
+  \pic [draw, angle radius=0.55cm, angle eccentricity=1.4, "$60^{\circ}$"]
+      {angle = V--A--T};
+  % 30° 角取库仑力方向与轻绳反向延长线之间（顶点 A）
+  \coordinate (T2) at (0.69,-0.4);
+  \pic [draw, angle radius=0.42cm, angle eccentricity=1.5, "$30^{\circ}$"]
+      {angle = F--A--T2};
+\end{tikzpicture}

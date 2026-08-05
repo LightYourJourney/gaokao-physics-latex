@@ -1,0 +1,25 @@
+% 第 5 题：半圆柱面凹槽截面（凹槽恰好与竖直墙面接触，滑块在 A 点）
+% 半圆内壁开口朝上；A 为最低点，B 为水平直径端点；右侧为竖直墙。
+\begin{tikzpicture}[font=\small, >=Stealth, scale=1.1]
+  \def\R{2.0}
+  % 凹槽外轮廓（半圆内壁）
+  \draw[thick] (0,0) arc (180:0:{\R});
+  % 凹槽底部与地面
+  \draw[thick] (-\R,0) -- (-\R,-0.25) -- (\R,-0.25) -- (\R,0);
+  \draw (-\R-0.5,-0.25) -- (\R+0.3,-0.25); % 地面
+  % 右侧竖直墙
+  \draw[thick, fill=gray!20] (\R+0.15,-0.25) rectangle (\R+0.55,2.2);
+  \draw[thick] (\R,0) -- (\R+0.15,0);
+  % 圆心 O 与关键点 A、B
+  \coordinate (O) at (0,0);
+  \coordinate (A) at (0,-\R);
+  \coordinate (B) at (-\R,0);
+  % 小滑块在 A 点
+  \draw[fill=white, thick] (A) circle (0.24);
+  \fill (B) circle (1.5pt) node[left] {$B$};
+  \node[below] at (0,-\R-0.45) {$A$};
+  \node[above right] at (O) {$O$};
+  \node at (\R+0.35,1.4) {墙};
+  % 半圆半径示意
+  \draw[dashed] (O) -- (B);
+\end{tikzpicture}

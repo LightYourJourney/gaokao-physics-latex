@@ -1,0 +1,37 @@
+% 第 13 题图乙：四个虚线正方形磁场框（Ⅰ、Ⅱ 边长 r3；Ⅲ、Ⅳ 边长 r4）
+% 粒子流（宽 2r3）沿 x 轴正方向射入 Ⅰ、Ⅱ 后汇聚到 O，再经 Ⅲ、Ⅳ 后宽度变为 2r4 射出。
+% 几何布局为示意（框沿 x 轴对称分布，尺寸比例 r3 > r4）。
+\begin{tikzpicture}[font=\small, >=Stealth, scale=0.9]
+  \def\ra{1.15}
+  \def\rb{0.9}
+  % 坐标轴
+  \draw[->] (-5.2,0) -- (5.4,0) node[right] {$x$};
+  \draw[->] (0,-2.4) -- (0,2.6) node[above] {$y$};
+  \fill (0,0) circle (1.5pt) node[below left] {$O$};
+  % 四个虚线正方形框
+  \draw[dashed, thick] ({-2.9-0.5*\ra},{0.5*\ra}) rectangle ({-2.9+0.5*\ra},{1.5*\ra}); % Ⅰ（中心 y=r3）
+  \draw[dashed, thick] ({-2.9-0.5*\ra},{-1.5*\ra}) rectangle ({-2.9+0.5*\ra},{-0.5*\ra}); % Ⅱ
+  \draw[dashed, thick] ({2.9-0.5*\rb},{0.5*\rb}) rectangle ({2.9+0.5*\rb},{1.5*\rb}); % Ⅲ（中心 y=r4）
+  \draw[dashed, thick] ({2.9-0.5*\rb},{-1.5*\rb}) rectangle ({2.9+0.5*\rb},{-0.5*\rb}); % Ⅳ
+  \node at (-2.9,{1.6*\ra}) {Ⅰ};
+  \node at (-2.9,{-1.6*\ra}) {Ⅱ};
+  \node at (2.9,{1.6*\rb}) {Ⅲ};
+  \node at (2.9,{-1.6*\rb}) {Ⅳ};
+  % 粒子流：宽 2r3 射入 Ⅰ、Ⅱ
+  \draw[->, thick] (-5.1,{1.0*\ra}) -- (-3.7,{1.0*\ra});
+  \draw[->, thick] (-5.1,{-1.0*\ra}) -- (-3.7,{-1.0*\ra});
+  \draw[->, thick] (-5.1,0) -- (-3.7,0);
+  % 汇聚到 O
+  \draw[->, thick] (-2.2,{1.0*\ra}) -- (-0.3,0.15);
+  \draw[->, thick] (-2.2,{-1.0*\ra}) -- (-0.3,-0.15);
+  \draw[->, thick] (-2.2,0) -- (-0.3,0);
+  % 经 Ⅲ、Ⅳ 出射（宽 2r4）
+  \draw[->, thick] (0.3,{1.0*\rb}) -- (2.2,{1.0*\rb});
+  \draw[->, thick] (0.3,{-1.0*\rb}) -- (2.2,{-1.0*\rb});
+  \draw[->, thick] (0.3,0) -- (2.2,0);
+  \draw[->, thick] (3.7,{1.0*\rb}) -- (5.1,{1.0*\rb});
+  \draw[->, thick] (3.7,{-1.0*\rb}) -- (5.1,{-1.0*\rb});
+  % 宽度标注
+  \draw[<->] (-5.1,{1.3*\ra}) -- (-5.1,{-1.3*\ra}) node[midway, left] {$2r_{3}$};
+  \draw[<->] (5.1,{1.3*\rb}) -- (5.1,{-1.3*\rb}) node[midway, right] {$2r_{4}$};
+\end{tikzpicture}

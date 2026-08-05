@@ -1,0 +1,14 @@
+% 第 12 题（4）：T²-m 坐标网格（pgfplots，仅坐标轴与网格，供学生描点作图）
+% 数据范围：m ∈ [0, 0.25] kg，T² ∈ [0.399, 1.381] s²
+\begin{tikzpicture}
+  \begin{axis}[
+      width=8cm, height=5.5cm,
+      axis lines=middle,
+      xlabel={$m$/kg}, ylabel={$T^2$/s$^2$},
+      xmin=0, xmax=0.3, ymin=0, ymax=1.6,
+      xtick={0,0.05,0.10,0.15,0.20,0.25,0.30},
+      ytick={0,0.2,0.4,0.6,0.8,1.0,1.2,1.4,1.6},
+      grid=both, grid style={line width=0.3pt, draw=gray!50},
+      font=\small]
+  \end{axis}
+\end{tikzpicture}

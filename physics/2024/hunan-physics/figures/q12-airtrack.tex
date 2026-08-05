@@ -1,0 +1,34 @@
+% 第 12 题：气垫导轨装置示意（TikZ 线稿）
+% 气垫导轨 + 滑块（可加砝码）+ 轻弹簧（左端固定）+ 光电计时器；
+% 滑块从离平衡位置 20 cm 处释放
+\begin{tikzpicture}[font=\small, >=Stealth]
+  % 导轨主体
+  \draw[thick] (-1.4,0.3) -- (8.2,0.3);
+  \draw[thick] (-1.4,-0.3) -- (8.2,-0.3);
+  \node[below] at (3.4,-0.75) {气垫导轨};
+  % 左端固定挡板
+  \draw[very thick] (-1.4,0.45) -- (-1.4,-0.45);
+  \fill[pattern=north east lines] (-1.7,-0.45) rectangle (-1.4,0.45);
+  % 轻弹簧（左端固定于挡板，右端接滑块；弧度写法避免 deg() 维度溢出）
+  \draw[thick, domain=0:2.3, samples=90]
+    plot (\x-1.4, {0.28*sin((\x*13.66) r)});
+  \node[above] at (0.0,0.6) {轻弹簧};
+  % 滑块（含砝码示意）
+  \draw (1.0,-0.35) rectangle (1.9,0.35);
+  \node at (1.45,0) {滑块};
+  \draw (1.15,0.35) rectangle (1.75,0.62);
+  \node[above] at (1.45,0.8) {砝码};
+  % 平衡位置（虚线）
+  \draw[dashed] (3.4,-0.55) -- (3.4,0.55);
+  \node[below] at (3.4,-0.8) {平衡位置};
+  % 释放位置（距平衡位置 20 cm）
+  \draw[dashed] (1.9,-0.55) -- (1.9,0.55);
+  \draw[<->] (1.9,-1.1) -- (3.4,-1.1) node[midway, below] {20 cm};
+  % 光电计时器（平衡位置处）
+  \draw[thick] (4.6,-0.45) -- (4.6,1.0);
+  \draw[thick] (5.2,-0.45) -- (5.2,1.0);
+  \draw[thick] (4.6,1.0) -- (5.2,1.0);
+  \node[above] at (4.9,1.0) {光电计时器};
+  % 说明
+  \node at (6.6,-0.9) {滑块经平衡位置开始计时};
+\end{tikzpicture}

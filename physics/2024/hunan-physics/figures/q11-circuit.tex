@@ -1,0 +1,21 @@
+% 第 11 题图乙：电阻测量电路（circuitikz）
+% 电源 E 与电流表 A 串联，电压表 V 并联在金属丝（待测电阻）两端（外接法）
+\begin{tikzpicture}[font=\small, scale=0.95, every node/.style={transform shape=false}]
+  % 电源 E（左支，竖直）
+  \draw (0,0) to[battery1, l=$E$] (0,2.0);
+  % 上回路：电流表 A 串联
+  \draw (0,2.0) -- (2.2,2.0) to[ammeter, l=$A$] (2.2,0);
+  \draw (2.2,0) -- (0,0);
+  % 待测金属丝（并联支路上，电阻符号，标注 R 与“金属丝”）
+  \draw (2.2,2.0) -- (3.4,2.0);
+  \draw (3.4,2.0) to[R, l=$R$] (5.2,2.0);
+  \draw (5.2,2.0) -- (5.2,0);
+  \draw (5.2,0) -- (2.2,0);
+  % 电压表 V 并联在金属丝两端
+  \draw (3.4,2.0) -- (3.4,2.8) to[voltmeter, l=$V$] (5.2,2.8) -- (5.2,2.0);
+  % 节点
+  \node[circ] at (3.4,2.0) {};
+  \node[circ] at (5.2,2.0) {};
+  \node[above] at (4.3,3.0) {电压表};
+  \node[below] at (4.3,1.75) {金属丝（待测电阻）};
+\end{tikzpicture}

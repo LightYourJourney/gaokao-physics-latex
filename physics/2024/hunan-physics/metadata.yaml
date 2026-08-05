@@ -1,0 +1,20 @@
+# 试卷元数据 —— 2024 年湖南卷物理
+paper_id: 2024-hunan
+year: 2024
+region: 湖南
+paper_name: 2024 年普通高等学校招生全国统一考试物理（湖南卷）
+paper_type: 自主命题
+subject_form: 物理独立卷
+source_path: ../../../2024/2024_物理真题_含解析.md
+source_pages: N/A（Word 版转 Markdown）
+source_hash: N/A
+question_count: 15
+has_official_answer: true
+has_official_solution: true
+solution_type: source_embedded   # 解析来自源文档内嵌解析（官方 Word 版）
+status: in-progress
+notes: >
+  结构：单选 6×4 + 多选 4×5 + 非选择题 5 小题共 56 分，满分 100，限时 75 分钟。
+  图策略：源图 23 幅中 22 幅重绘为 TikZ/circuitikz/pgfplots（figures/，含
+  解析图 9 幅）；image2（Q2 第二幅插图，内容未能目视核实）为唯一非矢量例外，
+  原图保留于 photos/image2-wave.png。

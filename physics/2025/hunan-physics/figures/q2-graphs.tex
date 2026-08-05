@@ -1,0 +1,38 @@
+% 第 2 题：物块沿光滑斜面上滑的四个候选图像（pgfplots）
+% 官方版式为 A、B 为 v_x-x 图像，C、D 为 v_y-y 图像；
+% 正确图像为 C（速度的二次方与位移成线性关系的抛物线，凹向上）；
+% A、B、D 均为直线（v 与 x/y 成线性关系，错误）。
+\begin{tikzpicture}[font=\small]
+  % A：v_x-x 直线（错误）
+  \begin{axis}[width=3.4cm, height=3.2cm, axis lines=middle,
+      xmin=0, xmax=4.4, ymin=0, ymax=4.6,
+      xtick=\empty, ytick=\empty, xlabel={$x$}, ylabel={$v_{x}$},
+      xlabel style={anchor=west}, ylabel style={anchor=south},
+      title={A}, title style={yshift=-2.9cm}]
+    \addplot[thick] coordinates {(0,4.2) (3.3,0)};
+  \end{axis}
+  % B：v_x-x 直线（从原点出发，错误）
+  \begin{axis}[width=3.4cm, height=3.2cm, axis lines=middle,
+      xmin=0, xmax=4.4, ymin=0, ymax=4.6,
+      xtick=\empty, ytick=\empty, xlabel={$x$}, ylabel={$v_{x}$},
+      xlabel style={anchor=west}, ylabel style={anchor=south},
+      title={B}, title style={yshift=-2.9cm}]
+    \addplot[thick] coordinates {(0,0) (4,3.8)};
+  \end{axis}
+  % C：v_y-y 抛物线（凹向上，正确）
+  \begin{axis}[width=3.4cm, height=3.2cm, axis lines=middle,
+      xmin=0, xmax=4.4, ymin=0, ymax=4.6,
+      xtick=\empty, ytick=\empty, xlabel={$y$}, ylabel={$v_{y}$},
+      xlabel style={anchor=west}, ylabel style={anchor=south},
+      title={C}, title style={yshift=-2.9cm}]
+    \addplot[thick, domain=0:4, samples=60] {sqrt(9-2.25*x)};
+  \end{axis}
+  % D：v_y-y 直线（错误）
+  \begin{axis}[width=3.4cm, height=3.2cm, axis lines=middle,
+      xmin=0, xmax=4.4, ymin=0, ymax=4.6,
+      xtick=\empty, ytick=\empty, xlabel={$y$}, ylabel={$v_{y}$},
+      xlabel style={anchor=west}, ylabel style={anchor=south},
+      title={D}, title style={yshift=-2.9cm}]
+    \addplot[thick] coordinates {(0,3.1) (4,0)};
+  \end{axis}
+\end{tikzpicture}

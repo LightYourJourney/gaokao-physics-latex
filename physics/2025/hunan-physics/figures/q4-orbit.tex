@@ -1,0 +1,19 @@
+% 第 4 题：卫星绕小行星运动的轨道示意图（TikZ）
+% 小行星半径 R；同步轨道半径 R+h（虚线）；表面附近轨道半径 R（虚线）。
+\begin{tikzpicture}[font=\small, scale=0.9]
+  % 同步轨道（半径 3.2）
+  \draw[dashed] (0,0) circle (3.2);
+  % 表面附近轨道（半径 2.0）
+  \draw[dashed] (0,0) circle (2.0);
+  % 小行星（半径 0.8）
+  \draw[thick, fill=gray!30] (0,0) circle (0.8);
+  \node at (0,0) {$M$};
+  % 卫星（同步轨道上）
+  \fill (3.2,0) circle (0.09);
+  \node[above right] at (3.2,0) {卫星};
+  % 半径与高度标注（右侧）
+  \draw[<->] (0.8,0) -- (2.0,0);
+  \node[above] at (1.4,0) {$R$};
+  \draw[<->] (2.0,0) -- (3.2,0);
+  \node[above] at (2.6,0) {$h$};
+\end{tikzpicture}

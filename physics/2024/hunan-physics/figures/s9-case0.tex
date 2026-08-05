@@ -1,0 +1,33 @@
+% 第 9 题解析图甲（θ=0°）：平面镜水平，S 与虚像 S' 等效为双缝（TikZ 光路图）
+% d 为 S 与 S' 的距离，l 为 S 到光屏的距离，条纹间距 Δx = lλ/d
+\begin{tikzpicture}[font=\small, >=Stealth]
+  % 光屏（竖直）
+  \draw[thick] (0,-2.0) -- (0,2.0);
+  \node[above] at (0,2.0) {光屏};
+  % 平面镜 OA（水平，θ=0°）
+  \coordinate (O) at (0.12,-0.4);
+  \coordinate (A) at (3.4,-0.4);
+  \draw[very thick] (O) -- (A);
+  \node[below left] at (O) {$O$};
+  \node[below] at (A) {$A$};
+  % 点光源 S
+  \coordinate (S) at (1.7,0.7);
+  \fill (S) circle (1.8pt) node[above] {$S$};
+  % 虚像 S'（S 关于镜面的对称点）
+  \coordinate (Sp) at (1.7,-1.5);
+  \draw[dashed] (S) -- (Sp);
+  \draw[fill=white] (Sp) circle (1.8pt);
+  \node[below] at (Sp) {$S'$};
+  % 距离标注 d、l
+  \draw[<->] (2.1,0.7) -- (2.1,-1.5) node[midway, right] {$d$};
+  \draw[dashed] (S) -- (0,0.7);
+  \draw[<->] (0.85,0.95) -- (0.06,0.95) node[midway, above] {$l$};
+  % 直射光线
+  \draw[->, thick] (S) -- (0,0.15);
+  % 反射光线（S→镜面→光屏）
+  \coordinate (M) at (1.05,-0.4);
+  \draw[->, thick] (S) -- (M);
+  \draw[->, thick] (M) -- (0,-1.05);
+  % 说明
+  \node at (1.65,-2.3) {$\theta=0^{\circ}$：$\Delta x=\dfrac{l\lambda}{d}$，平移平面镜不影响 $\Delta x$};
+\end{tikzpicture}

@@ -1,0 +1,24 @@
+% 第 4 题解析：Oa、Ob、Oc 三根“转动切割”半径示意（TikZ 线稿）
+% l_Ob = l_Oc = √5 R > l_Oa = R，由 E = Bωl²/2 比较电势差
+\begin{tikzpicture}[font=\small, >=Stealth]
+  % 几何同第 4 题：a=(0,0)、c=(2R,0)、b=(R,R)、O=(0,-R)
+  \coordinate (O) at (0,-1.1);
+  \coordinate (a) at (0,0);
+  \coordinate (b) at (0.9,0.9);
+  \coordinate (c) at (1.8,0);
+  % 导线本体
+  \draw[very thick] (O) -- (a);
+  \draw[very thick] (a) arc[start angle=180, end angle=0, radius=0.9];
+  % 转动切割半径 Ob、Oc（虚线）
+  \draw[dashed] (O) -- (b);
+  \draw[dashed] (O) -- (c);
+  % 点标记
+  \fill (O) circle (1.5pt) node[below] {$O$};
+  \fill (a) circle (1.5pt) node[left] {$a$};
+  \fill (b) circle (1.5pt) node[above] {$b$};
+  \fill (c) circle (1.5pt) node[right] {$c$};
+  % 长度关系标注
+  \node at (0.15,-1.7) {$l_{Oa}=R$};
+  \node[below right] at (0.9,-0.15) {$l_{Ob}=l_{Oc}=\sqrt{5}\,R$};
+  \node[below right] at (1.9,-0.6) {$E=\frac{1}{2}B\omega l^{2}$};
+\end{tikzpicture}

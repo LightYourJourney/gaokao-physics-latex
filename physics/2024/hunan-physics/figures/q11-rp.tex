@@ -1,0 +1,12 @@
+% 第 11 题图丁：金属丝阻值 R 随气压 p 的变化图线（pgfplots，定性示意）
+% 由解析可知：气压越小电阻越大 → R 随 p 增大而减小；
+% 曲线形状为定性示意（源图为位图，无逐点数据）
+\begin{tikzpicture}
+  \begin{axis}[width=7cm, height=5cm, axis lines=middle,
+      xlabel={$p$}, ylabel={$R$},
+      xmin=0, xmax=1.15, ymin=0, ymax=1.15,
+      xtick=\empty, ytick=\empty,
+      xlabel style={anchor=west}, ylabel style={anchor=south}, font=\small]
+    \addplot[thick, domain=0.06:1.1, samples=100] {0.07+1.0*exp(-2.3*x)};
+  \end{axis}
+\end{tikzpicture}

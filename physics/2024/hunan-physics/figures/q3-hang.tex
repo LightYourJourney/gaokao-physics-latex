@@ -1,0 +1,35 @@
+% 第 3 题：四个小球 A(4m)、B(3m)、C(2m)、D(m) 悬挂于 O 点（TikZ 线稿）
+% 结构：O—细线—A—轻弹簧—B—细线（剪断处）—C—细线—D
+\begin{tikzpicture}[font=\small, >=Stealth]
+  % 悬点 O（固定横杆）
+  \draw[thick] (-1.4,5.9) -- (1.4,5.9);
+  \fill (0,5.9) circle (1.5pt) node[above] {$O$};
+  % O—A 细线
+  \draw (0,5.9) -- (0,4.9);
+  % A 球（4m）
+  \fill (0,4.5) circle (0.38);
+  \node[right] at (0.5,4.5) {$A$（$4m$）};
+  % A—B 轻弹簧（波形弹簧符号；弧度写法避免 deg() 维度溢出）
+  \draw (0,4.1) -- (0,3.55);
+  \draw[thick, domain=0:1.55, samples=80]
+    plot ({\x-0.775}, {3.55-0.77*(\x/1.55) + 0.28*sin((\x*16.22) r)});
+  \node[right] at (0.55,3.3) {轻弹簧};
+  % B 球（3m）
+  \fill (0,2.4) circle (0.38);
+  \node[right] at (0.5,2.4) {$B$（$3m$）};
+  % B—C 细线（剪断处：断开 + 标注）
+  \draw (0,2.02) -- (0,1.72);
+  \draw[dashed] (0,1.72) -- (0,1.45);
+  \node[right] at (0.25,1.58) {剪断处};
+  \draw (0,1.45) -- (0,1.22);
+  % C 球（2m）
+  \fill (0,0.84) circle (0.38);
+  \node[right] at (0.5,0.84) {$C$（$2m$）};
+  % C—D 细线
+  \draw (0,0.46) -- (0,-0.02);
+  % D 球（m）
+  \fill (0,-0.4) circle (0.38);
+  \node[right] at (0.5,-0.4) {$D$（$m$）};
+  % 说明
+  \node at (0,-1.15) {$B$、$C$ 间为细线，$A$、$B$ 间为轻弹簧};
+\end{tikzpicture}

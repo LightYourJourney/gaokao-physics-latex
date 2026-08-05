@@ -1,0 +1,23 @@
+# 试卷元数据 —— 2025 年湖南卷物理
+paper_id: 2025-hunan
+year: 2025
+region: 湖南
+paper_name: 2025 年普通高中学业水平选择性考试物理（湖南卷）
+paper_type: 自主命题
+subject_form: 物理独立卷
+source_path: ../../../2025/2025_物理真题_含解析.md
+source_pages: N/A（Word 版转 Markdown）
+source_hash: N/A
+question_count: 15
+has_official_answer: true
+has_official_solution: true
+solution_type: source_embedded   # 解析来自源文档内嵌解析（官方 Word 版）
+status: in-progress
+notes: >
+  结构：单选 6×4 + 多选 4×5 + 实验 2 题 + 计算 3 题，满分 100，限时 75 分钟。
+  图策略：image2-8,14-17,19-24 重绘为 TikZ/circuitikz/pgfplots；
+  image9（爆炸测量装置）、image10（螺旋测微器）、image11（频闪装置照片）、
+  image12（多用电表表盘）、image13（水泥块接线）、image18（山体装置）、
+  image25（伏安法接线答案）为非矢量例外，保留原图。
+  image1 未采用：源 md 中位于第 1 题选项后，但第 1 题题面与解析均未引用该图，
+  且其内容（阶梯状图形）无法由题干确认归属，故省略。

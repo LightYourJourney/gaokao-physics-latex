@@ -1,0 +1,23 @@
+% 第 15 题（2）解析：碰撞位置位于等边三角形三个顶点（TikZ 线稿）
+% 第一次碰撞在 a 点；碰后 A、B 反向运动，第二次碰撞在 b 点（①）或 c 点（②）
+\begin{tikzpicture}[font=\small, >=Stealth]
+  % 圆环
+  \draw[thick] (0,0) circle (2.0);
+  % 内接等边三角形顶点（120° 间隔）
+  \coordinate (a) at (0,2.0);
+  \coordinate (b) at (-1.732,-1.0);
+  \coordinate (c) at (1.732,-1.0);
+  \draw[dashed] (a) -- (b) -- (c) -- (a);
+  \fill (a) circle (2pt) node[above] {$a$};
+  \fill (b) circle (2pt) node[left] {$b$};
+  \fill (c) circle (2pt) node[right] {$c$};
+  % 第一次碰撞在 a 点
+  \node[below right] at (a) {第一次碰撞点};
+  % 情形①：第二次碰撞在 b —— A 沿顺时针（a→b 短弧），B 反向（虚线，多绕一圈）
+  \draw[->, thick] (a) arc[start angle=90, end angle=-30, radius=2.0];
+  \node[above right] at (-0.62,0.75) {$A$：$a\to b$};
+  \draw[->, dashed] (a) arc[start angle=90, end angle=210, radius=2.0];
+  \node[below left] at (-0.45,-0.55) {$B$：$a\to b$（反向）};
+  % 情形②：第二次碰撞在 c（另一方向）
+  \node at (0,-2.35) {第二次碰撞在 $b$ 或 $c$（另一方向），$k_1$、$k_2$ 为多绕圈数};
+\end{tikzpicture}

@@ -1,0 +1,32 @@
+% 第 8 题解析：等势线与电场方向几何关系（TikZ）
+% O(0,0)、A(d,0)、B(d/2,d/4)（单位 d/4：O(0,0)、A(4,0)、B(2,1)）；
+% M 为 OA 中点、N 为 AB 三等分点（φ_M=φ_N=0），MN 为等势线，
+% 电场方向垂直于 MN 且指向右下方（与 x 轴正方向成 45°）。
+\begin{tikzpicture}[font=\small, scale=1.0]
+  % 网格点
+  \foreach \x in {0,...,4} {
+    \foreach \y in {0,...,2} {
+      \fill[gray!50] (\x,\y) circle (0.045);
+    }
+  }
+  % 坐标轴
+  \draw[-{Stealth}] (-0.4,0) -- (4.6,0) node[right] {$x$};
+  \draw[-{Stealth}] (0,-0.4) -- (0,2.6) node[above] {$y$};
+  % 点 O、A、B、M、N
+  \fill (0,0) circle (0.08);
+  \fill (4,0) circle (0.08);
+  \fill (2,1) circle (0.08);
+  \fill (2,0) circle (0.06);
+  \fill (2.667,0.667) circle (0.06);
+  \node[below left] at (0,0) {$O$};
+  \node[below] at (4,0) {$A$};
+  \node[above right] at (2,1) {$B$};
+  \node[below] at (2,0) {$M$};
+  \node[above left] at (2.667,0.667) {$N$};
+  % 等势线 MN（与水平成 45°）
+  \draw[thick] (2,0) -- (2.667,0.667);
+  % 电场方向：垂直于 MN，指向右下方（双箭头示意）
+  \draw[-{Stealth}, thick, red!70!black] (3.4,0.7) -- (4.0,0.1);
+  \draw[-{Stealth}, thick, red!70!black] (2.0,1.3) -- (2.6,0.7);
+  \node[red!70!black, right] at (4.0,0.2) {$\bm{E}$};
+\end{tikzpicture}

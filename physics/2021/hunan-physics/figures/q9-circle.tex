@@ -1,0 +1,34 @@
+% 第 9 题：圆心 O 的圆，ab、cd 为直径，匀强电场方向与圆平面平行
+% 由解析：电场方向沿 ab（水平向右）；cd 与 ab 夹角 60°（Uab=2W/q、Ucd=W/q 反推）；
+% e 为过 b 点作 cd 平行线与圆的另一交点（cObe 为平行四边形）。
+\begin{tikzpicture}[font=\small, >=Stealth, scale=1.35]
+  \def\R{1.8}
+  % 圆
+  \draw[thick] (0,0) circle (\R);
+  % 直径 ab（水平）
+  \coordinate (a) at ({-\R},0);
+  \coordinate (b) at ({\R},0);
+  % 直径 cd（与 ab 成 60°）：c 在左下、d 在右上
+  \coordinate (c) at ({-\R*0.5},{-\R*0.866});
+  \coordinate (d) at ({\R*0.5},{\R*0.866});
+  % e：过 b 作 cd 平行线与圆的另一交点
+  \coordinate (e) at ({\R*0.5},{-\R*0.866});
+  \draw[thick] (a) -- (b);
+  \draw[thick] (c) -- (d);
+  % 电场方向箭头（水平向右，沿 ab）
+  \draw[->, very thick, blue] (-2.6,0.5) -- (-1.0,0.5);
+  \node[blue] at (-1.8,0.75) {$\gv{E}$};
+  % 圆心与点标注
+  \fill (0,0) circle (1.5pt) node[above right] {$O$};
+  \fill (a) circle (1.5pt) node[left] {$a$};
+  \fill (b) circle (1.5pt) node[right] {$b$};
+  \fill (c) circle (1.5pt) node[below] {$c$};
+  \fill (d) circle (1.5pt) node[above] {$d$};
+  \fill (e) circle (1.5pt) node[below right] {$e$};
+  % cd 与 ab 夹角 60°
+  \pic[draw, angle radius=0.35cm, angle eccentricity=1.6, "$\theta$"]
+      {angle = b--O--d};
+  % 虚线连线：c-e、O-b（平行四边形 cObe 示意）
+  \draw[dashed, gray] (c) -- (e);
+  \draw[dashed, gray] (0,0) -- (b);
+\end{tikzpicture}

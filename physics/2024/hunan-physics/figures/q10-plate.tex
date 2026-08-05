@@ -1,0 +1,38 @@
+% 第 10 题：坐标系 xOy、挡板 L 与 A、B 两球运动轨迹（TikZ 线稿）
+% A 沿 x 轴正方向；B 速度方向与 x 轴夹角 θ；挡板 L 与 x 轴夹角 α（第一象限）；
+% B 与挡板碰撞后反射，两球在 P 点相遇
+\begin{tikzpicture}[font=\small, >=Stealth]
+  % 坐标轴
+  \draw[->, thick] (-0.4,0) -- (6.4,0) node[below] {$x$};
+  \draw[->, thick] (0,-0.4) -- (0,3.6) node[left] {$y$};
+  \fill (0,0) circle (1.5pt) node[below left] {$O$};
+  % 挡板 L（第一象限，与 x 轴夹角 α）
+  \coordinate (Q) at (4.35,1.35);
+  \coordinate (Q2) at (3.35,2.0);
+  \draw[very thick] (Q) -- (Q2);
+  \node[right] at (4.45,1.15) {挡板 $L$};
+  % 挡板延长线与 x 轴交点（标注 α 用）
+  \coordinate (X0) at (5.7,0);
+  \draw[dashed] (Q) -- (X0);
+  % α 角（挡板与 x 轴夹角）
+  \coordinate (Xr) at (6.4,0);
+  \pic[draw, angle radius=0.45cm, angle eccentricity=1.55, "$\alpha$"]
+      {angle = Xr--X0--Q};
+  % B 球碰前速度方向（与 x 轴夹角 θ）
+  \coordinate (Bv) at (2.9,0.78);
+  \draw[->, very thick] (0,0) -- (Bv) node[midway, left] {$\vec{v}_2$};
+  \coordinate (Xb) at (3.1,0);
+  \pic[draw, angle radius=0.5cm, angle eccentricity=1.6, "$\theta$"]
+      {angle = Xb--O--Bv};
+  % B 球碰后速度方向（反射）
+  \coordinate (Bv2) at (3.1,2.05);
+  \draw[->, very thick] (Q) -- (Bv2) node[midway, right] {$\vec{v}_2'$};
+  % A 球速度方向（沿 x 轴）
+  \draw[->, very thick] (0,0) -- (5.1,0) node[midway, below] {$\vec{v}_1$};
+  % 轨迹与相遇点 P（虚线）
+  \coordinate (P) at (3.0,0);
+  \draw[dashed] (Bv2) -- (P);
+  \fill (P) circle (1.5pt) node[below] {$P$};
+  % 说明
+  \node at (1.75,2.9) {$A$、$B$ 同时从 $O$ 出发，在 $P$ 相遇};
+\end{tikzpicture}

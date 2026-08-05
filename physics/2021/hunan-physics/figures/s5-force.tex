@@ -1,0 +1,33 @@
+% 第 5 题解析：滑块在凹槽内任意位置受力分析
+% 滑块受重力 mg（竖直向下）、凹槽支持力 FN（沿半径指向圆心 O）、
+% 推力 F（沿圆弧切线指向 B 方向）；FN 与竖直方向夹角为 θ。
+\begin{tikzpicture}[font=\small, >=Stealth, scale=1.15]
+  \def\R{2.0}
+  % 半圆内壁
+  \draw[thick] (0,0) arc (180:0:{\R});
+  % 圆心 O、A、B
+  \coordinate (O) at (0,0);
+  \coordinate (A) at (0,-{\R});
+  \coordinate (B) at (-{\R},0);
+  \fill (O) circle (1.5pt) node[above right] {$O$};
+  \fill (A) circle (1.5pt) node[below] {$A$};
+  \fill (B) circle (1.5pt) node[left] {$B$};
+  % 滑块位置（A 与 B 之间，半径与竖直方向夹角 θ=45°）
+  \pgfmathsetmacro{\ang}{45}
+  \coordinate (M) at ({\R*sin(\ang)}, {-1*\R*cos(\ang)});
+  \fill[white] (M) circle (0.24);
+  \draw[thick] (M) circle (0.24);
+  % 受力：mg 竖直向下、FN 沿半径指向 O、F 沿切线（指向 B 方向）
+  \draw[->, very thick] (M) -- +(-0.28,-0.85) node[right] {$m\gv{g}$};
+  \draw[->, very thick] (M) -- +({-0.85*sin(\ang)},{0.85*cos(\ang)})
+      node[above] {$\gv{F}_{N}$};
+  % 切线方向：与半径垂直，指向 B（左下方）
+  \draw[->, very thick] (M) -- +({-0.85*cos(\ang)},{-0.85*sin(\ang)})
+      node[below] {$\gv{F}$};
+  % θ 角（FN 与竖直方向夹角）：用圆心-滑块半径线与竖直线的夹角
+  \draw[dashed] (M) -- (O);
+  \draw[dashed] (O) -- (0,-0.6);
+  \pic[draw, angle radius=0.5cm, angle eccentricity=1.6, "$\theta$"]
+      {angle = O--M--B};
+  \draw[dashed] (M) -- (B);
+\end{tikzpicture}

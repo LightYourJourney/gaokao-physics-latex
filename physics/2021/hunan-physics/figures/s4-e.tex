@@ -1,0 +1,24 @@
+% 第 4 题解析：P 点电场强度叠加示意
+% +q 在 (a,0)、-q 在 (0,a)：P 点合场强 E1 方向左上 45°；Q 在 (0,2a)，
+% 其场强 EQ 方向右下 45°（背离 Q），与 E1 等大反向使 P 点场强为零。
+\begin{tikzpicture}[font=\small, >=Stealth, scale=1.0]
+  \def\a{1.5}
+  % 坐标轴
+  \draw[->] (-0.8,0) -- (3.4,0) node[right] {$x$};
+  \draw[->] (0,-0.8) -- (0,3.6) node[above] {$y$};
+  % 电荷位置
+  \fill ({\a},0) circle (2pt) node[below] {$(a,0)\ +q$};
+  \fill (0,{\a}) circle (2pt) node[left] {$(0,a)\ -q$};
+  \fill ({\a},{\a}) circle (2pt) node[above right] {$P(a,a)$};
+  \fill (0,{2*\a}) circle (2pt) node[above left] {$Q$};
+  % 场强矢量：E1（左上 45°，由 -q 与 +q 场强合成）与 EQ（右下 45°）
+  \draw[->, very thick, blue] ({\a},{\a}) -- ({-0.45*\a},{1.45*\a})
+      node[midway, above left] {$\gv{E}_{1}$};
+  \draw[->, very thick, red] ({\a},{\a}) -- ({1.45*\a},{0.55*\a})
+      node[midway, below right] {$\gv{E}_{Q}$};
+  % 距离示意
+  \draw[dashed] (0,{\a}) -- ({\a},{\a});
+  \draw[dashed] ({\a},0) -- ({\a},{\a});
+  \draw[dashed] ({\a},{\a}) -- (0,{2*\a});
+  \node[below left] at (0.3,0.2) {$O$};
+\end{tikzpicture}

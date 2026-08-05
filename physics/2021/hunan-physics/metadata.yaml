@@ -1,0 +1,25 @@
+# 试卷元数据 —— 2021 年湖南卷物理
+paper_id: 2021-hunan
+year: 2021
+region: 湖南
+paper_name: 2021 年普通高等学校招生全国统一考试（湖南卷）物理
+paper_type: 自主命题
+subject_form: 物理独立卷
+source_path: ../../../2021/2021_物理真题_含解析.md
+source_pages: N/A（Word 版转 Markdown）
+source_hash: N/A
+question_count: 15
+has_official_answer: true
+has_official_solution: true
+solution_type: source_embedded   # 解析来自源文档内嵌解析（官方 Word 版）
+status: in-progress
+notes: >
+  结构：单选 6×4 + 多选 4×5 + 实验 2（11 为 6 分、12 为 9 分）+ 必考计算 2
+  （13 为 13 分、14 为 15 分）+ 选考 1（15 为选修 3-3，13 分），满分 100，限时 75 分钟。
+  官方卷第 15、16 题为选考题（3-3/3-4 二选一）；本工程按题量 15 转录第 1--15 题，
+  第 16 题（选修 3-4）未转录，如需全量可后续补充并将 question_count 改为 16。
+  图策略：image1-2,4,6-8,10-11,14,17-18,20-21,24,31-32 重绘为 TikZ/circuitikz/pgfplots；
+  image12（气垫导轨装置）、image13（游标卡尺读数）、image16（电路接线）、
+  image22-23（第 13 题解析磁场区域图，细节无法从文字推断）为非矢量例外，保留原图。
+  解析插图 image3,5,9,15,25-30 中：image3/5/15 重绘入解析，image9/25-30 因题面
+  无法推断形状且不影响解析完整性而省略。

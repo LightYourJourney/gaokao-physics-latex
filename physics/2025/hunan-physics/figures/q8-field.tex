@@ -1,0 +1,24 @@
+% 第 8 题：匀强电场中的 A、B 点位置（TikZ）
+% 网格单位取 d/4：O(0,0)、A(d,0) 即 (4,0)、B(d/2,d/4) 即 (2,1)，
+% 该布局保证 OA 中点 M 电势为零、AB 三等分点 N 电势为零，
+% 且 ∠NMA=45°，电场方向与 x 轴正方向成 45°（指向右下方）。
+\begin{tikzpicture}[font=\small, scale=1.0]
+  % 网格点（单位间距）
+  \foreach \x in {0,...,4} {
+    \foreach \y in {0,...,2} {
+      \fill[gray!50] (\x,\y) circle (0.045);
+    }
+  }
+  % 坐标轴
+  \draw[-{Stealth}] (-0.4,0) -- (4.6,0) node[right] {$x$};
+  \draw[-{Stealth}] (0,-0.4) -- (0,2.6) node[above] {$y$};
+  % 点 O、A、B 与 d 标注
+  \fill (0,0) circle (0.08);
+  \fill (4,0) circle (0.08);
+  \fill (2,1) circle (0.08);
+  \node[below left] at (0,0) {$O$};
+  \node[below] at (4,0) {$A$};
+  \node[above right] at (2,1) {$B$};
+  \draw[<->] (0,-0.35) -- (4,-0.35);
+  \node[below] at (2,-0.35) {$d$};
+\end{tikzpicture}

@@ -1,0 +1,38 @@
+% 第 9 题：洛埃镜实验（TikZ 光路示意图）
+% 平面镜沿 OA 放置、靠近并垂直于光屏，镜面相对水平倾斜微小角度 θ；
+% S 为单色点光源，反射光与直射光在光屏上形成干涉
+\begin{tikzpicture}[font=\small, >=Stealth]
+  % 光屏（竖直）
+  \draw[thick] (0,-2.0) -- (0,2.2);
+  \node[above] at (0,2.2) {光屏};
+  % 平面镜 OA（与水平线成微小角度 θ）
+  \coordinate (O) at (0.15,-0.35);
+  \coordinate (A) at (3.6,-0.13);
+  \draw[very thick] (O) -- (A);
+  \node[below left] at (O) {$O$};
+  \node[below] at (A) {$A$};
+  % 水平参考线（虚线，过 O）
+  \coordinate (H) at (-0.75,-0.35);
+  \draw[dashed] (H) -- (1.9,-0.35);
+  % θ 角（镜面与水平线的夹角）
+  \pic[draw, angle radius=0.35cm, angle eccentricity=1.6, "$\theta$"]
+      {angle = H--O--A};
+  % 点光源 S
+  \coordinate (S) at (1.9,0.8);
+  \fill (S) circle (1.8pt) node[above] {$S$};
+  % 直射光 S→光屏
+  \draw[->, thick] (S) -- (0,0.62);
+  % 反射光：S→镜面→光屏
+  \coordinate (M) at (1.02,-0.09);
+  \draw[->, thick] (S) -- (M);
+  \draw[->, thick] (M) -- (0,-0.95);
+  % 法线（虚线，过反射点）
+  \draw[dashed] (M) -- (2.35,0.42);
+  % 虚像 S'（S 关于镜面的对称点）
+  \coordinate (Sp) at (1.9,-1.48);
+  \draw[dashed] (S) -- (Sp);
+  \draw[fill=white] (Sp) circle (1.8pt);
+  \node[below] at (Sp) {$S'$};
+  % 说明
+  \node at (1.7,-2.35) {$S$ 与 $S'$ 构成相干光源（等效双缝）};
+\end{tikzpicture}

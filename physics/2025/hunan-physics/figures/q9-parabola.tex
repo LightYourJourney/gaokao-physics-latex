@@ -1,0 +1,18 @@
+% 第 9 题：关于 x 轴对称的抛物线导轨与金属杆（TikZ）
+% 导轨 y²=2px（顶点 O，开口向右），金属杆与 y 轴平行且随运动右移。
+\begin{tikzpicture}[font=\small, scale=0.85]
+  % 抛物线导轨 y = ±sqrt(8x)（x ∈ [0,8]）
+  \draw[thick, domain=0:8, samples=80] plot (\x, {sqrt(8*\x)});
+  \draw[thick, domain=0:8, samples=80] plot (\x, {-sqrt(8*\x)});
+  % 坐标轴
+  \draw[-{Stealth}] (-0.5,0) -- (8.6,0) node[right] {$x$};
+  \draw[-{Stealth}] (0,-5.4) -- (0,5.6) node[above] {$y$};
+  % 金属杆（与 y 轴平行，位于 x=3 处，跨越两轨）
+  \draw[very thick] (3,-4.9) -- (3,4.9);
+  \node[above] at (3,4.9) {金属杆};
+  % 磁场方向（竖直向上）
+  \draw[-{Stealth}, thick] (5.6,-4.2) -- (5.6,-2.6);
+  \node[right] at (5.6,-3.4) {$B$};
+  % 顶点
+  \node[below left] at (0,0) {$O$};
+\end{tikzpicture}

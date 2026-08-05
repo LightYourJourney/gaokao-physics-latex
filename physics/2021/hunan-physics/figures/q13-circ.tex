@@ -1,0 +1,23 @@
+% 第 13 题图甲：圆形匀强磁场，粒子流磁聚焦
+% 宽度 2r1 的粒子流沿 x 轴正方向射入圆心 A(0,r1)、半径 r1 的圆，汇聚到 O 点。
+\begin{tikzpicture}[font=\small, >=Stealth, scale=0.95]
+  \def\Rr{1.6}
+  % 坐标轴
+  \draw[->] (-3.6,0) -- (2.6,0) node[right] {$x$};
+  \draw[->] (0,-0.8) -- (0,3.4) node[above] {$y$};
+  % 圆形磁场（圆心 A(0,r1)、半径 r1，圆过原点 O）
+  \draw[thick] (0,{\Rr}) circle (\Rr);
+  \fill (0,{\Rr}) circle (1.5pt) node[right] {$A(0,r_{1})$};
+  \fill (0,0) circle (1.5pt) node[below left] {$O$};
+  % 粒子束：宽度 2r1，从左侧水平射入（y 从 0 到 2r1）
+  \draw[->, thick] (-3.5,0.15) -- (-1.2,0.15);
+  \draw[->, thick] (-3.5,{2*\Rr-0.15}) -- (-1.2,{2*\Rr-0.15});
+  \draw[->, thick] (-3.5,{\Rr}) -- (-1.9,{\Rr});
+  % 汇聚到 O 的示意路径（圆右侧）
+  \draw[->, thick] (1.6,2.2) -- (0.35,0.45);
+  \draw[->, thick] (2.0,1.2) -- (0.5,0.35);
+  \draw[->, thick] (1.6,0.2) -- (0.35,0.05);
+  % 宽度标注 2r1
+  \draw[<->] (-3.5,0) -- (-3.5,{2*\Rr}) node[midway, left] {$2r_{1}$};
+  \node at (0.2,{2*\Rr+0.55}) {磁场区域};
+\end{tikzpicture}

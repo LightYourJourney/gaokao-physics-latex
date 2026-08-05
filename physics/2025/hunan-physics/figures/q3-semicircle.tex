@@ -1,0 +1,27 @@
+% 第 3 题：半圆柱体透明介质横截面（TikZ）
+% 直径 AC 水平，圆弧 ABC 向下凸，B 为圆弧中点；
+% 光从上方真空入射，在 A 点折射后直接由 B 点出射。
+\begin{tikzpicture}[font=\small, scale=1.1]
+  % 关键点
+  \coordinate (O) at (0,0);            % 圆心
+  \coordinate (A) at (-2.6,0);         % 入射点（直径左端）
+  \coordinate (C) at (2.6,0);          % 直径右端
+  \coordinate (B) at (0,-2.6);         % 圆弧中点
+  \coordinate (N) at (-2.6,1.6);       % 过 A 点法线上方一点
+  \coordinate (I) at (-4.68,1.2);      % 入射光线上一点（入射角 60°>45°）
+  % 直径 AC（介质上表面）与圆弧 ABC（下凸）
+  \draw[thick] (A) -- (C);
+  \draw[thick] (A) arc[start angle=180, end angle=360, radius=2.6];
+  % 入射光线（上方真空，射向 A 点）与折射光线 A→B
+  \draw[-{Stealth}] (I) -- (A);
+  \draw[-{Stealth}] (A) -- (B);
+  % 法线（过 A 点竖直，虚线）
+  \draw[dashed] (A) -- (N);
+  % 入射角 θ（顶点 A，入射光线与法线之间）
+  \pic [draw, angle radius=0.55cm, angle eccentricity=1.4, "$\theta$"] {angle = N--A--I};
+  % 标签
+  \node[left] at (A) {$A$};
+  \node[right] at (C) {$C$};
+  \node[below] at (B) {$B$};
+  \node[above left] at (O) {$O$};
+\end{tikzpicture}

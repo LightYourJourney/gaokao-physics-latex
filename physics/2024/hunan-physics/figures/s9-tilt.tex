@@ -1,0 +1,34 @@
+% 第 9 题解析图乙（θ≠0°）：平面镜倾斜微小角度 θ 的两个位置①、②（TikZ 光路图）
+% 沿 OA 向右平移平面镜（①→②），S 与虚像 S' 的间距（等效双缝间距）增大，条纹间距减小
+\begin{tikzpicture}[font=\small, >=Stealth]
+  % 光屏（竖直）
+  \draw[thick] (0,-2.1) -- (0,2.0);
+  \node[above] at (0,2.0) {光屏};
+  % 点光源 S
+  \coordinate (S) at (1.6,0.8);
+  \fill (S) circle (1.8pt) node[above] {$S$};
+  % 镜面位置①（虚线，左侧）
+  \coordinate (O1) at (0.35,-0.8);
+  \coordinate (A1) at (3.15,-0.13);
+  \draw[dashed, very thick] (O1) -- (A1);
+  \node[below left] at (O1) {①};
+  \node[below right] at (A1) {①'};
+  % 镜面位置②（实线，沿 OA 向右平移后）
+  \coordinate (O2) at (0.78,-0.62);
+  \coordinate (A2) at (3.55,0.05);
+  \draw[very thick] (O2) -- (A2);
+  \node[below left] at (O2) {②};
+  % 位置①的反射光线（S→①→光屏）
+  \coordinate (M1) at (1.42,-0.43);
+  \draw[->] (S) -- (M1);
+  \draw[->] (M1) -- (0,-0.75);
+  % 位置②的反射光线（S→②→光屏）
+  \coordinate (M2) at (1.02,-0.28);
+  \draw[->, thick] (S) -- (M2);
+  \draw[->, thick] (M2) -- (0,-1.25);
+  % 虚像 S1'、S2'
+  \draw[dashed] (S) -- (1.6,-1.95);
+  \draw[dashed] (S) -- (1.6,-1.45);
+  % 说明
+  \node at (1.75,-2.45) {沿 $OA$ 平移平面镜（①→②）：双缝间距增大，条纹间距减小};
+\end{tikzpicture}

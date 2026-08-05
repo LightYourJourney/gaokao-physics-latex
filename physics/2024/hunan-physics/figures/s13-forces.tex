@@ -1,0 +1,24 @@
+% 第 13 题（2）解析：气球受力分析（TikZ 线稿）
+% 向上：浮力 ρ0gV、电子天平支持力（示数 mg）；
+% 向下：气球内气体重力 m气g、气球自身重力 m0g
+\begin{tikzpicture}[font=\small, >=Stealth]
+  % 电子天平平台
+  \draw[thick] (-2.2,0) -- (2.2,0);
+  \draw (-2.0,-0.4) -- (-2.0,0);
+  \draw (2.0,-0.4) -- (2.0,0);
+  \draw (-2.35,-0.4) -- (2.35,-0.4);
+  \fill[pattern=north east lines] (-2.2,-0.62) rectangle (2.2,-0.4);
+  % 气球（椭圆形）
+  \draw[thick] (0,0.9) ellipse (0.9 and 1.2);
+  \node[above] at (0,2.2) {气球};
+  % 向上：浮力
+  \draw[->, very thick] (0.15,1.1) -- (0.15,2.75) node[above] {$\rho_0gV$（浮力）};
+  % 向上：天平支持力（示数 mg）
+  \draw[->, very thick] (-0.75,0.5) -- (-0.75,1.55) node[left] {$mg$（天平支持力）};
+  % 向下：气体重力
+  \draw[->, very thick] (-0.55,0.75) -- (-0.55,-0.95) node[below] {$m_{\text{气}}g$};
+  % 向下：自身重力
+  \draw[->, very thick] (0.7,0.75) -- (0.7,-1.15) node[below] {$m_0g$};
+  % 平衡方程
+  \node at (0,-1.85) {$mg+\rho_0gV=m_{\text{气}}g+m_0g$};
+\end{tikzpicture}

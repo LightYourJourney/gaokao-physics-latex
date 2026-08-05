@@ -1,0 +1,16 @@
+% 第 6 题解析：等效电路图（circuitikz）
+% 升压后电压 U2、输电线总电阻 R0、降压变压器与用电器整体等效电阻 k²R 串联
+\begin{tikzpicture}[font=\small, scale=0.95, every node/.style={transform shape=false}]
+  % 电源 U2（左支）
+  \draw (0,0) to[sinusoidal voltage source, l=$U_2$] (0,2.0);
+  % 上回路：R0 与等效电阻 k²R 串联
+  \draw (0,2.0) -- (1.8,2.0) to[R, l=$R_0$] (4.6,2.0);
+  \draw (4.6,2.0) -- (5.4,2.0) to[R, l=$k^{2}R$] (5.4,0);
+  % 下回路
+  \draw (5.4,0) -- (0,0);
+  % 电流方向
+  \draw[->, thick] (3.0,2.35) -- (4.8,2.35) node[midway, above] {$I_2$};
+  % 标注
+  \node[below] at (3.2,1.9) {输电线总电阻};
+  \node[below] at (5.4,-0.4) {等效电阻 $k^{2}R$（降压变压器 $k:1$ + 用户电阻 $R$）};
+\end{tikzpicture}

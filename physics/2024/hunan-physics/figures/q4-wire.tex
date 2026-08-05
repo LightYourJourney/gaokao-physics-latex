@@ -1,0 +1,32 @@
+% 第 4 题：硬质导线 Oabc（TikZ 线稿）
+% Oa = R 垂直于直径 ac；abc 为半径 R 的半圆弧，b 为圆弧中点；
+% 导线在纸面内绕 O 逆时针转动，匀强磁场垂直纸面向里（×）
+\begin{tikzpicture}[font=\small, >=Stealth, scale=1.0]
+  % 几何：a=(0,0)、c=(2R,0)、b=(R,R)、O=(0,-R)
+  \coordinate (O) at (0,-1.1);
+  \coordinate (a) at (0,0);
+  \coordinate (b) at (0.9,0.9);
+  \coordinate (c) at (1.8,0);
+  % 半圆弧 a→b→c
+  \draw[very thick] (a) arc[start angle=180, end angle=0, radius=0.9];
+  % 直线段 Oa
+  \draw[very thick] (O) -- (a);
+  % 长度标注 R
+  \draw[<->] (-0.32,-1.1) -- (-0.32,0) node[midway, left] {$R$};
+  % 直径 ac 虚线
+  \draw[dashed] (a) -- (c);
+  % 点标记
+  \fill (O) circle (1.5pt) node[below] {$O$};
+  \fill (a) circle (1.5pt) node[left] {$a$};
+  \fill (b) circle (1.5pt) node[above] {$b$};
+  \fill (c) circle (1.5pt) node[right] {$c$};
+  % 逆时针转动箭头（绕 O 的圆弧箭头）
+  \draw[->, thick] (0.62,-1.1) arc[start angle=0, end angle=225, radius=0.62];
+  \node[below right] at (0.75,-0.45) {逆时针};
+  % 磁场符号（×，垂直纸面向里）
+  \foreach \x in {-0.85,-0.45,2.15} {
+    \node[gray] at (\x,1.45) {$\times$};
+    \node[gray] at (\x,1.85) {$\times$};
+  }
+  \node[gray] at (-0.1,2.35) {$\vec{B}$ 垂直纸面向里};
+\end{tikzpicture}

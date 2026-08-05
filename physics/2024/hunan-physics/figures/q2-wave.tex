@@ -1,0 +1,20 @@
+% 第 2 题：长绳上的简谐横波（TikZ 线稿）
+% A 点位于波谷、B 点位于波峰，两者之间还有一个波谷；
+% x_AB = 3λ/2 = 6 m → λ = 4 m；波自右向左传播
+\begin{tikzpicture}[font=\small, >=Stealth]
+  % 波形 y = -cos(πx/2)：波谷 x=0(A)、波峰 x=2、波谷 x=4、波峰 x=6(B)
+  % 弧度写法：(\x*1.5708) r = x·90°，避免 deg() 在 TikZ plot 中的维度溢出
+  \draw[thick, domain=0:6, samples=120]
+    plot (\x, {-1.2*cos((\x*1.5708) r)});
+  % 平衡位置虚线
+  \draw[dashed] (-0.2,0) -- (6.5,0);
+  % A（波谷）、中间波谷、B（波峰）
+  \fill (0,-1.2) circle (1.5pt) node[left] {$A$};
+  \fill (4,-1.2) circle (1.5pt);
+  \fill (6,1.2) circle (1.5pt) node[right] {$B$};
+  % 距离标注 x_AB = 3λ/2 = 6 m
+  \draw[<->] (0,-1.9) -- (6,-1.9) node[midway, below]
+    {$x_{AB}=\frac{3}{2}\lambda=6$ m};
+  % 波传播方向（自右向左）
+  \draw[->, thick] (6.5,2.3) -- (3.6,2.3) node[midway, above] {波传播方向};
+\end{tikzpicture}

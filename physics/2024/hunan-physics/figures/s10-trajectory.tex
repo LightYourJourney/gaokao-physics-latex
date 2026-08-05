@@ -1,0 +1,39 @@
+% 第 10 题解析：A、B 两球运动轨迹几何（TikZ 线稿）
+% 三角形 OQP 中按正弦定理列式，角度标注取自解析：
+% ∠O = θ，∠P = 2α+θ，∠Q = 180°-(2α+2θ)；示意图非严格按比例
+\begin{tikzpicture}[font=\small, >=Stealth]
+  % 坐标轴
+  \draw[->, thick] (-0.4,0) -- (6.6,0) node[below] {$x$};
+  \draw[->, thick] (0,-0.4) -- (0,3.0) node[left] {$y$};
+  \fill (0,0) circle (1.5pt) node[below left] {$O$};
+  % 三角形 OQP：O=(0,0)、Q=(4.6,1.6)（挡板碰撞点）、P=(4.36,0.32)（相遇点）
+  \coordinate (Q) at (4.6,1.6);
+  \coordinate (P) at (4.36,0.32);
+  % 挡板（过 Q 的线段）
+  \coordinate (Qd) at (3.55,2.22);
+  \draw[very thick] (Q) -- (Qd);
+  \node[above right] at (Qd) {挡板 $L$};
+  % 三角形三边（路径）
+  \draw[thick] (O) -- (Q);            % B 碰前路径（v2·t1）
+  \draw[thick] (Q) -- (P);            % B 碰后路径（v2'·t2）
+  \draw[thick] (O) -- (P);            % A 的路径（(t1+t2)·v1）
+  % 速度方向箭头
+  \draw[->, very thick] (O) -- (1.95,0.68) node[midway, left] {$\vec{v}_2$};
+  \draw[->, very thick] (0,0) -- (2.4,0) node[midway, below] {$\vec{v}_1$};
+  % 角度标注（按解析正弦定理表达式）
+  \coordinate (Pb) at (3.6,-0.5);
+  \pic[draw, angle radius=0.4cm, angle eccentricity=1.7, "$\theta$"]
+      {angle = Pb--O--Q};
+  \coordinate (P2) at (3.5,0.72);
+  \pic[draw, angle radius=0.4cm, angle eccentricity=1.7, "$2\alpha+\theta$"]
+      {angle = Pb--P--Q};
+  \pic[draw, angle radius=0.45cm, angle eccentricity=1.75,
+       "$180^{\circ}-(2\alpha+2\theta)$"]
+      {angle = O--Q--P};
+  % 边长标注
+  \node[left] at (2.0,0.95) {$v_2t_1$};
+  \node[above] at (4.62,1.0) {$v_2't_2$};
+  \node[below] at (2.2,-0.25) {$(t_1+t_2)v_1$};
+  % 说明
+  \node at (3.0,2.75) {相遇点 $P$、碰撞点 $Q$、起点 $O$};
+\end{tikzpicture}

@@ -1,0 +1,31 @@
+% 第 6 题：理想变压器电路图（circuitikz）
+% 拓扑（由解析反推，自洽）：原边 C--L1--原线圈--D；副边两并联支路：
+%   X--L2--滑片 P 与 X--a--(变阻器 a-P 段) 及 (P-b 段)--b--Y、P--R0--Y；
+% 滑片在中点时副边负载电阻最大。
+\begin{tikzpicture}[font=\small, scale=0.9, every node/.style={transform shape=false}]
+  % 变压器
+  \draw (0,0) node[transformer core] (T) {};
+  % 原边：C 端 -- L1 -- 原线圈上端；下端 -- D 端
+  \draw (-2.2,0.5) to[lamp, l_=$L_{1}$] (T.A1);
+  \draw (T.A2) -- (-2.2,-0.5);
+  \node[circ, label=above:$C$] at (-2.2,0.5) {};
+  \node[circ, label=below:$D$] at (-2.2,-0.5) {};
+  % 副边：X = T.B1，Y = T.B2
+  \coordinate (X) at (T.B1);
+  \coordinate (Y) at (T.B2);
+  % 支路 1：X -- L2 -- 滑片 P
+  \draw (X) to[lamp, l=$L_{2}$] (2.6,0.55);
+  \coordinate (P) at (2.6,0.55);
+  % 变阻器（a 上端、b 下端），滑片位于 P
+  \draw (X) -- (2.6,1.6);
+  \draw (2.6,1.6) to[potentiometer, l=$R$] (2.6,-0.6);
+  \coordinate (b) at (2.6,-0.6);
+  \draw (b) -- (Y);
+  % 支路 2：P -- R0 -- Y
+  \draw (P) to[R, l_=$R_{0}$] (1.2,-0.5) -- (Y);
+  % 触点标注
+  \node[above left] at (2.6,1.6) {$a$};
+  \node[below left] at (2.6,-0.6) {$b$};
+  % 滑片连线到 P（potentiometer 滑片默认朝右，这里补一条短线到 P）
+  \draw (2.6,0.55) -- (2.85,0.55);
+\end{tikzpicture}

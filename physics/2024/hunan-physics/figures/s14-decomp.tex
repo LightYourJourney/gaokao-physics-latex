@@ -1,0 +1,22 @@
+% 第 14 题（2）解析：电子速度分解（TikZ 线稿）
+% 合速度 v 分解为 vx = v0（沿 +x）与 vy（沿 +y），与 x 轴夹角 θ
+\begin{tikzpicture}[font=\small, >=Stealth]
+  % 坐标轴
+  \draw[->] (-0.3,0) -- (4.4,0) node[below] {$x$};
+  \draw[->] (0,-0.3) -- (0,3.0) node[left] {$y$};
+  \coordinate (O) at (0,0);
+  \coordinate (V) at (2.9,1.65);    % 合速度端点
+  \coordinate (Vx) at (2.9,0);      % x 分量端点
+  \coordinate (Vy) at (0,1.65);     % y 分量端点
+  % 合速度 v 与分速度
+  \draw[->, very thick] (O) -- (V) node[midway, above right] {$\vec{v}$};
+  \draw[->, thick] (O) -- (Vx) node[midway, below] {$\vec{v}_0$};
+  \draw[->, thick] (O) -- (Vy) node[midway, left] {$\vec{v}_y$};
+  \draw[dashed] (Vx) -- (V);
+  \draw[dashed] (Vy) -- (V);
+  % θ 角（v 与 x 轴夹角）
+  \pic[draw, angle radius=0.5cm, angle eccentricity=1.6, "$\theta$"]
+      {angle = Vx--O--V};
+  % 说明
+  \node at (2.45,2.55) {$\tan\theta=\dfrac{v_y}{v_0}$，$v_y$ 最大时 $R=r$};
+\end{tikzpicture}

@@ -1,0 +1,33 @@
+% 第 5 题：两带电小球平衡装置（TikZ）
+% 墙在左：轻绳一端固定于墙上，与竖直方向成 60°；
+% 小球 B 由固定轻杆连接，两球连线与轻绳成 30°。
+% 由静力平衡可知杆与绳平行（均与水平成 30°），两球连线与水平成 60°。
+\begin{tikzpicture}[font=\small, scale=1.05]
+  % 墙（左侧竖直面）
+  \fill[pattern=north east lines] (-0.35,-2.1) rectangle (0,2.4);
+  \draw[thick] (0,-2.1) -- (0,2.4);
+  % 关键点
+  \coordinate (P) at (0,1.5);    % 轻绳固定端（墙上）
+  \coordinate (Q) at (0,0.46);   % 轻杆固定端（墙上）
+  \coordinate (A) at (2.6,0);    % 小球 A
+  \coordinate (B) at (3.5,-1.56);% 小球 B
+  % 轻绳 P--A 与轻杆 Q--B
+  \draw[thick] (P) -- (A);
+  \draw[thick] (Q) -- (B);
+  % 两球（A、B）与两球连线（虚线示意）
+  \draw[dashed] (A) -- (B);
+  \fill (A) circle (0.13);
+  \fill (B) circle (0.13);
+  % 竖直参考虚线（过 A 点）与角度标记
+  \draw[dashed] (A) -- (2.6,1.9);
+  \coordinate (V) at (2.6,1.9);   % A 点正上方
+  \pic [draw, angle radius=0.5cm, angle eccentricity=1.4, "$60^{\circ}$"]
+      {angle = V--A--P};
+  % 30° 角取轻绳反向延长线与 AB 连线之间（顶点 A）
+  \coordinate (P2) at (3.29,-0.4);
+  \pic [draw, angle radius=0.42cm, angle eccentricity=1.45, "$30^{\circ}$"]
+      {angle = B--A--P2};
+  % 标签
+  \node[above right] at (A) {$A$};
+  \node[right] at (B) {$B$};
+\end{tikzpicture}
