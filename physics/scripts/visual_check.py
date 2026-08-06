@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""visual_check.py —— PDF 版面机械检查（不依赖人眼）。
+r"""visual_check.py —— PDF 版面机械检查（不依赖人眼）。
 
 对每个 complete 项目的四个 PDF 运行：
   - 页数（非空、非异常跳变）；
