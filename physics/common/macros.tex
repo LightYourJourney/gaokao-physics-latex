@@ -48,8 +48,14 @@
 % ---------- 物理专用 ----------
 % 矢量：\gv{F} → 粗体斜体 \bm{F}
 \newcommand{\gv}[1]{\bm{#1}}
-% 题图引用：\gkfig{figures/q2-vt} 插入 TikZ 图文件（无浮动，紧跟题干）
-\newcommand{\gkfig}[1]{\par\medskip\noindent\input{#1}\par\smallskip}
+% 题图引用：\gkfig{figures/q2-vt} 插入 TikZ 图文件（居中且作为不可拆分盒，避免图与题干/选项跨页错位）
+\newcommand{\gkfig}[1]{%
+  \par\medskip\noindent
+  \begin{minipage}{\linewidth}
+    \centering
+    \input{#1}
+  \end{minipage}%
+  \par\smallskip}
 
 % 罗马数字Ⅰ-Ⅻ（U+2160）与圈号①②③（U+2460）划入 CJK 字符类，
 % 用中文字体渲染——西文字体 Latin Modern 缺这些字形，否则整段静默丢字

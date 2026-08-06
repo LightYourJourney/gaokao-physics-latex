@@ -20,7 +20,7 @@ ENTRIES = ("exam", "answer-key", "solutions", "complete")
 
 
 def compile_one(pdir: Path) -> dict:
-    out = {"dir": pdir.name, "ok": {}, "errors": [], "warnings": {}}
+    out = {"dir": pdir.relative_to(ROOT).as_posix(), "ok": {}, "errors": [], "warnings": {}}
     for entry in ENTRIES:
         tex = pdir / f"{entry}.tex"
         if not tex.exists():

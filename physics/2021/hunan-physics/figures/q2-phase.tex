@@ -1,37 +1,26 @@
 % 第 2 题：p-x 相轨迹四选项图（1×4 小坐标系）
-% D 严格按解析重绘：p=m\sqrt{2ax}（开口向右、过原点的抛物线）；
-% A--C 的干扰曲线形状题面未给出细节，为示意（见注释），正确项为 D。
+% 使用 groupplot 固定四图的行列关系，坐标范围与曲线拓扑按原题图逐项设置。
 \begin{tikzpicture}[font=\small]
-  % A：p 与 x 成正比（直线，示意）
-  \begin{axis}[width=3.2cm, height=2.6cm, axis lines=middle,
-      xmin=0, xmax=1.25, ymin=0, ymax=1.25, xtick=\empty, ytick=\empty,
-      xlabel={$x$}, ylabel={$p$}, xlabel style={anchor=west}, ylabel style={anchor=south},
-      font=\scriptsize]
-    \addplot[thick] coordinates {(0,0) (1.1,1.1)};
-    \node[below left] at (0.55,1.15) {A};
-  \end{axis}
-  % B：开口向左的抛物线（示意）
-  \begin{axis}[width=3.2cm, height=2.6cm, axis lines=middle,
-      xmin=0, xmax=1.25, ymin=0, ymax=1.25, xtick=\empty, ytick=\empty,
-      xlabel={$x$}, ylabel={$p$}, xlabel style={anchor=west}, ylabel style={anchor=south},
-      font=\scriptsize]
-    \addplot[thick, domain=0:1] {sqrt(1-x)};
-    \node[below left] at (0.55,1.15) {B};
-  \end{axis}
-  % C：开口向下的抛物线（示意）
-  \begin{axis}[width=3.2cm, height=2.6cm, axis lines=middle,
-      xmin=0, xmax=1.25, ymin=0, ymax=1.25, xtick=\empty, ytick=\empty,
-      xlabel={$x$}, ylabel={$p$}, xlabel style={anchor=west}, ylabel style={anchor=south},
-      font=\scriptsize]
-    \addplot[thick, domain=0:1] {x*(1-x)};
-    \node[below left] at (0.55,1.15) {C};
-  \end{axis}
-  % D：p=m\sqrt{2ax}，开口向右、过原点（正确）
-  \begin{axis}[width=3.2cm, height=2.6cm, axis lines=middle,
-      xmin=0, xmax=1.25, ymin=0, ymax=1.25, xtick=\empty, ytick=\empty,
-      xlabel={$x$}, ylabel={$p$}, xlabel style={anchor=west}, ylabel style={anchor=south},
-      font=\scriptsize]
-    \addplot[thick, domain=0:1.2] {sqrt(x)};
-    \node[below left] at (0.55,1.15) {D};
-  \end{axis}
+  \begin{groupplot}[
+      group style={group size=4 by 1, horizontal sep=0.55cm},
+      width=3.2cm, height=2.6cm,
+      axis lines=middle, clip=false,
+      xmin=-0.2, xmax=1.25, ymin=-0.6, ymax=1.25,
+      xtick=\empty, ytick=\empty,
+      xlabel={$x$}, ylabel={$p$},
+      xlabel style={anchor=west}, ylabel style={anchor=south}]
+    \nextgroupplot[xmin=-1.2, xmax=1.2]
+      \addplot[thick, domain=-1:1, samples=80] {x^2};
+      \node at (axis description cs:0.5,-0.14) {A};
+    \nextgroupplot
+      \addplot[thick, domain=0:1, samples=80] {x^2};
+      \node at (axis description cs:0.5,-0.14) {B};
+    \nextgroupplot
+      \addplot[thick, domain=0:1, samples=80] {sqrt(x)};
+      \addplot[thick, domain=0:1, samples=80] {-sqrt(x)};
+      \node at (axis description cs:0.5,-0.14) {C};
+    \nextgroupplot
+      \addplot[thick, domain=0:1.2, samples=80] {sqrt(x)};
+      \node at (axis description cs:0.5,-0.14) {D};
+  \end{groupplot}
 \end{tikzpicture}

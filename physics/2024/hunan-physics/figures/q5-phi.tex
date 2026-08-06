@@ -1,42 +1,30 @@
-% 第 5 题：x 正半轴上电势 φ 随 x 变化的图像（2×2 选项面板，pgfplots）
-% A：仅正电荷贡献（φ 恒正、递减）；B：仅负电荷贡献（φ 恒负、上升）；
-% C：两项贡献写反（φ 从 +∞ 下降、过零后趋于 0⁻）；D：正确
-%   （φ 从 -∞ 上升，零点 x=1/3，x→∞ 时 φ→0⁺）
+% 第 5 题：x 正半轴上电势 \varphi 随 x 变化的图像（2×2 选项面板，pgfplots）
+% 原图版式：上排 A、B；下排 C、D。使用 groupplot 固定版面，避免绝对 at 坐标造成错位。
 \begin{tikzpicture}[font=\small]
-  % A
-  \begin{axis}[at={(0,0)}, width=5.2cm, height=3.9cm, axis lines=middle,
-      xlabel={$x$}, ylabel={$\varphi$},
-      xmin=0, xmax=2.1, ymin=-0.4, ymax=4.4,
-      xtick=\empty, ytick=\empty,
-      xlabel style={anchor=west}, ylabel style={anchor=south},
-      title={A}, title style={at={(0.08,0.85)}, anchor=west}]
-    \addplot[thick, domain=0.02:2, samples=100] {4/(1+x)};
-  \end{axis}
-  % B
-  \begin{axis}[at={(6.0cm,0)}, width=5.2cm, height=3.9cm, axis lines=middle,
-      xlabel={$x$}, ylabel={$\varphi$},
-      xmin=0, xmax=2.1, ymin=-4.4, ymax=0.4,
-      xtick=\empty, ytick=\empty,
-      xlabel style={anchor=west}, ylabel style={anchor=south},
-      title={B}, title style={at={(0.08,0.85)}, anchor=west}]
-    \addplot[thick, domain=0.02:2, samples=100] {-1/x};
-  \end{axis}
-  % C
-  \begin{axis}[at={(0,4.6cm)}, width=5.2cm, height=3.9cm, axis lines=middle,
-      xlabel={$x$}, ylabel={$\varphi$},
+  \begin{groupplot}[
+      group style={group size=2 by 2, horizontal sep=0.75cm, vertical sep=0.55cm},
+      width=5.0cm, height=3.25cm,
+      axis lines=middle,
       xmin=0, xmax=2.1, ymin=-4.4, ymax=4.4,
-      xtick={0.333}, xticklabels={$\frac{1}{3}$}, ytick=\empty,
-      xlabel style={anchor=west}, ylabel style={anchor=south},
-      title={C}, title style={at={(0.08,0.85)}, anchor=west}]
-    \addplot[thick, domain=0.02:2, samples=100] {(1-3*x)/(x*(1+x))};
-  \end{axis}
-  % D（正确）
-  \begin{axis}[at={(6.0cm,4.6cm)}, width=5.2cm, height=3.9cm, axis lines=middle,
+      xtick=\empty, ytick=\empty,
       xlabel={$x$}, ylabel={$\varphi$},
-      xmin=0, xmax=2.1, ymin=-4.4, ymax=4.4,
-      xtick={0.333}, xticklabels={$\frac{1}{3}$}, ytick=\empty,
-      xlabel style={anchor=west}, ylabel style={anchor=south},
-      title={D}, title style={at={(0.08,0.85)}, anchor=west}]
-    \addplot[thick, domain=0.02:2, samples=100] {(3*x-1)/(x*(1+x))};
-  \end{axis}
+      xlabel style={anchor=west}, ylabel style={anchor=south}]
+    % A（原图上排左：先正后负，趋近于零）
+    \nextgroupplot
+      \addplot[thick, domain=0.02:2, samples=100] {(1-3*x)/(x*(1+x))};
+      \node[fill=white, inner sep=1pt] at (axis description cs:0.5,0.07) {A};
+    % B（原图上排右：始终为负，趋近于零）
+    \nextgroupplot
+      \addplot[thick, domain=0.03:2, samples=100] {-1/x};
+      \node[fill=white, inner sep=1pt] at (axis description cs:0.5,0.07) {B};
+    % C（原图下排左：先正后负再转正，趋近于零）
+    \nextgroupplot
+      \addplot[thick, domain=0.02:2, samples=120]
+        {0.8*(1-3*x)*(1-0.8*x)/(x*(1+x)^2)};
+      \node[fill=white, inner sep=1pt] at (axis description cs:0.5,0.07) {C};
+    % D（原图下排右：先负后正，趋近于零，正确选项）
+    \nextgroupplot
+      \addplot[thick, domain=0.02:2, samples=100] {(3*x-1)/(x*(1+x))};
+      \node[fill=white, inner sep=1pt] at (axis description cs:0.5,0.07) {D};
+  \end{groupplot}
 \end{tikzpicture}

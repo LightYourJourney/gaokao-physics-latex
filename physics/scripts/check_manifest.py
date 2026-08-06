@@ -36,8 +36,8 @@ def main() -> int:
         # 目录名约定：年份/短名（从 paper_id 第二段取）
         pdir = ROOT / year / f"{r['paper_id'].split('-')[1]}-physics"
         status = r["status"]
-        if status in ("missing-source", "pending"):
-            continue  # 无来源/待发布，本就无目录
+        if status in ("missing-source", "pending", "needs-review"):
+            continue  # 无来源/待发布/暂停批次，本就无目录
         if not pdir.exists():
             problems.append(f"[{r['paper_id']}] 目录缺失: {pdir.relative_to(ROOT)}")
             continue
