@@ -170,7 +170,7 @@ def build_one(year: str) -> dict:
     result["ok"] = True
     result["images"] = len(list(media_dir.glob("*"))) if media_dir.exists() else 0
     result["lines"] = final.count("\n")
-    result["path"] = str(out_file.relative_to(BASE.parent.parent))
+    result["path"] = str(out_file.relative_to(BASE))
     return result
 
 

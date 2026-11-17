@@ -92,7 +92,7 @@ def main() -> int:
                 lines.append(f"  - {e}")
         lines.append("")
     report.write_text("\n".join(lines), encoding="utf-8")
-    print(f"\n报告已写入 {report.relative_to(ROOT.parent.parent)}")
+    print(f"\n报告已写入 {report.relative_to(ROOT.parent)}")
     return 0 if complete_n == len(results) else 1
 
 

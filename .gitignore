@@ -1,0 +1,18 @@
+# 物理的 pdf/docx/html 均可由 _build.py 从 _raw/ 重建，见 README.md「来源与再生成」
+_raw/
+**/*_物理真题_含解析.pdf
+**/*_物理真题_含解析.docx
+**/*_物理真题_含解析.html
+
+# LaTeX 工程（physics/）：只入库源文件，编译产物全部忽略
+physics/**/build/
+physics/**/*.pdf
+physics/**/*.aux
+physics/**/*.log
+physics/**/*.out
+physics/**/*.fls
+physics/**/*.fdb_latexmk
+physics/**/*.synctex.gz
+
+.DS_Store
+__pycache__/
