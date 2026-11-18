@@ -21,7 +21,7 @@
   - **四个入口全部编译通过**：exam 7 页 / answer-key 8 页 / solutions 15 页 /
     complete 16 页；零 error、零 Overfull、零未定义引用、零缺失字符。
   - 排障记录：circuitikz 标签内 \SI 解析失败（改纯 $R$）；pic angle 不能用裸坐标
-    （改预定义 \coordinate）；standalone 测试文档需显式 ctex；\uline 需 ulem（改用
+    （改预定义 \coordinate）；standalone 单图测试需显式 ctex；\uline 需 ulem（改用
     既有 \gkblank 宏）；15 题答案行过长（拆两行 gkanswer）。
 
 ## 批次 1（已收尾）：2021–2025 湖南卷 + 2020 全国Ⅰ卷
