@@ -40,9 +40,10 @@ physics/
 ## 编译
 
 ```bash
+# 单卷（在卷目录内）：
 cd physics/2026/hunan-physics
 latexmk -xelatex exam.tex        # 或任一入口
-# 一键全量：
+# 一键全量（在仓库根）：
 python3 physics/scripts/build_all.py
 ```
 

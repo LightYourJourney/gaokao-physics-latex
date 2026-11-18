@@ -6,7 +6,7 @@
   2. 标点被斜体包裹（0*.*010、*=*）→ 去掉标点上的斜体，保留物理量斜体
   3. <img> 标签携带方正内部 ID（alt="id:...;FounderCES"）→ 标准 Markdown 图片
 
-用法：python3 _build.py
+用法：python3 _build.py [年份...]（不带参数则处理脚本内 META 登记的全部年份）
 """
 import re
 import shutil
@@ -157,7 +157,7 @@ def build_one(year: str) -> dict:
         f"# {title}\n\n"
         f"> **卷别**：{juanbie}　|　**含解析**：是　|　"
         f"**来源**：物理备课大师（wl.eywedu.com）Word 版含解析\n"
-        f"> **说明**：由官方 Word 版转换，公式为 LaTeX，图片见同目录 `images/`。\n\n"
+        f"> **说明**：由来源站 Word 版转换，公式为 LaTeX，图片见同目录 `images/`。\n\n"
         f"---\n\n"
     )
     # 去掉 pandoc 生成的原标题行（通常是 ### 开头的试卷名）
