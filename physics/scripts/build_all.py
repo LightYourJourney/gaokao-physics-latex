@@ -6,7 +6,7 @@
 不带参数则遍历所有含 exam.tex 的项目目录。
 
 对每个项目：
-  - 依次编译 exam / answer-key / solutions / complete（xelatex）；
+  - 依次编译 exam / answer-key / solutions / complete（xelatex 两遍，第二遍解析交叉引用）；
   - 解析 .log：错误、未定义引用、Overfull、Missing character、PDF 页数；
   - 汇总输出 build-report.md 并打印摘要。
 """
@@ -26,9 +26,12 @@ def compile_one(pdir: Path) -> dict:
         if not tex.exists():
             out["errors"].append(f"{entry}: 无源文件")
             continue
-        r = subprocess.run(
-            ["xelatex", "-interaction=nonstopmode", "-halt-on-error", entry],
-            cwd=pdir, capture_output=True, text=True)
+        for _ in range(2):  # 题号回链要两遍才能解析
+            r = subprocess.run(
+                ["xelatex", "-interaction=nonstopmode", "-halt-on-error", entry],
+                cwd=pdir, capture_output=True, text=True)
+            if r.returncode != 0:
+                break
         log = pdir / f"{entry}.log"
         errs = 0
         if not log.exists():
@@ -41,7 +44,7 @@ def compile_one(pdir: Path) -> dict:
         overfull = len(re.findall(r"Overfull \\hbox", text))
         missing = len(re.findall(r"Missing character", text))
         pages = re.search(r"Output written on .*?\((\d+) pages?", text)
-        out["ok"][entry] = r.returncode == 0 and errs == 0
+        out["ok"][entry] = r.returncode == 0 and errs == 0 and undef == 0
         out["warnings"][entry] = {
             "errors": errs, "undefined": undef, "overfull": overfull,
             "missing_char": missing,

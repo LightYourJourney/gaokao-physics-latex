@@ -106,7 +106,8 @@
 
 - 真题文档来源：**物理备课大师** `wl.eywedu.com`（公益站，全站免费、无需注册），Word 版含解析。
 - 转换管道：`_build.py`（docx → 清理后的 Markdown + 图片提取），`_stats.py`（考点统计）。
-- 重新生成：`python3 _build.py [年份...]` 从 `_raw/` 里的原始 `.zip`/`.docx` 重建 `.md` 与插图（会先清空该年份目录）。`_raw/` 不入库，需自行下载放入；`.pdf` 是从来源站另存的，脚本不生成。
+- 重新生成：`python3 _build.py [年份...]` 从 `_raw/<年份>.zip`（内含来源 Word 文档）重建 `.md` 与插图（会先清空该年份目录）。`_raw/` 不入库，需自行下载放入；`.pdf` 是从来源站另存的，脚本不生成。
+- 依赖：`_build.py` 需要 pandoc；`physics/scripts/build_all.py` 需要 xelatex（TeX Live）；`visual_check.py` 需要 Poppler 的 `pdftotext`。
 - 转换做了什么：GFM 数学分隔符归一为 `$...$`、公式内 `\text{(}` 类噪声清理、题号统一为 `**N.**`、
   方正排版系统的 `<img>` 内部 ID 剥离、卷头"注意事项"不误标为题号。
 

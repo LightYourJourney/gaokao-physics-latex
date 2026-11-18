@@ -13,6 +13,7 @@ physics/**/*.out
 physics/**/*.fls
 physics/**/*.fdb_latexmk
 physics/**/*.synctex.gz
+physics/**/*.xdv
 
 .DS_Store
 __pycache__/
