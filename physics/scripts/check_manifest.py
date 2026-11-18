@@ -30,7 +30,6 @@ def main() -> int:
     print(f"manifest 共 {len(rows)} 行\n")
     problems = []
     for r in rows:
-        d = ROOT / r["paper_id"].replace("-", "/").replace("/2021", "/2021")
         # paper_id 形如 2026-hunan → 目录 2026/hunan-physics 需单独映射
         year = r["year"]
         # 目录名约定：年份/短名（从 paper_id 第二段取）

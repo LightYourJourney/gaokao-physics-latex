@@ -11,8 +11,8 @@ source_hash: N/A
 question_count: 15
 has_official_answer: true
 has_official_solution: true
-solution_type: source_embedded   # 解析来自源文档内嵌解析（官方 Word 版）
-status: in-progress
+solution_type: source_embedded   # 解析来自源文档内嵌解析（来源站 Word 版）
+status: complete
 notes: >
   结构：单选 6×4 + 多选 4×5 + 实验 2（11 为 6 分、12 为 9 分）+ 必考计算 2
   （13 为 13 分、14 为 15 分）+ 选考 1（15 为选修 3-3，13 分），满分 100，限时 75 分钟。

@@ -11,8 +11,8 @@ source_hash: N/A
 question_count: 15
 has_official_answer: true
 has_official_solution: true
-solution_type: source_embedded   # 解析来自源文档内嵌解析（官方 Word 版）
-status: in-progress
+solution_type: source_embedded   # 解析来自源文档内嵌解析（来源站 Word 版）
+status: complete
 notes: >
   结构：单选 6×4 + 多选 4×5 + 实验 2 题 + 计算 3 题，满分 100，限时 75 分钟。
   图策略：image2-5,8-9,11,13-20 重绘为 TikZ/circuitikz/pgfplots；

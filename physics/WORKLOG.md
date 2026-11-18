@@ -4,10 +4,10 @@
 
 ## 2026-08-05 批次 0：环境检查与样板建立
 
-- **环境**：TeX Live 2026 全量就绪（xelatex + latexmk + Fandol 字体 + 全部宏包），无需安装。
+- **环境**：TeX Live 2026 全量就绪（xelatex + latexmk + 全部宏包），无需安装。
 - **仓库盘点**：
   - 素材：仓库内有 2020 全国Ⅰ卷物理 + 2021–2026 湖南卷物理（共 7 套，
-    官方 Word 版转 Markdown，含解析与插图）。
+    来源站 Word 版转 Markdown，含解析与插图）。
   - 版式约定：tasks 选项对齐、emergencystretch、语义环境、四版本壳。
 - **脚手架**：`physics/` 建成——`common/`（preamble/macros/
   questions_env/gaokao-physics.sty）、`scripts/`（scaffold_exam/build_all/
@@ -24,7 +24,7 @@
     （改预定义 \coordinate）；standalone 测试文档需显式 ctex；\uline 需 ulem（改用
     既有 \gkblank 宏）；15 题答案行过长（拆两行 gkanswer）。
 
-## 批次 1（进行中）：2021–2025 湖南卷 + 2020 全国Ⅰ卷
+## 批次 1（已收尾）：2021–2025 湖南卷 + 2020 全国Ⅰ卷
 
 每套一卷并行转录，逐卷以 diff 审校后合入。
 
@@ -46,7 +46,7 @@
 3. 2021 Q2 选项 A–C、Q6 变压器、Q8 a-t、Q13 四框为推断示意（figure 注释已标）。
 4. 非选择题分值未在源文档给出，按实验 16 分 + 解答 40 分惯例。
 
-- 脚手架与样板已提交：commit 9e156a3（43 文件）。
+- 脚手架与样板已提交（43 文件）。
 - gitignore 已加 physics 编译产物规则（build/、*.pdf、*.aux 等），只入库源文件。
 
 ## 决策记录
@@ -56,5 +56,5 @@
   `missing-source`，不编造。
 - **图策略**：坐标图/电路/受力/光路/装置线稿一律 TikZ/circuitikz/pgfplots 重绘；
   照片类（气球、实验装置、表盘）保留原图并标注「非矢量例外」，不冒充矢量。
-- **解析类型**：7 套的解析转录自官方 Word 版内嵌解析（`source_embedded`），
+- **解析类型**：7 套的解析转录自来源站 Word 版内嵌解析（`source_embedded`），
   转录时独立复核量纲与符号；无官方解析的年份才用 `reconstructed` 并另行标注。

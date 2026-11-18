@@ -1,4 +1,4 @@
-# 物理的 pdf/docx/html 均可由 _build.py 从 _raw/ 重建，见 README.md「来源与再生成」
+# 原始 zip/docx 放 _raw/（_build.py 从中重建 md 与插图）；pdf/docx/html 等原始格式不入库，见 README.md「来源与再生成」
 _raw/
 **/*_物理真题_含解析.pdf
 **/*_物理真题_含解析.docx

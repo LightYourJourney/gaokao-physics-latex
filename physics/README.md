@@ -5,7 +5,7 @@
 
 ## 收录状态（一句话）
 
-- ✅ **已建 LaTeX 工程**：2021、2024、2025、2026 湖南卷（4 套），转录自仓库内的 Word 来源版（含解析），来源可追溯。
+- ✅ **已建 LaTeX 工程**：2021、2024、2025、2026 湖南卷（4 套），转录自仓库内对应年份的 md（其出处为来源站的 Word 版，含解析），来源可追溯。
 - 🕓 **有来源、LaTeX 待做**：2022、2023 湖南卷与 2020 全国Ⅰ卷物理部分（manifest 状态 `needs-review`），md 版已在根目录各年份下。
 - ⚠️ **缺失来源**：2007–2019 其余各年全国卷及各省市自主命题卷无仓库素材、
   亦未获免登录含解析源 → 见 [missing-sources.md](missing-sources.md)，**不编造**。
@@ -47,7 +47,7 @@ python3 physics/scripts/build_all.py
 ```
 
 质量门禁：`build_all.py`（编译成败/Overfull/未定义引用/页数）、
-`check_manifest.py`（清单与磁盘一致、题量核对）、`visual_check.py`（PDF 文本层
+`check_manifest.py`（清单与磁盘一致、题量核对；会检查 complete 卷的 PDF，新 clone 须先跑 `build_all.py`）、`visual_check.py`（PDF 文本层
 LaTeX 泄漏/未解析引用）。
 
 ## 排版与图形约定
@@ -59,7 +59,7 @@ LaTeX 泄漏/未解析引用）。
 
 ## 数据纪律
 
-- 题号保留官方编号；解析类型 `source_embedded`（转录自官方 Word 版并复核）/
+- 题号保留官方编号；解析类型 `source_embedded`（转录自来源站 Word 版并复核）/
   `reconstructed`（官方只有答案时重写，须与官方答案一致）——见各卷 `metadata.yaml`。
 - 来源冲突不静默取舍，登记到 missing-sources.md 待复核。
 - 版权：高考真题为公开考试内容，转录的解析归原编写方；本仓库自有的 LaTeX 源、重绘图与脚本采用 CC BY 4.0（见仓库根 `LICENSE`）。
