@@ -1,0 +1,28 @@
+% 第 15 题（3）解析：m0/m = b/(a-b) 时轨迹为圆（TikZ 重绘）
+% 圆心 (a-b, 0)、半径 b；小球位于圆心角 30° 处，速度沿切线
+\begin{tikzpicture}[font=\small, >=Stealth]
+  \coordinate (O)   at (0,0);
+  \coordinate (CEN) at (1.8,0);
+  \coordinate (BAL) at (2.839,-0.6);
+  \coordinate (XR)  at (2.7,0);
+  % 坐标轴
+  \draw[->, thick] (-0.6,0) -- (3.9,0) node[below]{$x$};
+  \draw[->, thick] (0,-1.5) -- (0,1.0) node[left]{$y$};
+  \node[below left] at (0,0) {$O$};
+  % 轨迹圆（下半圆）
+  \draw[thick] (3.0,0) arc[start angle=0, end angle=-180, radius=1.2];
+  % 圆心与半径
+  \fill (1.8,0) circle (1.4pt) node[below left]{$O'$};
+  \draw[dashed] (1.8,0) -- (2.839,-0.6);
+  \node[below right] at (2.42,-0.24) {$b$};
+  % a-b
+  \draw[<->] (0,0.42) -- (1.8,0.42) node[midway, above]{$a-b$};
+  % 圆心角
+  \pic[draw, angle radius=0.55cm, angle eccentricity=1.6, "$\alpha$"]
+      {angle = BAL--CEN--XR};
+  % 小球与速度
+  \fill[gray!40] (2.839,-0.6) circle (0.12);
+  \draw[thick] (2.839,-0.6) circle (0.12);
+  \draw[->, thick] (2.82,-0.66) -- (2.3,-1.47);
+  \node[right] at (2.5,-1.35) {$v$};
+\end{tikzpicture}

@@ -1,0 +1,27 @@
+% 第 15 题：半椭圆形光滑轨道的匀质凹槽（TikZ 重绘）
+% 半长轴 a（水平）、半短轴 b（竖直），小球从长轴右端点由静止下滑
+\begin{tikzpicture}[font=\small, >=Stealth]
+  % 凹槽（含椭圆空腔）
+  \fill[gray!12] (3.6,0.5) -- (3.6,-2.0) -- (-3.6,-2.0) -- (-3.6,0.5)
+    -- (-3,0) arc[start angle=180, end angle=360, x radius=3, y radius=1.5] -- cycle;
+  \draw[thick] (3.6,0.5) -- (3.6,-2.0) -- (-3.6,-2.0) -- (-3.6,0.5);
+  \draw[thick] (-3.6,0.5) -- (-3,0);
+  \draw[thick] (3,0) -- (3.6,0.5);
+  \draw[thick] (-3,0) arc[start angle=180, end angle=360, x radius=3, y radius=1.5];
+  % 地面
+  \draw[thick] (-3.9,-2.0) -- (3.9,-2.0);
+  \foreach \x in {-3.8,-3.5,...,3.7} {
+    \draw (\x,-2.0) -- (\x-0.12,-2.22);}
+  % 坐标轴
+  \draw[->, thick] (-4.4,0) -- (4.6,0) node[below]{$x$};
+  \draw[->, thick] (0,-1.95) -- (0,1.15) node[left]{$y$};
+  \node[below left] at (0,0) {$O$};
+  % 半轴标注
+  \draw[<->] (0,0.62) -- (3,0.62) node[midway, above]{$a$};
+  \draw[<->] (-0.25,0) -- (-0.25,-1.5) node[midway, left]{$b$};
+  % 小球（初始位于长轴右端点）
+  \fill[gray!40] (3,0.2) circle (0.18);
+  \draw[thick] (3,0.2) circle (0.18);
+  \node[above right] at (3.05,0.33) {$m$};
+  \node at (2.3,-1.8) {$m_0$};
+\end{tikzpicture}

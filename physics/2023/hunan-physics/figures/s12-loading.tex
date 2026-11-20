@@ -1,0 +1,33 @@
+% 第 12 题（5）解析：毫伏表内阻有限时桥路的电流分布（circuitikz 重绘）
+% 与理想情况相比，电压表支路有电流 Iv 由 C 流向 D
+\ctikzset{resistor=european}
+\begin{tikzpicture}[font=\small]
+  \coordinate (A) at (0,0);
+  \coordinate (C) at (2.3,1.75);
+  \coordinate (D) at (2.3,-1.75);
+  \coordinate (B) at (4.6,0);
+  \draw (A) to[vR, l=$R_1$] (C);
+  \draw (A) to[vR, l_=$R_2$] (D);
+  \draw (C) to[vR, l=$R_F'$] (B);
+  \draw (D) to[vR, l_=$R_3$] (B);
+  % 毫伏表
+  \draw (C) -- (2.3,0.42);
+  \draw (D) -- (2.3,-0.42);
+  \draw[thick] (2.3,0) circle (0.42);
+  \node at (2.3,0) {$V$};
+  % 电流标注
+  \draw[->, thick] (0.3,0.45) -- (0.62,0.68);
+  \node[left] at (0.24,0.6) {$I_1$};
+  \draw[->, thick] (0.3,-0.45) -- (0.62,-0.68);
+  \node[left] at (0.24,-0.6) {$I_2$};
+  \draw[->, thick] (2.6,1.5) -- (2.95,1.24);
+  \node[above] at (3.0,1.42) {$I_1-I_V$};
+  \draw[->, thick] (2.6,-1.5) -- (2.95,-1.24);
+  \node[below] at (3.0,-1.42) {$I_2+I_V$};
+  \draw[->, thick] (2.3,1.18) -- (2.3,0.88);
+  \node[right] at (2.37,1.02) {$I_V$};
+  \fill (A) circle (1.6pt) node[left]{$A$};
+  \fill (B) circle (1.6pt) node[right]{$B$};
+  \fill (C) circle (1.6pt) node[above]{$C$};
+  \fill (D) circle (1.6pt) node[below]{$D$};
+\end{tikzpicture}

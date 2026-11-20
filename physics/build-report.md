@@ -1,14 +1,35 @@
 # 构建报告
 
 > 生成时间：本批次
-> 项目数：4，全通过：4
+> 项目数：7，全通过：7
+
+## 2020/national-i-physics
+
+- exam.pdf：✅ 7 页 | 错误 0 | Overfull 0 | 未定义引用 0 | 缺失字符 0
+- answer-key.pdf：✅ 8 页 | 错误 0 | Overfull 0 | 未定义引用 0 | 缺失字符 0
+- solutions.pdf：✅ 18 页 | 错误 0 | Overfull 0 | 未定义引用 0 | 缺失字符 0
+- complete.pdf：✅ 19 页 | 错误 0 | Overfull 0 | 未定义引用 0 | 缺失字符 0
 
 ## 2021/hunan-physics
 
+- exam.pdf：✅ 11 页 | 错误 0 | Overfull 0 | 未定义引用 0 | 缺失字符 0
+- answer-key.pdf：✅ 12 页 | 错误 0 | Overfull 0 | 未定义引用 0 | 缺失字符 0
+- solutions.pdf：✅ 23 页 | 错误 0 | Overfull 0 | 未定义引用 0 | 缺失字符 0
+- complete.pdf：✅ 24 页 | 错误 0 | Overfull 0 | 未定义引用 0 | 缺失字符 0
+
+## 2022/hunan-physics
+
+- exam.pdf：✅ 10 页 | 错误 0 | Overfull 0 | 未定义引用 0 | 缺失字符 0
+- answer-key.pdf：✅ 11 页 | 错误 0 | Overfull 0 | 未定义引用 0 | 缺失字符 0
+- solutions.pdf：✅ 23 页 | 错误 0 | Overfull 0 | 未定义引用 0 | 缺失字符 0
+- complete.pdf：✅ 24 页 | 错误 0 | Overfull 0 | 未定义引用 0 | 缺失字符 0
+
+## 2023/hunan-physics
+
 - exam.pdf：✅ 9 页 | 错误 0 | Overfull 0 | 未定义引用 0 | 缺失字符 0
 - answer-key.pdf：✅ 10 页 | 错误 0 | Overfull 0 | 未定义引用 0 | 缺失字符 0
-- solutions.pdf：✅ 19 页 | 错误 0 | Overfull 0 | 未定义引用 0 | 缺失字符 0
-- complete.pdf：✅ 20 页 | 错误 0 | Overfull 0 | 未定义引用 0 | 缺失字符 0
+- solutions.pdf：✅ 22 页 | 错误 0 | Overfull 0 | 未定义引用 0 | 缺失字符 0
+- complete.pdf：✅ 23 页 | 错误 0 | Overfull 0 | 未定义引用 0 | 缺失字符 0
 
 ## 2024/hunan-physics
 

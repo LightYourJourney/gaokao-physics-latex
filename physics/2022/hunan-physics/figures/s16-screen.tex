@@ -1,0 +1,28 @@
+% 第 16 题(2)(ⅰ)解析：光线在屏障顶端折射的光路
+\begin{tikzpicture}[font=\small, >=Stealth, scale=0.95]
+  % 透明介质
+  \fill[gray!12] (0,1.6) rectangle (6.4,2.6);
+  \draw[thick] (0,1.6) -- (6.4,1.6) -- (6.4,2.6) -- (0,2.6) -- cycle;
+  % 屏障
+  \foreach \x in {1.2,2.6,4.0,5.4}{
+    \draw[line width=2.6pt] (\x,1.6) -- (\x,2.6);
+  }
+  % 像素（点光源）
+  \fill (3.3,1.6) circle (1.8pt) node[below] {像素};
+  % 介质中的光线
+  \draw[->, thick] (3.3,1.6) -- (4.0,2.6);
+  % 法线
+  \draw[dashed] (4.0,2.6) -- (4.0,3.6);
+  \draw[dashed] (4.0,2.6) -- (4.0,1.6);
+  % 折射光线
+  \draw[->, thick] (4.0,2.6) -- ++(60:1.05);
+  % 角 i 与 θ/2
+  \draw (4.0,2.6) arc[start angle=270, end angle=235, radius=0.55];
+  \node at (3.68,2.18) {$i$};
+  \draw (4.0,2.6) arc[start angle=90, end angle=60, radius=0.65];
+  \node at (4.12,3.2) {$\dfrac{\theta}{2}$};
+  % 标注
+  \node at (0.6,2.9) {空气};
+  \node at (1.1,2.1) {透明介质};
+  \node[below] at (4.9,1.55) {屏障};
+\end{tikzpicture}

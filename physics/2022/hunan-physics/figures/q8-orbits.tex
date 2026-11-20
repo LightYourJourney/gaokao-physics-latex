@@ -1,0 +1,18 @@
+% 第 8 题：火星冲日与恒星背景（TikZ 线稿）
+% 太阳在中心，地球、火星在同一方向上（冲日），外侧虚线表示恒星背景
+\begin{tikzpicture}[font=\small, >=Stealth, scale=1.0]
+  \shade[ball color=gray!60] (0,0) circle (0.13);
+  \node[below] at (0,-0.15) {太阳};
+  \draw[dashed] (0,0) circle (1.35);
+  \draw[dashed] (0,0) circle (2.15);
+  \fill (0,1.35) circle (2.2pt) node[right] {地球};
+  \fill (0,2.15) circle (2.2pt) node[right] {火星};
+  % 公转方向（左侧箭头向下，俯视逆时针）
+  \draw[->, thick] (-1.35,0.18) -- (-1.35,-0.22);
+  \draw[->, thick] (-2.15,0.22) -- (-2.15,-0.28);
+  % 恒星背景
+  \draw[dash dot] (-2.9,2.95) -- (2.9,2.95);
+  \node[left] at (-2.9,2.95) {东};
+  \node[right] at (2.9,2.95) {西};
+  \node[above] at (0,2.95) {恒星背景};
+\end{tikzpicture}

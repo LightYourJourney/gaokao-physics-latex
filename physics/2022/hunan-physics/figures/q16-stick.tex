@@ -1,0 +1,14 @@
+% 第 16 题(1)甲：木棒随河水水平运动、同时在竖直方向振动（TikZ 线稿）
+% 三个时刻木棒的位置，右向箭头表示水流方向
+\begin{tikzpicture}[font=\small, >=Stealth, scale=0.95]
+  % 水面
+  \draw[thick] (0,1.6) -- (7.2,1.6);
+  % 三个位置的木棒（下端加重物）
+  \foreach \x in {1.2,3.2,5.2}{
+    \draw[line width=2.2pt] (\x,0.7) -- (\x,3.3);
+    \fill[gray!70] (\x-0.10,0.7) rectangle (\x+0.10,1.35);
+  }
+  % 水流方向
+  \draw[->, thick] (6.2,2.8) -- (7.2,2.8) node[right] {水流};
+  \node at (3.6,0.2) {甲};
+\end{tikzpicture}

@@ -1,0 +1,20 @@
+% 第 12 题图丙：U-m 坐标纸（pgfplots 重绘，仅网格，供描点作图）
+\begin{tikzpicture}
+  \begin{axis}[
+      width=9.4cm, height=7.6cm,
+      axis lines=middle,
+      xlabel={$m$/g}, ylabel={$U$/mV},
+      xmin=0, xmax=3.15, ymin=0, ymax=315,
+      xtick={0,0.5,1,1.5,2,2.5,3},
+      xticklabels={0,0.5,1.0,1.5,2.0,2.5,3.0},
+      ytick={0,50,100,150,200,250,300},
+      minor tick num=4,
+      grid=both,
+      major grid style={line width=0.4pt, draw=black!55},
+      minor grid style={line width=0.2pt, draw=black!25},
+      tick label style={font=\scriptsize},
+      xlabel style={anchor=west}, ylabel style={anchor=south},
+      axis line style={-Stealth},
+      enlargelimits=false, clip=false]
+  \end{axis}
+\end{tikzpicture}

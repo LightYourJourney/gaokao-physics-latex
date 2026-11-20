@@ -1,0 +1,27 @@
+% 第 16 题：秋千（TikZ 线稿，人物与支架简化为示意图）
+% 两根绳长均为 l=10 m；在最低点时速度 v 沿水平方向
+\begin{tikzpicture}[font=\small, >=Stealth, line cap=round, line join=round]
+  % 支架横梁与立柱
+  \draw[thick] (-2.1,4.8) -- (2.1,4.8);
+  \draw[thick] (-1.9,4.8) -- (-1.9,5.1);
+  \draw[thick] (1.9,4.8) -- (1.9,5.1);
+  % 两根绳（侧视略分开，不相交）
+  \draw[thick] (-0.60,4.8) -- (-0.70,1.72);
+  \draw[thick] (0.50,4.8) -- (0.60,1.72);
+  % 踏板
+  \draw[thick, fill=gray!25] (-0.85,1.58) rectangle (0.75,1.72);
+  % 人（简笔：站立于踏板，双手扶绳）
+  \draw[thick] (-0.05,1.72) -- (-0.05,2.72);
+  \fill (-0.05,2.90) circle (0.15);
+  \draw[thick] (-0.05,2.50) -- (-0.68,2.28);
+  \draw[thick] (-0.05,2.50) -- (0.58,2.28);
+  \draw[thick] (-0.05,1.72) -- (-0.35,1.72);
+  \draw[thick] (-0.05,1.72) -- (0.25,1.72);
+  % 悬点竖直线（最低点位置）
+  \draw[dashed] (-0.05,4.8) -- (-0.05,1.35);
+  % 速度方向
+  \draw[->, thick] (0.95,2.05) -- (1.85,2.05) node[right] {$v$};
+  % 说明
+  \node[align=center] at (0,0.55) {两根绳长均为 $l=\SI{10}{\metre}$\\[-2pt]
+    人与踏板总质量约为 \SI{50}{\kilogram}};
+\end{tikzpicture}

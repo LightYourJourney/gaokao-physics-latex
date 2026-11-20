@@ -1,0 +1,17 @@
+% 第 3 题图甲：A、B、C、D 四点的几何关系（TikZ 重绘）
+% A、C、B 共线，AC=BC=4 m；D 在 C 正上方 3 m 处，DC 垂直 AB
+\begin{tikzpicture}[font=\small, >=Stealth]
+  \draw[thick] (-4,0) -- (4,0);
+  \draw[thick] (0,0) -- (0,3);
+  \draw[thick] (-4,0) -- (0,3) -- (4,0);
+  \fill (-4,0) circle (1.6pt) node[below left]{$A$};
+  \fill (0,0) circle (1.6pt) node[below]{$C$};
+  \fill (4,0) circle (1.6pt) node[below right]{$B$};
+  \fill (0,3) circle (1.6pt) node[above]{$D$};
+  \node at (-2,0.28) {\SI{4}{\metre}};
+  \node at (2,0.28) {\SI{4}{\metre}};
+  \node[right] at (0.12,1.5) {\SI{3}{\metre}};
+  % C 处的直角标记
+  \draw (0,0.22) -- (0.22,0.22) -- (0.22,0);
+  \node[below] at (0,-0.9) {甲};
+\end{tikzpicture}

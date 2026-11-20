@@ -1,0 +1,55 @@
+% 第 7 题解析：水面处的光路（TikZ 重绘）
+% 甲：α = 41° 时折射光沿水面传播，对应临界角 C = 49°
+% 乙：α = 60° 时入射角 i = 30°，折射角 r > 30°
+\begin{tikzpicture}[font=\small, >=Stealth]
+  % ============ 甲 ============
+  \begin{scope}
+    \coordinate (SL) at (-2.4,0);
+    \coordinate (I)  at (0,0);
+    \coordinate (N)  at (0,-1.35);
+    \coordinate (R)  at (-1.72,-1.85);
+    % 水（浅灰）
+    \fill[gray!12] (-2.7,-2.4) rectangle (2.7,0);
+    \draw[thick] (-2.7,0) -- (2.7,0);
+    \node[left] at (-2.7,0.18) {水面};
+    \node at (-2.2,-1.9) {水};
+    \node at (-2.2,0.7) {空气};
+    % 法线
+    \draw[dashed] (N) -- (0,1.2);
+    % 入射光
+    \draw[->, thick] (R) -- (I);
+    % 折射光沿水面射出
+    \draw[->, very thick] (0.05,0.02) -- (2.35,0.02);
+    \node[above] at (1.9,0.05) {折射光};
+    % 角度
+    \pic[draw, angle radius=0.42cm] {angle = SL--I--R};
+    \pic[draw, angle radius=0.55cm] {angle = R--I--N};
+    \node at (-0.55,-0.28) {$\alpha$};
+    \node at (-0.28,-0.72) {$C$};
+    \node[below] at (0,-2.65) {甲};
+  \end{scope}
+  % ============ 乙 ============
+  \begin{scope}[xshift=8.2cm]
+    \coordinate (SL2) at (-2.4,0);
+    \coordinate (I2)  at (0,0);
+    \coordinate (N2)  at (0,-1.4);
+    \coordinate (Nu2) at (0,1.5);
+    \coordinate (R2)  at (-1.5,-2.6);
+    \coordinate (E2)  at (1.15,1.02);
+    \fill[gray!12] (-2.7,-2.7) rectangle (2.7,0);
+    \draw[thick] (-2.7,0) -- (2.7,0);
+    \node[left] at (-2.7,0.18) {水面};
+    \draw[dashed] (N2) -- (Nu2);
+    % 入射光（与水面成 60°）
+    \draw[->, thick] (R2) -- (I2);
+    % 折射光（与法线成 r）
+    \draw[->, thick] (I2) -- (E2);
+    \pic[draw, angle radius=0.45cm] {angle = SL2--I2--R2};
+    \pic[draw, angle radius=0.55cm] {angle = N2--I2--R2};
+    \pic[draw, angle radius=0.5cm]  {angle = E2--I2--Nu2};
+    \node at (-0.62,-0.34) {$\alpha$};
+    \node at (-0.2,-0.72) {$i$};
+    \node at (0.34,0.66) {$r$};
+    \node[below] at (0,-2.95) {乙};
+  \end{scope}
+\end{tikzpicture}

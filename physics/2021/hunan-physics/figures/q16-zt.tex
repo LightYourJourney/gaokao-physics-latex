@@ -1,0 +1,15 @@
+% 第 16 题(1) 乙：A 处质点的振动图像（T=4 s，振幅 1 cm）
+\begin{tikzpicture}[font=\small, >=Stealth, scale=1.0]
+  \draw[->] (-0.4,0) -- (6.4,0) node[right] {$t/\mathrm{s}$};
+  \draw[->] (0,-1.7) -- (0,1.9) node[above] {$z/\mathrm{cm}$};
+  \foreach \t in {1,2,3,4} {
+    \draw (\t,0.06) -- (\t,-0.06) node[below,font=\scriptsize] {\t};
+  }
+  \foreach \z in {-1,1} {
+    \draw (0.06,\z) -- (-0.06,\z) node[left,font=\scriptsize] {$\z$};
+  }
+  \node[below left] at (0,0) {$0$};
+  \draw[thick,domain=0:5.7,samples=240] plot (\x,{cos(\x*90)});
+  \draw[dashed] (4,0) -- (4,1);
+  \draw[dashed] (0,-1) -- (2,-1);
+\end{tikzpicture}

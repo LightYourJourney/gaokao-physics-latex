@@ -1,0 +1,23 @@
+% 第 20 题：物块下滑时重力势能、动能随下滑距离 s 的变化（pgfplots）
+% 直线Ⅰ：E_p 由 30 J 降到 0（s=0→5 m）；直线Ⅱ：E_k 由 0 升到 10 J
+\begin{tikzpicture}
+  \begin{axis}[
+      width=9.2cm, height=7.0cm,
+      axis lines=left,
+      axis line style={-Stealth},
+      xmin=0, xmax=5.6, ymin=0, ymax=32.5,
+      xtick={0,1,2,3,4,5}, ytick={0,6,12,18,24,30},
+      minor x tick num=1, minor y tick num=1,
+      grid=both,
+      major grid style={line width=0.4pt, draw=gray!60},
+      minor grid style={line width=0.2pt, draw=gray!35},
+      xlabel={$s$/m}, ylabel={$E$/J},
+      xlabel style={anchor=west}, ylabel style={anchor=south},
+      tick label style={font=\small}, label style={font=\small},
+      font=\small]
+    \addplot[thick] coordinates {(0,30) (5,0)};
+    \addplot[thick] coordinates {(0,0) (5,10)};
+    \node at (axis cs:2.65,19.6) {Ⅰ};
+    \node at (axis cs:1.25,3.4) {Ⅱ};
+  \end{axis}
+\end{tikzpicture}

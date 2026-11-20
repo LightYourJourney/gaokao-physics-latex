@@ -1,0 +1,19 @@
+% 第 33(1) 题：分子间作用力 F 随分子间距 r 的关系（pgfplots）
+% r=r1 时 F=0；r=r2 时 F 为引力最大值（曲线最低点）；r→∞ 时 F→0
+\begin{tikzpicture}
+  \begin{axis}[
+      width=9.4cm, height=6.4cm,
+      axis lines=middle,
+      xmin=0, xmax=4.7, ymin=-1.0, ymax=1.65,
+      xtick=\empty, ytick=\empty,
+      xlabel={$r$}, ylabel={$F$},
+      xlabel style={anchor=west}, ylabel style={anchor=south},
+      label style={font=\small}, font=\small]
+    % 取 a=4、b=2 的模型曲线：r=r1=1 处为零，r=r2=√2≈1.414 处引力最大
+    \addplot[thick, domain=0.78:4.55, samples=220]
+      {3.2*((1/x)^4-(1/x)^2)};
+    \draw[dashed] (axis cs:1.414,-0.8) -- (axis cs:1.414,0);
+    \node[above left] at (axis cs:1,0) {$r_1$};
+    \node[below right] at (axis cs:1.414,0) {$r_2$};
+  \end{axis}
+\end{tikzpicture}

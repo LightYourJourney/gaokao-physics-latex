@@ -1,0 +1,19 @@
+% 第 4 题：中子分别与静止氢核、氮核发生弹性正碰（TikZ 线稿）
+\begin{tikzpicture}[font=\small, >=Stealth]
+  % ---------- 上排：中子—氢核 ----------
+  \fill (0,2.2) circle (0.20);
+  \node[below] at (0,1.95) {中子};
+  \draw[->, thick] (0.25,2.2) -- (2.4,2.2) node[midway, above] {$v_0$};
+  \draw[dashed] (0,2.2) -- (6.6,2.2);
+  \fill[gray!40] (4.6,2.2) circle (0.15);
+  \node[below] at (4.6,1.98) {氢核};
+  \draw[->, thick, dashed] (4.85,2.2) -- (6.5,2.2) node[midway, above] {$v_1$};
+  % ---------- 下排：中子—氮核 ----------
+  \fill (0,0) circle (0.20);
+  \node[below] at (0,-0.25) {中子};
+  \draw[->, thick] (0.25,0) -- (2.4,0) node[midway, above] {$v_0$};
+  \draw[dashed] (0,0) -- (7.0,0);
+  \fill[gray!40] (4.6,0) circle (0.27);
+  \node[below] at (4.6,-0.35) {氮核};
+  \draw[->, thick, dashed] (4.95,0) -- (6.9,0) node[midway, above] {$v_2$};
+\end{tikzpicture}

@@ -1,0 +1,31 @@
+% 第 10 题：车厢内 A、B 两球与轻杆（TikZ 重绘）
+% A 球靠在光滑左壁上，B 球在车厢底面上，杆与竖直方向成 θ
+\begin{tikzpicture}[font=\small, >=Stealth]
+  \coordinate (A) at (0.37,2.35);
+  \coordinate (B) at (2.35,0.67);
+  \coordinate (V) at (0.37,1.35);
+  % 地面
+  \draw[thick] (-0.6,0) -- (4.8,0);
+  \foreach \x in {-0.5,-0.2,...,4.7} {
+    \draw (\x,0) -- (\x-0.12,-0.18);}
+  % 车轮
+  \draw[thick] (1.1,0.24) circle (0.24);
+  \fill (1.1,0.24) circle (1.4pt);
+  \draw[thick] (3.5,0.24) circle (0.24);
+  \fill (3.5,0.24) circle (1.4pt);
+  % 车厢
+  \draw[thick] (0.2,0.5) rectangle (4.3,2.9);
+  % 两球
+  \fill[gray!40] (0.37,2.35) circle (0.17);
+  \draw[thick] (0.37,2.35) circle (0.17);
+  \node[above right] at (0.5,2.48) {$A$};
+  \fill[gray!40] (2.35,0.67) circle (0.17);
+  \draw[thick] (2.35,0.67) circle (0.17);
+  \node[above right] at (2.45,0.8) {$B$};
+  % 轻杆
+  \draw[very thick] (A) -- (B);
+  % θ
+  \draw[dashed] (A) -- (V);
+  \pic[draw, angle radius=0.5cm, angle eccentricity=1.5, "$\theta$"]
+      {angle = V--A--B};
+\end{tikzpicture}

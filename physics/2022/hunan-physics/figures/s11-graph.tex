@@ -1,0 +1,20 @@
+% 第 11 题(3)解析：l-n 图线（描点并拟合直线）
+% 数据：(5,10.51) (10,12.02) (15,13.54) (20,15.05) (25,16.56)
+\begin{tikzpicture}
+  \begin{axis}[
+      width=8.2cm, height=5.8cm,
+      axis lines=middle,
+      xlabel={$n$/枚}, ylabel={$l$/cm},
+      xmin=0, xmax=32, ymin=10, ymax=17.2,
+      xtick={0,5,...,30}, ytick={10,11,...,17},
+      minor x tick num=4, minor y tick num=4,
+      grid=both,
+      grid style={line width=0.35pt, draw=gray!65},
+      minor grid style={line width=0.18pt, draw=gray!40},
+      xlabel style={anchor=west}, ylabel style={anchor=south},
+      font=\small]
+    \addplot[only marks, mark=*, mark size=1.8pt] coordinates {
+      (5,10.51) (10,12.02) (15,13.54) (20,15.05) (25,16.56)};
+    \addplot[thick] coordinates {(3.3,10.0) (26.4,17.0)};
+  \end{axis}
+\end{tikzpicture}

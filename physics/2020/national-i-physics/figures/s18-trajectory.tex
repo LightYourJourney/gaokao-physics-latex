@@ -1,0 +1,45 @@
+% 第 18 题解析：轨迹半径 r=R 时的最大圆心角（TikZ 线稿）
+% 轨迹圆心 O' 与 a 重合；粒子自 c 沿顺时针方向转过 240° 后从 P 点射出磁场
+\begin{tikzpicture}[font=\small, >=Stealth]
+  \def\R{1.7}
+  % 磁场点阵（浅灰，避免与轨迹线混淆）
+  \begin{scope}
+    \clip (-\R-0.2,-0.05) rectangle (3.35*\R+0.2,1.75);
+    \foreach \x in {-1.95,-1.70,...,5.55} {
+      \foreach \y in {0.12,0.40,...,1.72} {
+        \fill[gray!60] (\x,\y) circle (0.024);
+      }
+    }
+  \end{scope}
+  \begin{scope}
+    \clip (\R,0) circle (\R);
+    \foreach \x in {-1.95,-1.70,...,5.55} {
+      \foreach \y in {-1.55,-1.30,...,-0.10} {
+        \fill[gray!60] (\x,\y) circle (0.024);
+      }
+    }
+  \end{scope}
+  % 磁场边界
+  \draw[dashed, thick] (-\R,0) -- (0,0);
+  \draw[dashed, thick] (0,0) arc[start angle=180, end angle=360, radius=\R];
+  \draw[dashed, thick] (2*\R,0) -- (3.25*\R,0);
+  % 轨迹：r=R，圆心在 a，自 c（180°）顺时针转 240° 至 P（-60°）
+  \draw[very thick] (-\R,0) arc[start angle=180, end angle=-60, radius=\R];
+  % 圆心与半径
+  \fill (0,0) circle (1.3pt) node[above right] {$O'$};
+  \draw[dashed] (0,0) -- (-\R,0);
+  \draw[dashed] (0,0) -- ({\R/2},{-\R*sqrt(3)/2});
+  % 圆心角 240°
+  \draw (0.55,0) arc[start angle=0, end angle=-60, radius=0.55];
+  \node at (0.95,-0.52) {$240^{\circ}$};
+  % 入射速度
+  \draw[->, thick] (-\R,0) -- (-\R,0.70) node[left] {$v$};
+  % 出射点
+  \coordinate (P) at ({\R/2},{-\R*sqrt(3)/2});
+  \fill (P) circle (1.3pt) node[below right] {$P$};
+  % 各点标注
+  \fill (-\R,0) circle (1.3pt) node[below left] {$c$};
+  \node[below left] at (0,0) {$a$};
+  \fill (2*\R,0) circle (1.3pt) node[below right] {$b$};
+  \fill (3.25*\R,0) circle (1.3pt) node[below right] {$d$};
+\end{tikzpicture}

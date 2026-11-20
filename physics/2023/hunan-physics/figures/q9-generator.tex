@@ -1,0 +1,48 @@
+% 第 9 题：手摇交流发电机示意图（TikZ 矢量重绘，非原图描摹）
+% 大轮、小轮半径比 4:1，皮带传动；小轮与线圈同轴，线圈处于 N、S 极间匀强磁场中，
+% 经滑环、电刷接灯泡。图中 B 与转轴垂直（画为竖直方向）。
+\begin{tikzpicture}[font=\small, >=Stealth]
+  % 大轮 = 摇柄轮
+  \draw[thick] (-3.3,0.7) circle (1.2);
+  \fill (-3.3,0.7) circle (1.4pt);
+  \node[below=15pt] at (-3.3,0.7) {大轮};
+  % 转动方向
+  \draw[->, thick] (-3.3,0.7) ++(150:0.8) arc[start angle=150, end angle=105, radius=0.8];
+  \node at (-4.35,1.15) {$\omega$};
+  % 小轮
+  \draw[thick] (-0.5,0.7) circle (0.3);
+  \fill (-0.5,0.7) circle (1.2pt);
+  \node[below] at (-0.5,0.2) {小轮};
+  % 皮带（外公切线）
+  \draw[thick] (-3.685,1.837) -- (-0.596,0.984);
+  \draw[thick] (-3.685,-0.437) -- (-0.596,0.416);
+  \node at (-2.15,1.98) {皮带};
+  % 转轴
+  \draw[thick] (-0.5,0.7) -- (1.3,0.7);
+  \node[above] at (0.05,0.72) {转轴};
+  % 线圈（正方形，边长 L）
+  \draw[very thick] (1.3,0.25) rectangle (2.2,1.15);
+  % 磁极
+  \fill[gray!25] (1.15,1.25) rectangle (2.35,1.55);
+  \draw[thick] (1.15,1.25) rectangle (2.35,1.55);
+  \node at (1.75,1.4) {$S$};
+  \fill[gray!25] (1.15,-0.15) rectangle (2.35,0.15);
+  \draw[thick] (1.15,-0.15) rectangle (2.35,0.15);
+  \node at (1.75,0) {$N$};
+  \node[above] at (1.75,1.58) {线圈（$n$ 匝，边长 $L$）};
+  % 磁场方向（由 N 指向 S，与转轴垂直）
+  \draw[->, dashed, thick] (2.55,0.15) -- (2.55,1.25);
+  \node[right] at (2.57,0.7) {$B$};
+  % 滑环与电刷
+  \draw (0.30,0.7) ellipse (0.035 and 0.12);
+  \draw (0.62,0.7) ellipse (0.035 and 0.12);
+  \fill (0.28,0.46) rectangle (0.36,0.58);
+  \fill (0.60,0.46) rectangle (0.68,0.58);
+  % 外电路与灯泡
+  \draw (0.32,0.46) -- (0.32,-1.25) -- (1.05,-1.25);
+  \draw (0.64,0.46) -- (0.64,-0.85) -- (1.05,-0.85);
+  \draw[thick] (1.05,-1.05) circle (0.2);
+  \draw (0.91,-1.19) -- (1.19,-0.91);
+  \draw (0.91,-0.91) -- (1.19,-1.19);
+  \node[right] at (1.28,-1.05) {灯泡};
+\end{tikzpicture}

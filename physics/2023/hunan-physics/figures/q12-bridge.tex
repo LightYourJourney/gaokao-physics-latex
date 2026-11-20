@@ -1,0 +1,32 @@
+% 第 12 题图甲：半导体薄膜压力传感器测量电路（circuitikz 重绘）
+% 桥式电路：R1、R2、RF、R3；C、D 间接电压传感器；电池与开关接在 A、B 之间
+\ctikzset{resistor=european}
+\begin{tikzpicture}[font=\small]
+  \coordinate (A) at (0,0);
+  \coordinate (C) at (2.7,1.9);
+  \coordinate (D) at (2.7,-1.9);
+  \coordinate (B) at (5.4,0);
+  % 四个桥臂（电阻箱用可变电阻符号）
+  \draw (A) to[vR, l=$R_1$] (C);
+  \draw (A) to[vR, l_=$R_2$] (D);
+  \draw (C) to[vR, l=$R_F$] (B);
+  \draw (D) to[vR, l_=$R_3$] (B);
+  % 压力传感器虚线框
+  \begin{scope}[rotate around={-35.3:(4.05,0.95)}]
+    \draw[dashed] (3.25,0.45) rectangle (4.85,1.45);
+  \end{scope}
+  \node[above] at (4.45,1.55) {压力传感器};
+  % 电压传感器接线端
+  \draw (C) -- (2.7,0.5);
+  \fill (2.7,0.5) circle (1.6pt);
+  \draw (D) -- (2.7,-0.5);
+  \fill (2.7,-0.5) circle (1.6pt);
+  \node[right] at (2.82,0) {$U$};
+  % 电源与开关
+  \draw (A) -- (0,-3.3) to[battery1, l=$E$] (2.7,-3.3)
+        to[switch, l=$S$] (5.4,-3.3) -- (B);
+  \fill (A) circle (1.6pt) node[left]{$A$};
+  \fill (B) circle (1.6pt) node[right]{$B$};
+  \fill (C) circle (1.6pt) node[above]{$C$};
+  \fill (D) circle (1.6pt) node[below]{$D$};
+\end{tikzpicture}

@@ -1,0 +1,26 @@
+% 第 2 题：长方体四条长边上的四根带正电绝缘棒（TikZ 三维线稿）
+% a、c 为一对相对长边，b、d 为另一对；O 为长方体几何中心
+\begin{tikzpicture}[font=\small, >=Stealth, scale=0.95]
+  % 前面与后面
+  \coordinate (A1) at (0,0);
+  \coordinate (B1) at (5,0);
+  \coordinate (C1) at (5,2);
+  \coordinate (D1) at (0,2);
+  \coordinate (A2) at (1.1,0.85);
+  \coordinate (B2) at (6.1,0.85);
+  \coordinate (C2) at (6.1,2.85);
+  \coordinate (D2) at (1.1,2.85);
+  \draw (A1)--(B1)--(C1)--(D1)--cycle;
+  \draw (A2)--(B2)--(C2)--(D2)--cycle;
+  \draw (A1)--(A2);
+  \draw[dashed] (B1)--(B2);
+  \draw (C1)--(C2);
+  \draw (D1)--(D2);
+  % 四条长边上的带电棒
+  \draw[line width=2.6pt] (D2)--(C2) node[midway, above] {$a$};
+  \draw[line width=2.6pt] (D1)--(C1) node[midway, above left, xshift=-2pt] {$b$};
+  \draw[line width=2.6pt] (A1)--(B1) node[midway, below] {$c$};
+  \draw[line width=2.6pt] (A2)--(B2) node[midway, below right, xshift=2pt] {$d$};
+  % 几何中心
+  \fill (3.05,1.42) circle (2pt) node[below right] {$O$};
+\end{tikzpicture}

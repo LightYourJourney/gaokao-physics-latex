@@ -1,0 +1,26 @@
+% 第 21 题解析：金属框与导体棒的速度—时间图像（pgfplots，示意）
+% 图线 1：导体棒 MN；图线 2：金属框。经过暂态后两者斜率相同，速度差趋于恒定。
+\begin{tikzpicture}
+  \begin{axis}[
+      width=8.6cm, height=5.6cm,
+      axis lines=left,
+      axis line style={-Stealth},
+      clip=false,
+      xmin=0, xmax=4.8, ymin=0, ymax=6.8,
+      xtick=\empty, ytick=\empty,
+      font=\small]
+    % 图线 2：金属框（初加速度大，渐趋于斜率 a）
+    \addplot[thick, domain=0:4.5, samples=120]
+      {1.2*x+0.84*(1-exp(-x/0.7))};
+    % 图线 1：导体棒（初加速度为零，渐趋于同一斜率 a）
+    \addplot[thick, domain=0:4.5, samples=120]
+      {1.2*x-0.84*(1-exp(-x/0.7))};
+    % 同一时刻两图线斜率相同
+    \draw[dashed] (axis cs:3,2.77) -- (axis cs:3,4.43);
+    \node[anchor=west] at (axis description cs:1.02,0.0) {$t$};
+    \node[anchor=south] at (axis description cs:0.0,1.02) {$v$};
+    \node at (axis cs:4.05,5.4) {2};
+    \node at (axis cs:4.05,3.2) {1};
+    \node[font=\scriptsize] at (axis cs:1.55,6.1) {斜率相等后 $v_2-v_1$ 恒定};
+  \end{axis}
+\end{tikzpicture}

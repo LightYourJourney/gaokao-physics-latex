@@ -1,0 +1,18 @@
+% 第 3 题图乙：波源的振动图像（pgfplots 重绘）
+% 由图像读得周期 T = 4 s、振幅 2 cm；t = 0 时由平衡位置向 +y 方向运动
+\begin{tikzpicture}
+  \begin{axis}[
+      width=8.2cm, height=5.0cm,
+      axis lines=middle,
+      xlabel={$t$/s}, ylabel={$y$/cm},
+      xmin=-0.25, xmax=4.9, ymin=-2.6, ymax=2.6,
+      xtick={1,2,3,4}, ytick={-2,2},
+      yticklabels={$-2$,$2$},
+      xlabel style={anchor=west}, ylabel style={anchor=south},
+      font=\small]
+    \addplot[thick, domain=0:4.62, samples=160] {2*sin(deg(pi*x/2))};
+    \draw[dashed] (axis cs:0,2) -- (axis cs:1,2);
+    \draw[dashed] (axis cs:0,-2) -- (axis cs:3,-2);
+  \end{axis}
+  \node[below] at ([yshift=-2mm]current bounding box.south) {乙};
+\end{tikzpicture}

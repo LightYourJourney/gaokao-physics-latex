@@ -1,0 +1,36 @@
+% 第 18 题：半圆边界磁场（TikZ 线稿）
+% 磁场垂直纸面向外（点），边界为 c--a 直线、a--b 半圆弧（向下凹）、b--d 直线；
+% ac 等于半圆半径 R。粒子自 c 点垂直于 ac 射入。
+\begin{tikzpicture}[font=\small, >=Stealth]
+  \def\R{1.75}
+  % 磁场区域：直线上方 + 半圆内部（点阵）
+  \begin{scope}
+    \clip (-\R-0.25,-0.05) rectangle (3.4*\R+0.25,1.75);
+    \foreach \x in {-1.95,-1.67,...,5.45} {
+      \foreach \y in {0.12,0.40,...,1.72} {
+        \fill (\x,\y) circle (0.028);
+      }
+    }
+  \end{scope}
+  \begin{scope}
+    \clip (\R,0) circle (\R);
+    \foreach \x in {-1.95,-1.67,...,5.45} {
+      \foreach \y in {-1.42,-1.14,...,-0.10} {
+        \fill (\x,\y) circle (0.028);
+      }
+    }
+  \end{scope}
+  % 边界
+  \draw[dashed, thick] (-\R,0) -- (0,0);
+  \draw[dashed, thick] (0,0) arc[start angle=180, end angle=360, radius=\R];
+  \draw[dashed, thick] (2*\R,0) -- (3.35*\R,0);
+  % 入射速度（自 c 垂直 ac 射入）
+  \draw[->, thick] (-\R,0) -- (-\R,0.72) node[left] {$v$};
+  % 各点标注
+  \fill (-\R,0) circle (1.4pt) node[below left] {$c$};
+  \fill (0,0) circle (1.4pt) node[below left] {$a$};
+  \fill (2*\R,0) circle (1.4pt) node[below right] {$b$};
+  \fill (3.35*\R,0) circle (1.4pt) node[below right] {$d$};
+  % 磁场方向说明
+  \node[font=\scriptsize, fill=white, inner sep=1pt] at (1.2,2.0) {磁场垂直纸面向外};
+\end{tikzpicture}

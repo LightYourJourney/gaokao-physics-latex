@@ -1,0 +1,33 @@
+% 第 12 题(4)解析：欧姆表简化电路（两支路并联后再串联 Rn）
+\begin{tikzpicture}[font=\small, >=Stealth]
+  % 电池与端子①
+  \draw (0,2.9) to[battery1, l=$E$] (0,0.7);
+  \draw (0,0.7) -- (0.6,0.7);
+  \fill (0,0.45) circle (1.5pt);
+  \node[below] at (0,0.4) {①};
+  \fill (0,2.9) circle (1.6pt);
+  % 上支路：G 与 R0上
+  \draw (0,2.9) -- (1.05,2.9);
+  \draw (1.05,2.9) circle (0.30) node {$\mathrm{G}$};
+  \draw (1.35,2.9) -- (2.50,2.9);
+  \draw (2.50,2.65) rectangle (3.60,3.15);
+  \node[above] at (3.05,3.15) {$R_{0\text{上}}$};
+  \draw (3.60,2.9) -- (4.25,2.9) -- (4.25,2.55);
+  % 下支路：Rs 与 R0下
+  \draw (0.6,0.7) -- (1.05,0.7);
+  \draw (1.05,0.45) rectangle (2.15,0.95);
+  \node[below] at (1.60,0.45) {$R_s$};
+  \draw (2.15,0.7) -- (2.50,0.7);
+  \draw (2.50,0.45) rectangle (3.60,0.95);
+  \node[below] at (3.05,0.45) {$R_{0\text{下}}$};
+  \draw (3.60,0.7) -- (4.25,0.7) -- (4.25,1.05);
+  % 右节点与 Rn
+  \fill (4.25,1.80) circle (1.8pt);
+  \draw (4.25,2.55) -- (4.25,1.05);
+  \draw (4.25,1.80) -- (5.20,1.80);
+  \draw (5.20,1.55) rectangle (6.40,2.05);
+  \node[above] at (5.80,2.05) {$R_n$};
+  \draw (6.40,1.80) -- (7.00,1.80);
+  \fill (7.20,1.80) circle (1.5pt);
+  \node[right] at (7.25,1.80) {②};
+\end{tikzpicture}

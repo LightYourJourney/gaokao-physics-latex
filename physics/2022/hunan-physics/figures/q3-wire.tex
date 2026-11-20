@@ -1,0 +1,43 @@
+% 第 3 题：悬挂直导线在径向磁场中（甲：正视图；乙：截面图）
+\begin{tikzpicture}[font=\small, >=Stealth]
+  % ---------- 甲 ----------
+  \begin{scope}
+    \draw[thick] (0,3) -- (5,3);
+    \fill (0,3) circle (1.5pt) node[left] {$O$};
+    \fill (5,3) circle (1.5pt) node[right] {$O'$};
+    \coordinate (V) at (0,0.7);
+    \coordinate (Otop) at (0,3);
+    \coordinate (M) at (0.8,0.7);
+    \coordinate (N) at (5.8,0.7);
+    \draw (0,3) -- (M);
+    \draw (5,3) -- (N);
+    \draw[line width=2.4pt] (M) -- (N);
+    \node[below left] at (M) {$M$};
+    \node[below right] at (N) {$N$};
+    \draw[dashed] (0,3) -- (V);
+    \pic[draw, angle radius=0.55cm, angle eccentricity=1.5, "$\theta$"]
+        {angle = M--Otop--V};
+    \draw[->, thick] (1.7,1.1) -- (1.0,2.1) node[above left] {$B$};
+    \draw[->, thick] (3.9,1.1) -- (4.6,2.1) node[above right] {$B$};
+    \node at (2.5,-0.35) {甲};
+  \end{scope}
+  % ---------- 乙 ----------
+  \begin{scope}[xshift=8.2cm]
+    \fill (0,0) circle (0.13) node[above] {$O(O')$};
+    \coordinate (Oc) at (0,0);
+    \coordinate (Vb) at (0,-2.2);
+    \coordinate (L) at (-1.45,-1.9);
+    \coordinate (R) at (1.45,-1.9);
+    \draw[dashed] (Oc) -- (Vb);
+    \draw (Oc) -- (L);
+    \draw (Oc) -- (R);
+    \fill (L) circle (2.4pt) node[below] {左};
+    \fill (R) circle (2.4pt) node[below] {右};
+    \draw[->, thick] (-1.05,-1.35) -- (-0.32,-0.45);
+    \draw[->, thick] (1.05,-1.35) -- (0.32,-0.45);
+    \node[left] at (-0.85,-1.05) {$B$};
+    \pic[draw, angle radius=0.6cm, angle eccentricity=1.6, "$\theta$"]
+        {angle = Vb--Oc--R};
+    \node at (0,-2.65) {乙};
+  \end{scope}
+\end{tikzpicture}

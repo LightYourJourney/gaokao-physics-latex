@@ -1,0 +1,22 @@
+% 第 3 题解析：导线受力的矢量三角形（TikZ 线稿）
+% F_安 与 F_T 垂直，G 为斜边；θ 为悬线与竖直方向夹角
+\begin{tikzpicture}[font=\small, >=Stealth, scale=1.0]
+  \coordinate (O) at (0,0);
+  \coordinate (G) at (0,-2.6);
+  \coordinate (T) at (-1.95,1.75);
+  \coordinate (A) at (1.55,1.25);
+  % 重力
+  \draw[->, very thick] (O) -- (G) node[below] {$G$};
+  % 拉力
+  \draw[->, very thick] (O) -- (T) node[left] {$F_T$};
+  % 安培力（垂直于 F_T）
+  \draw[->, very thick] (O) -- (A) node[right] {$F_{\text{安}}$};
+  % 虚线补成平行四边形
+  \draw[dashed] (T) -- ($(T)+(A)$);
+  \draw[dashed] (A) -- ($(T)+(A)$);
+  % θ
+  \coordinate (V) at (0,1.6);
+  \draw[dashed] (O) -- (V);
+  \pic[draw, angle radius=0.55cm, angle eccentricity=1.55, "$\theta$"]
+      {angle = V--O--T};
+\end{tikzpicture}

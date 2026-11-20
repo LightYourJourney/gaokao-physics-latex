@@ -8,18 +8,22 @@ subject_form: 物理独立卷
 source_path: ../../../2021/2021_物理真题_含解析.md
 source_pages: N/A（Word 版转 Markdown）
 source_hash: N/A
-question_count: 15
+question_count: 16
 has_official_answer: true
 has_official_solution: true
 solution_type: source_embedded   # 解析来自源文档内嵌解析（来源站 Word 版）
 status: complete
 notes: >
   结构：单选 6×4 + 多选 4×5 + 实验 2（11 为 6 分、12 为 9 分）+ 必考计算 2
-  （13 为 13 分、14 为 15 分）+ 选考 1（15 为选修 3-3，13 分），满分 100，限时 75 分钟。
-  官方卷第 15、16 题为选考题（3-3/3-4 二选一）；本工程按题量 15 转录第 1--15 题，
-  第 16 题（选修 3-4）未转录，如需全量可后续补充并将 question_count 改为 16。
+  （13 为 13 分、14 为 15 分）+ 选考 2（15 为选修 3-3、16 为选修 3-4，各 13 分；
+  正式作答二选一），满分 100，限时 75 分钟。
+  官方卷第 15、16 题为选考题（3-3/3-4 二选一）；本工程第 15、16 两题均收录，
+  题量 16（供按选修模块分别取用；正式作答时二选一）。
   图策略：image1-2,4,6-8,10-11,14,17-18,20-21,24,31-32 重绘为 TikZ/circuitikz/pgfplots；
   image12（气垫导轨装置）、image13（游标卡尺读数）、image16（电路接线）、
   image22-23（第 13 题解析磁场区域图，细节无法从文字推断）为非矢量例外，保留原图。
+  第 16 题：image33（波面图）、image34（振动图像）、image35（小孔成像装置）、
+  image36-37（解析光路）全部重绘为矢量图（q16-wave/q16-zt/q16-hole/s16-path1/s16-path2）；
+  image35 原为三维房屋线稿，按题干重绘为二维剖面示意。
   解析插图 image3,5,9,15,25-30 中：image3/5/15 重绘入解析，image9/25-30 因题面
   无法推断形状且不影响解析完整性而省略。

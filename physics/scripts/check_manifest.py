@@ -30,10 +30,11 @@ def main() -> int:
     print(f"manifest 共 {len(rows)} 行\n")
     problems = []
     for r in rows:
-        # paper_id 形如 2026-hunan → 目录 2026/hunan-physics 需单独映射
+        # paper_id 形如 2026-hunan / 2020-national-i → 目录 年份/短名-physics
         year = r["year"]
-        # 目录名约定：年份/短名（从 paper_id 第二段取）
-        pdir = ROOT / year / f"{r['paper_id'].split('-')[1]}-physics"
+        # 目录名约定：去掉「年份-」前缀后整体作为短名（短名自身可含连字符）
+        short = r["paper_id"][len(year) + 1:]
+        pdir = ROOT / year / f"{short}-physics"
         status = r["status"]
         if status in ("missing-source", "pending", "needs-review"):
             continue  # 无来源/待发布/暂停批次，本就无目录

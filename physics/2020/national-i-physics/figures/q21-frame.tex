@@ -1,0 +1,26 @@
+% 第 21 题：U 形金属框 abcd 与导体棒 MN（TikZ 线稿）
+% 框的 ab、bc、dc 边构成 U 形（ad 边开口），MN 垂直 ab 放置；恒力 F 向右拉框。
+\begin{tikzpicture}[font=\small, >=Stealth]
+  \def\w{5.4}
+  \def\h{1.7}
+  % U 形框：ab（上）、bc（右）、cd（下）
+  \draw[thick] (0,\h) -- (\w,\h) -- (\w,0) -- (0,0);
+  % 导体棒 MN
+  \draw[thick] (2.3,\h) -- (2.3,0);
+  % 恒力 F
+  \draw[->, thick] (\w+0.15,0.85) -- (\w+1.15,0.85) node[right] {$F$};
+  % 磁场（垂直纸面向里）
+  \foreach \x in {0.35,0.78,...,5.15} {
+    \foreach \y in {0.22,0.65,1.08,1.51} {
+      \node[font=\scriptsize] at (\x,\y) {$\times$};
+    }
+  }
+  % 标注
+  \node[above left] at (0,\h) {$a$};
+  \node[above right] at (\w,\h) {$b$};
+  \node[below right] at (\w,0) {$c$};
+  \node[below left] at (0,0) {$d$};
+  \node[above] at (2.3,\h) {$M$};
+  \node[below] at (2.3,0) {$N$};
+  \node[font=\scriptsize] at (2.7,-0.72) {磁场垂直纸面向里};
+\end{tikzpicture}

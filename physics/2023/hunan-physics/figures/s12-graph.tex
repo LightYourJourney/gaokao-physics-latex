@@ -1,0 +1,27 @@
+% 第 12 题（3）解析：U-m 图线（pgfplots 重绘）
+% 六组数据描点，图线为过原点的直线，斜率约 112 mV/g
+\begin{tikzpicture}
+  \begin{axis}[
+      width=9.4cm, height=7.6cm,
+      axis lines=middle,
+      xlabel={$m$/g}, ylabel={$U$/mV},
+      xmin=0, xmax=3.15, ymin=0, ymax=315,
+      xtick={0,0.5,1,1.5,2,2.5,3},
+      xticklabels={0,0.5,1.0,1.5,2.0,2.5,3.0},
+      ytick={0,50,100,150,200,250,300},
+      minor tick num=4,
+      grid=both,
+      major grid style={line width=0.4pt, draw=black!55},
+      minor grid style={line width=0.2pt, draw=black!25},
+      tick label style={font=\scriptsize},
+      xlabel style={anchor=west}, ylabel style={anchor=south},
+      axis line style={-Stealth},
+      enlargelimits=false, clip=false]
+    \addplot[only marks, mark=*, mark size=1.8pt] coordinates {
+      (0,0) (0.5,57) (1.0,115) (1.5,168) (2.0,220) (2.5,280)};
+    \addplot[thick, domain=0:2.78, samples=2] {112*x};
+    % 200 mV 对应的质量
+    \draw[dashed] (axis cs:0,200) -- (axis cs:1.79,200) -- (axis cs:1.79,0);
+    \node[below, font=\scriptsize] at (axis cs:1.79,0) {1.79};
+  \end{axis}
+\end{tikzpicture}

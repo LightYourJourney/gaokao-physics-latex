@@ -1,0 +1,31 @@
+% 第 22 题图乙：两条 U-I 图线（pgfplots，细网格坐标纸）
+% 图线Ⅰ（电流表内接，跨接 O、Q）：R_x+R_A=50.5 Ω；图线Ⅱ（外接，跨接 O、P）：约 47.6 Ω
+\begin{tikzpicture}
+  \begin{axis}[
+      width=10.0cm, height=8.0cm,
+      axis lines=left,
+      axis line style={-Stealth},
+      clip=false,
+      xmin=10, xmax=80, ymin=0.5, ymax=3.5,
+      xtick={10,20,30,40,50,60,70,80},
+      ytick={0.5,1.0,1.5,2.0,2.5,3.0,3.5},
+      xticklabels={10.0,20.0,30.0,40.0,50.0,60.0,70.0,80.0},
+      yticklabels={0.50,1.00,1.50,2.00,2.50,3.00,3.50},
+      minor x tick num=9, minor y tick num=9,
+      grid=both,
+      major grid style={line width=0.45pt, draw=gray!65},
+      minor grid style={line width=0.18pt, draw=gray!35},
+      xlabel={$I$/mA}, ylabel={$U$/V},
+      xlabel style={at={(axis description cs:1.08,0)}, anchor=west},
+      ylabel style={anchor=south},
+      tick label style={font=\small}, label style={font=\small},
+      font=\small]
+    % 图线Ⅰ：U = 0.0505 I（I 以 mA 计）
+    \addplot[very thick, domain=17:71, samples=2] {0.0505*x};
+    % 图线Ⅱ：U = 0.0476 I
+    \addplot[very thick, domain=17:71, samples=2] {0.0476*x};
+    \node at (axis cs:63,3.36) {Ⅰ};
+    \node at (axis cs:68.5,3.02) {Ⅱ};
+    \node at (rel axis cs:0.5,-0.20) {乙};
+  \end{axis}
+\end{tikzpicture}

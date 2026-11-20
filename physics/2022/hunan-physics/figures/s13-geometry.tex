@@ -1,0 +1,28 @@
+% 第 13 题(2)解析：粒子在极板间做圆周运动的几何关系
+% 圆心在 A 点正上方，半径 R = 2d；出射点在上板右边缘
+\begin{tikzpicture}[font=\small, >=Stealth, scale=1.0]
+  % 极板（板长 √3 d，出射点恰在上板右边缘）
+  \draw[line width=1.5pt] (0,0) -- (2.598,0);
+  \draw[line width=1.5pt] (0,1.5) -- (2.598,1.5);
+  % 圆心与半径
+  \coordinate (O) at (0,3.0);
+  \coordinate (A) at (0,0);
+  \coordinate (B) at (2.598,1.5);
+  \draw[dashed] (O) -- (A) node[midway, left] {$R$};
+  \draw[dashed] (O) -- (B) node[midway, above right] {$R$};
+  \fill (O) circle (1.8pt) node[above] {$O$};
+  % 圆弧轨迹
+  \draw[thick] (0,0) arc[start angle=-90, end angle=-30, radius=3.0];
+  % A 点与速度
+  \fill (A) circle (2pt) node[below left] {$A$};
+  \draw[->, thick] (0,0.18) -- (0.9,0.18) node[midway, above] {$v$};
+  % 出射点与速度
+  \draw[->, thick] (2.598,1.5) -- ++(60:0.9) node[above right] {$v$};
+  % d 与 √3d
+  \draw[<->] (0.35,0) -- (0.35,1.5) node[midway, left] {$d$};
+  \draw[<->] (0,-0.35) -- (2.598,-0.35) node[midway, below] {$\sqrt{3}d$};
+  % 几何辅助线
+  \draw[dashed] (0,1.5) -- (2.598,1.5);
+  \draw[dashed] (B) -- (2.598,3.0);
+  \node[right] at (2.65,2.3) {$R-d$};
+\end{tikzpicture}

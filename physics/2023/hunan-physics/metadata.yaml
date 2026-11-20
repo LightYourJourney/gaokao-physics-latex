@@ -1,0 +1,55 @@
+# 试卷元数据 —— 2023 年湖南卷物理
+paper_id: 2023-hunan
+year: 2023
+region: 湖南
+paper_name: 2023 年普通高等学校招生全国统一考试物理（湖南卷）
+paper_type: 自主命题
+subject_form: 物理独立卷
+source_path: ../../../2023/2023_物理真题_含解析.md
+source_pages: N/A（Word 版转 Markdown）
+source_hash: N/A
+question_count: 15
+has_official_answer: true
+has_official_solution: true
+solution_type: source_embedded   # 解析来自源文档内嵌解析（来源站 Word 版），已独立复核
+status: complete
+notes: >
+  结构：单选 6×4 分 + 多选 4×5 分 + 非选择题 11（7 分）/12（9 分）/13（10 分）/14（14 分）/15（16 分），
+  满分 100 分、限时 75 分钟。2023 年起湖南卷不再设选考模块，15 题即全卷，未自行添加选考题。
+
+  图策略：源目录 31 张图逐张目视核对后，29 张重绘为 figures/ 下 23 个矢量图文件
+  （s6-cases 为甲—戊五联图，s7-rays 与 s12-loading 各为二联图）。重绘对应关系：image1→q2-sowing；
+  image2→q2-trajectory；image3/4→q3-setup、q3-graph；image5→q5-charges；
+  image6→q6-regions，image7–11→s6-cases（甲—戊五种轨迹）；image12→q7-scene；image13/14→s7-rays；
+  image15→q8-track；image17→q9-generator（原 3D 插画改为平面示意）；image18→q10-cart；
+  image19/20→q11-setup、q11-bt；image21/23/24→q12-bridge、q12-grid、s12-graph；
+  image25/26→s12-loading；image27→q13-booster；image28→q14-rails；image29/30/31→q15-groove、
+  s15-coords、s15-circle。所有坐标图、电路、受力、光路、装置线稿与轨迹均为 TikZ/circuitikz/pgfplots 矢量图。
+  image1（手抛撒谷粒人物情景）重绘为 figures/q2-sowing.tex 简笔示意；
+  image12（潜水员与岸上救援人员情景）重绘为 figures/q7-scene.tex 简笔示意，
+  题目所需的折射光路与角度另见 s7-rays。
+
+  非矢量例外 1 张：image22（欧姆表表盘，仪器刻度盘）。仪器刻度盘含真实刻度与指针形态，
+  无法在不失真的前提下矢量化为线稿，复制到 photos/ 并用 \gkphoto 插入，
+  图注注明「原图保留，非矢量例外」。
+
+  省略 1 张：image16 为 image15 中 B 处小球的局部放大裁切，与主图重复，未单独收录。
+
+  源图与重绘的记号差异：第 6 题源解析图中，轨迹圆心与题干中的 GF 中点同标为 O；重绘图把题干的
+  O 保留为 GF 中点，解析图的轨迹圆心改标 O′，以免歧义。
+
+  解析修正记录（结论均与源答案一致，未改答案）：
+  1) 第 3 题 D 项：源解析称 t=6 s 时 D 处质点与平衡位置相距 4 cm，实为 −2+2+2=+2 cm；
+     选项 D（6 cm）仍错误，结论不变，解析按 2 cm 重写。
+  2) 第 4 题 D 项：源解析逃逸速度表达式在转换中残缺（根号内混排），重写为 v逃∝M^{1/3}ρ^{1/6}，结论不变。
+  3) 第 5 题：源解析以「Q1、Q3 在 P 点场强大小相等」排除 C 项，理由不成立（r1=h 与 r3=2h 不等距）；
+     改为代入 x 分量式 3Q2+√3Q3=0 检验，结论 D 不变。
+  4) 第 12(5) 题：源解析的电流不等式推导跳步且方向表述含混，改用戴维南等效论证
+     （毫伏表内阻有限使 C、D 间电压小于开路电压），结论 F1>F0 不变。
+  5) 第 11 题图乙：源栅格图周期数在低分辨率下难以辨认，按源文「0~t0 内 10 个完整波形」
+     及其答案解析重绘为 10 个周期，答案 T=t0/10 与源一致。
+  6) 第 15(2) 题：源解析的 x1′、x2′ 记号与位移关系表述跳跃，按动量守恒与椭圆约束重写推导，
+     结果与源一致。
+
+  复核范围：全部 15 题的符号、方向、量纲与有效数字；计算题的代入、单位与最终结论均逐步写出，
+  选择题给出判断依据。

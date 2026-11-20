@@ -1,0 +1,45 @@
+% 第 6 题：区域Ⅰ（正交电磁场）与区域Ⅱ（等腰直角三角形 CGF，只有磁场）
+% A、C、O 共线且 AO 垂直 GF；区域Ⅰ中 E 竖直向下、B1 垂直纸面向里；
+% 区域Ⅱ中 B2 垂直纸面向外（以 · 表示）
+\begin{tikzpicture}[font=\small, >=Stealth]
+  % 区域Ⅰ的矩形边界
+  \draw[thick] (-3.6,-1.2) rectangle (0,1.2);
+  % 右侧隔离壁（C 处留出小孔）
+  \draw[very thick] (0,-1.2) -- (0,-0.12);
+  \draw[very thick] (0,0.12) -- (0,1.2);
+  % 电场方向（竖直向下）
+  \foreach \x in {-3.0,-2.1,-1.2} {
+    \draw[->] (\x,0.85) -- (\x,-0.85);}
+  \node at (-2.25,-0.55) {$E$};
+  % 磁场 B1（垂直纸面向里）
+  \foreach \p in {(-3.3,0.55),(-3.3,-0.25),(-2.55,0.55),(-2.55,-0.25),(-1.65,0.55),(-1.65,-0.25),(-0.75,0.55),(-0.75,-0.25)} {
+    \node at \p {$\times$};}
+  \node at (-1.35,0.35) {$B_1$};
+  % 入射粒子与 A 点
+  \fill (-4.35,0) circle (1.6pt) node[left]{$A$};
+  \draw[->, thick] (-4.2,0) -- (-3.62,0);
+  % 粒子沿直线 AC 通过
+  \draw[dashed] (-4.2,0) -- (0,0);
+  \node[above left] at (0,0.12) {$C$};
+  % 区域Ⅱ：等腰直角三角形 CGF
+  \coordinate (C) at (0,0);
+  \coordinate (G) at (2.5,2.5);
+  \coordinate (F) at (2.5,-2.5);
+  \coordinate (O) at (2.5,0);
+  \draw[dashed] (C) -- (G) -- (F) -- (C);
+  % 区域Ⅱ的磁场（垂直纸面向外）
+  \foreach \p in {(0.55,0.45),(0.55,-0.55),(1.1,1.0),(1.1,0.15),(1.1,-0.8),(1.65,0.45),(1.65,-0.35),(2.05,1.15),(2.05,0.25),(2.05,-0.95),(2.05,-1.65)} {
+    \fill \p circle (1.5pt);}
+  \node at (1.65,-1.25) {$B_2$};
+  \node at (1.0,0.05) {Ⅱ};
+  \node at (-2.4,0.95) {Ⅰ};
+  % 45° 与直角标记
+  \pic[draw, angle radius=0.42cm, angle eccentricity=1.65, "$45^{\circ}$"]
+      {angle = C--G--F};
+  \pic[draw, angle radius=0.42cm, angle eccentricity=1.65, "$45^{\circ}$"]
+      {angle = G--F--C};
+  \node[above right] at (G) {$G$};
+  \node[below right] at (F) {$F$};
+  \draw (2.5,0.2) -- (2.3,0.2) -- (2.3,0);
+  \fill (O) circle (1.6pt) node[right]{$O$};
+\end{tikzpicture}

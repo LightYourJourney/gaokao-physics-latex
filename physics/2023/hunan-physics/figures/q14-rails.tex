@@ -1,0 +1,22 @@
+% 第 14 题：倾斜导轨与金属棒 a、b（TikZ 斜二测重绘）
+% 导轨平面与水平面成 θ；B 垂直于导轨平面斜向上
+\begin{tikzpicture}[font=\small, >=Stealth]
+  \coordinate (TH)  at (4.3,1.505);
+  \coordinate (THH) at (5.4,1.505);
+  \coordinate (THR) at (5.45,1.9075);
+  % 两条导轨
+  \draw[thick] (-0.3,-0.1) -- (5.5,1.93);
+  \draw[thick] (-0.3,1.2) -- (5.5,3.23);
+  % 金属棒 a（下方）、b（上方）
+  \draw[very thick] (1.0,0.35) -- (1.885,1.96);
+  \draw[very thick] (2.5,0.875) -- (3.385,2.485);
+  \node[above left] at (1.02,0.4) {a};
+  \node[above left] at (2.52,0.93) {b};
+  % 磁感应强度
+  \draw[->, thick] (4.0,1.55) -- (4.45,2.75);
+  \node[right] at (4.47,2.7) {$B$};
+  % 倾角 θ
+  \draw[dashed] (TH) -- (THH);
+  \pic[draw, angle radius=0.55cm] {angle = THH--TH--THR};
+  \node at (4.72,1.32) {$\theta$};
+\end{tikzpicture}

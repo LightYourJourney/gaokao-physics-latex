@@ -1,0 +1,23 @@
+% 第 11 题丙：刻度尺读数（放大示意）
+% 上格示出 0 刻度线，下格示出 15~16 cm 之间的读数 15.35 cm
+\begin{tikzpicture}[font=\small]
+  % 上格：0~1 cm
+  \draw (0,2.6) rectangle (4.4,3.6);
+  \foreach \i in {0,...,10}{
+    \draw ({0.2+0.4*\i},2.6) -- ({0.2+0.4*\i},2.9);
+  }
+  \node[above, font=\scriptsize] at (0.2,3.6) {0};
+  \node[above, font=\scriptsize] at (4.2,3.6) {1};
+  \node[above] at (2.2,3.6) {cm};
+  % 下格：15~16 cm
+  \draw (0,0.4) rectangle (4.4,1.4);
+  \foreach \i in {0,...,10}{
+    \draw ({0.2+0.4*\i},0.4) -- ({0.2+0.4*\i},0.7);
+  }
+  \node[above, font=\scriptsize] at (0.2,1.4) {15};
+  \node[above, font=\scriptsize] at (4.2,1.4) {16};
+  % 读数位置 15.35 cm
+  \draw[->, thick] ({0.2+0.35*4.0},0.4) -- ({0.2+0.35*4.0},-0.15);
+  \node[below] at ({0.2+0.35*4.0},-0.15) {15.35~cm};
+  \node at (2.2,-0.75) {图丙（放大示意）};
+\end{tikzpicture}

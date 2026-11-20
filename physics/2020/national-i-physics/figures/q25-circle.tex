@@ -1,0 +1,16 @@
+% 第 25 题：圆柱形电场区域的横截面（TikZ 线稿）
+% 圆以 O 为圆心、半径 R；AB 为直径；C 在圆周上，AC 与 AB 夹角 θ=60°
+\begin{tikzpicture}[font=\small, >=Stealth]
+  \def\R{2.3}
+  \draw[dashed] (0,0) circle (\R);
+  \draw[dashed] (-\R,0) -- (\R,0);
+  \fill (0,0) circle (1.5pt) node[above] {$O$};
+  \fill (-\R,0) circle (1.5pt) node[left] {$A$};
+  \fill (\R,0) circle (1.5pt) node[right] {$B$};
+  \coordinate (C) at (-\R/2,{-\R*sqrt(3)/2});
+  \fill (C) circle (1.5pt) node[below left] {$C$};
+  \draw[thick, ->] (-\R,0) -- (C);
+  % θ 角
+  \draw (-\R+0.65,0) arc[start angle=0, end angle=-60, radius=0.65];
+  \node at (-\R+0.92,-0.40) {$\theta$};
+\end{tikzpicture}

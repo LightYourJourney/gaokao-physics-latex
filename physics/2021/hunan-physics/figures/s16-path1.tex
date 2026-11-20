@@ -1,0 +1,22 @@
+% 第 16 题(2)(i) 解析：恰好成完整像时的边缘光线光路
+\begin{tikzpicture}[font=\small, >=Stealth, scale=0.95]
+  % 孔洞剖面（水平方向为深度，竖直方向为直径）
+  \draw[thick] (0,0) rectangle (4.2,-3.0);
+  \coordinate (O) at (0,0);
+  \coordinate (L) at (-2.4,0);
+  \coordinate (H) at (2.0,0);
+  \coordinate (I) at (-2.2,1.65);
+  \coordinate (R) at (4.2,-3.0);
+  % 入射光线与法线（虚线）
+  \draw[dashed] (L) -- (O);
+  \draw[->,thick] (I) -- (O);
+  % 折射光线
+  \draw[->,thick] (O) -- (R);
+  % 角度
+  \pic[draw, angle radius=0.55cm, angle eccentricity=1.55, "$\,\theta$"]
+      {angle = I--O--L};
+  \pic[draw, angle radius=0.55cm, angle eccentricity=1.55, "$\,\alpha$"]
+      {angle = R--O--H};
+  \node[below,font=\scriptsize] at (2.1,-3.15) {孔洞深度};
+  \node[right,font=\scriptsize] at (4.3,-1.5) {直径};
+\end{tikzpicture}

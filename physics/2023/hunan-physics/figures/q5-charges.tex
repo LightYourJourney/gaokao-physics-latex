@@ -1,0 +1,26 @@
+% 第 5 题：三个点电荷与 P 点的几何关系（TikZ 重绘）
+% PQ1 垂直电荷连线（90°）；PQ2、PQ3 与连线夹角分别为 60°、30°
+\begin{tikzpicture}[font=\small, >=Stealth]
+  \coordinate (Q1) at (0,0);
+  \coordinate (Q2) at (1.270,0);
+  \coordinate (Q3) at (3.810,0);
+  \coordinate (P) at (0,2.2);
+  % 电荷连线
+  \draw (-0.6,0) -- (4.5,0);
+  % P 到三个电荷的连线
+  \draw[dashed] (0,0) -- (0,2.2);
+  \draw[dashed] (1.270,0) -- (0,2.2);
+  \draw[dashed] (3.810,0) -- (0,2.2);
+  % 点电荷与 P
+  \fill (0,0) circle (1.6pt) node[below left]{$Q_1$};
+  \fill (1.270,0) circle (1.6pt) node[below]{$Q_2$};
+  \fill (3.810,0) circle (1.6pt) node[below right]{$Q_3$};
+  \fill (0,2.2) circle (1.6pt) node[above]{$P$};
+  % Q1 处直角
+  \draw (0.2,0) -- (0.2,0.2) -- (0,0.2);
+  % 60° 与 30°
+  \pic[draw, angle radius=0.55cm, angle eccentricity=1.9, "$60^{\circ}$"]
+      {angle = P--Q2--Q1};
+  \pic[draw, angle radius=0.55cm, angle eccentricity=1.9, "$30^{\circ}$"]
+      {angle = P--Q3--Q1};
+\end{tikzpicture}

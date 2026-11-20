@@ -2,7 +2,7 @@
 
 面向 **2027 届湖南考生（物化生）** 的备考资料库。每个年份目录入库的是 `.md`（含解析，GitHub/Obsidian 阅读），插图在各年份的 `images/` 子目录；
 `.pdf`、`.docx`、`.html` 等原始格式由使用者自行获取，不入库（见第五节）。
-`physics/` 是另一部分：把其中 4 套卷重排成可单独编译的 LaTeX 工程，见 [physics/README.md](physics/README.md)。
+`physics/` 是另一部分：把其中 7 套卷（2020 全国Ⅰ卷物理部分与 2021–2026 湖南卷）重排成可单独编译的 LaTeX 工程，见 [physics/README.md](physics/README.md)。
 
 ---
 

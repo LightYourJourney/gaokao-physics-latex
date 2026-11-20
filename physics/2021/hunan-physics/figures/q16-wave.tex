@@ -1,0 +1,24 @@
+% 第 16 题(1) 甲：t=0 时刻的波面分布（实线波峰 r=10 m，虚线波谷 r=5 m）
+\begin{tikzpicture}[font=\small, >=Stealth, x=1cm, y=0.55cm]
+  \draw[->] (-0.6,0) -- (11.8,0) node[right] {$x/\mathrm{m}$};
+  \draw[->] (0,-0.6) -- (0,21.8) node[above] {$y/\mathrm{m}$};
+  \foreach \t in {5,10} {
+    \draw (\t,0.08) -- (\t,-0.08) node[below,font=\scriptsize] {\t};
+  }
+  \foreach \t in {5,10,15,20} {
+    \draw (0.08,\t) -- (-0.08,\t) node[left,font=\scriptsize] {\t};
+  }
+  \node[below left] at (0,0) {$O$};
+  % 波面：实线表示波峰，虚线表示相邻波谷
+  \draw[thick] (10,0) arc[start angle=0, end angle=90, radius=10];
+  \draw[thick,dashed] (5,0) arc[start angle=0, end angle=90, radius=5];
+  % 辅助虚线
+  \draw[dashed] (0,20) -- (10,20) -- (10,0);
+  \draw[dashed] (0,10) -- (10,10);
+  % 标注点
+  \fill (0,10) circle (1.6pt) node[right=3pt,fill=white,inner sep=1pt] {$A$};
+  \fill (0,20) circle (1.6pt) node[right=3pt,fill=white,inner sep=1pt] {$B$};
+  \fill (10,20) circle (1.6pt) node[above right,fill=white,inner sep=1pt] {$C$};
+  \fill (10,10) circle (1.6pt) node[above right,fill=white,inner sep=1pt] {$D$};
+  \fill (10,0) circle (1.6pt) node[above right,fill=white,inner sep=1pt] {$E$};
+\end{tikzpicture}

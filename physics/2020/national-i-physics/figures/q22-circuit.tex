@@ -1,0 +1,9 @@
+% 第 22 题图甲：伏安法测电阻电路（O--Rx--P--电流表--Q）
+% 电压表可跨接在 O、P 或 O、Q 两点之间（图中未画出电压表）
+\begin{tikzpicture}[font=\small]
+  \draw (-0.6,0) -- (0,0) node[circ, label=below:$O$] {}
+        to[R, l=$R_x$] (2.9,0) node[circ, label=below:$P$] {}
+        to[ammeter] (4.8,0) node[circ, label=below:$Q$] {};
+  \draw (4.8,0) -- (5.4,0);
+  \node at (2.4,-1.15) {甲};
+\end{tikzpicture}

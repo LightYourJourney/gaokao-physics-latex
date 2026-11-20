@@ -1,0 +1,40 @@
+% 第 16 题(2)：小孔成像装置（按题干重绘的二维剖面示意，非原图）
+\begin{tikzpicture}[font=\small, >=Stealth, scale=0.95]
+  % 地面
+  \draw[thick] (0,0) -- (10,0);
+  % 墙（双线表示厚度，孔洞处留缺口）
+  \fill[gray!12] (4.6,0) rectangle (5.1,3.2);
+  \draw[thick] (4.6,0) -- (4.6,3.2);
+  \draw[thick] (5.1,0) -- (5.1,3.2);
+  % 孔洞（尺寸放大示意）
+  \fill[white] (4.55,1.55) rectangle (5.15,1.65);
+  \draw[thick] (4.55,1.65) -- (5.15,1.65);
+  \draw[thick] (4.55,1.55) -- (5.15,1.55);
+  \node[above,font=\scriptsize] at (5.0,1.75) {孔洞};
+  % 人（简化线稿，身高 1.6 m）
+  \draw[thick] (1.4,0) -- (1.4,1.2);
+  \fill (1.4,1.38) circle (0.17);
+  \draw[thick] (1.4,1.2) -- (1.1,0.7);
+  \draw[thick] (1.4,1.2) -- (1.7,0.7);
+  \draw[thick] (1.4,0.9) -- (1.05,1.05);
+  \draw[thick] (1.4,0.9) -- (1.75,1.05);
+  \draw[thick] (1.4,0.7) -- (1.25,0);
+  \draw[thick] (1.4,0.7) -- (1.55,0);
+  % 光线：头顶射向孔洞、到达像的下端；脚底射向孔洞、到达像的上端
+  \draw[->,dashed] (1.4,1.55) -- (4.7,1.62);
+  \draw[->,dashed] (4.7,1.62) -- (7.4,0.25);
+  \draw[->,dashed] (1.4,0.02) -- (4.9,1.58);
+  \draw[->,dashed] (4.9,1.58) -- (7.4,2.75);
+  % 倒立的像（简化人形）
+  \draw[thick] (7.45,0.25) -- (7.45,2.75);
+  \draw[thick] (7.45,2.75) -- (7.2,2.25);
+  \draw[thick] (7.45,2.75) -- (7.7,2.25);
+  \draw[thick] (7.45,2.45) -- (7.15,2.3);
+  \draw[thick] (7.45,2.45) -- (7.75,2.3);
+  \fill (7.45,2.95) circle (0.15);
+  \node[above,font=\scriptsize] at (7.45,3.15) {倒立的像};
+  % 尺寸标注
+  \draw[<->] (0.8,0) -- (0.8,1.55) node[midway,left,font=\scriptsize] {$1.6\,\mathrm{m}$};
+  \draw[<->] (1.4,3.0) -- (4.6,3.0) node[midway,above,font=\scriptsize] {$0.6\,\mathrm{m}$};
+  \node[below,font=\scriptsize] at (5.0,-0.08) {墙};
+\end{tikzpicture}

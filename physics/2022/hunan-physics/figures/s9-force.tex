@@ -1,0 +1,13 @@
+% 第 9 题解析：飞行器匀速水平飞行时的受力分析（TikZ 线稿）
+% 重力 mg 向下，阻力 kv3^2 与运动方向相反（向左），推力 F 与二者合力等大反向
+\begin{tikzpicture}[font=\small, >=Stealth, scale=1.0]
+  \coordinate (P) at (0,0);
+  \coordinate (L) at (-2.2,0);
+  \coordinate (D) at (0,-2.0);
+  \coordinate (F) at (2.4,2.2);
+  \draw[->, very thick] (P) -- (L) node[left] {$kv_3^{2}$};
+  \draw[->, very thick] (P) -- (D) node[below right] {$mg$};
+  \draw[->, very thick] (P) -- (F) node[right] {$F$};
+  \draw[dashed] (L) -- ($(L)+(F)$);
+  \draw[dashed] (D) -- ($(L)+(F)$);
+\end{tikzpicture}

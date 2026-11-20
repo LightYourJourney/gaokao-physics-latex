@@ -1,0 +1,30 @@
+% 第 25(2) 题解析：最大动能增量的几何关系（TikZ 线稿）
+% D 为与 BC 平行的直线与圆的切点，P 为该切线与 AC 延长线的交点。
+% 几何关系：AP=3R/2，DP=√3R/2，∠PAD=30°。
+\begin{tikzpicture}[font=\small, >=Stealth]
+  \def\R{2.0}
+  \coordinate (O) at (0,0);
+  \coordinate (A) at (-\R,0);
+  \coordinate (B) at (\R,0);
+  \coordinate (C) at ({-0.5*\R},{-0.866025*\R});
+  \coordinate (D) at ({0.5*\R},{-0.866025*\R});
+  \coordinate (P) at ({-0.25*\R},{-1.299038*\R});
+  % 圆与直径
+  \draw[dashed] (O) circle (\R);
+  \draw[dashed] (A) -- (B);
+  % 几何线
+  \draw[thick] (A) -- (P);       % AC 的延长线
+  \draw[thick] (D) -- (P);       % 切线 DP ∥ BC
+  \draw[dashed] (B) -- (C);      % BC
+  \draw[thick] (A) -- (D);       % AD
+  % 标注
+  \fill (O) circle (1.3pt) node[above] {$O$};
+  \fill (A) circle (1.3pt) node[left] {$A$};
+  \fill (B) circle (1.3pt) node[right] {$B$};
+  \fill (C) circle (1.3pt) node[left] {$C$};
+  \fill (D) circle (1.3pt) node[right] {$D$};
+  \fill (P) circle (1.3pt) node[below] {$P$};
+  % θ=60°
+  \draw (A) ++(0:0.62) arc[start angle=0, end angle=-60, radius=0.62];
+  \node[font=\scriptsize] at (-\R+0.95,-0.40) {$\theta$};
+\end{tikzpicture}

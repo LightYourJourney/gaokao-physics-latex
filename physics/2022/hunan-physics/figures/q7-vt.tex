@@ -1,0 +1,24 @@
+% 第 7 题：返回舱减速过程的 v-t 图像（pgfplots）
+% 0~t1 速度减小且斜率绝对值减小；t1 后再次减速；t2~t3 匀速
+\begin{tikzpicture}
+  \begin{axis}[
+      width=8cm, height=5.4cm,
+      axis lines=middle,
+      xlabel={$t$}, ylabel={$v$},
+      xmin=0, xmax=6.4, ymin=0, ymax=5.6,
+      xtick={2,4,5.3}, xticklabels={$t_1$,$t_2$,$t_3$},
+      ytick={1,2.4,4.6}, yticklabels={$v_3$,$v_2$,$v_1$},
+      xlabel style={anchor=west}, ylabel style={anchor=south},
+      font=\small]
+    \addplot[thick] coordinates
+      {(0,4.6) (0.30,4.25) (0.65,3.80) (1.05,3.30) (1.45,2.90) (1.80,2.62) (2,2.40)};
+    \addplot[thick] coordinates
+      {(2,2.40) (2.10,2.18) (2.35,2.00) (2.70,1.78) (3.10,1.52) (3.55,1.20) (4,1.00)};
+    \addplot[thick] coordinates {(4,1.00) (5.30,1.00)};
+    \draw[dashed] (2,2.40) -- (2,0);
+    \draw[dashed] (4,1.00) -- (4,0);
+    \draw[dashed] (0,2.40) -- (2,2.40);
+    \draw[dashed] (0,4.60) -- (0,4.60);
+    \node[below left, font=\scriptsize] at (axis cs:0,4.6) {$O$};
+  \end{axis}
+\end{tikzpicture}

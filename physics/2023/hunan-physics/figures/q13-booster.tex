@@ -1,0 +1,43 @@
+% 第 13 题：刹车助力装置示意图（TikZ 重绘）
+% 左侧助力气室 V0（助力活塞 S、连杆 AB、液压泵）；右上抽气气室 V1（抽气活塞、K1、K2）
+\begin{tikzpicture}[font=\small, >=Stealth]
+  % 助力气室
+  \draw[thick] (0.7,0.3) rectangle (3.8,2.3);
+  \node at (2.55,1.62) {$V_0$};
+  \node at (2.5,0.68) {助力气室};
+  % 助力活塞
+  \draw[very thick] (1.15,0.3) -- (1.15,2.3);
+  \node[above] at (1.15,2.3) {助力活塞};
+  % 连杆 AB 与液压泵
+  \draw[very thick] (0.15,1.3) -- (5.9,1.3);
+  \draw[thick] (5.9,0.9) rectangle (7.15,1.72);
+  \node at (6.52,1.31) {\small 液压泵};
+  \node[above left] at (0.55,1.3) {$A$};
+  \node[below left] at (5.88,1.28) {$B$};
+  \node[below] at (4.6,1.24) {连杆};
+  % 水平力与大气压
+  \draw[->, thick] (-0.55,1.3) -- (0.05,1.3);
+  \node[left] at (-0.55,1.3) {水平力};
+  \draw[->, thick] (0.15,0.75) -- (1.05,0.75);
+  \node[below] at (0.6,0.72) {$p_0$};
+  \node at (0.92,1.92) {$S$};
+  % 抽气气室（右上）
+  \draw[thick] (4.0,3.0) rectangle (5.2,4.1);
+  \node at (4.42,3.42) {$V_1$};
+  % 抽气活塞
+  \draw[very thick] (4.0,3.72) -- (5.2,3.72);
+  \draw[thick] (4.6,3.72) -- (4.6,4.35);
+  \node[above] at (4.6,4.35) {\small 抽气活塞};
+  % 连接细管
+  \draw[thick] (3.8,1.9) -- (3.9,1.9) -- (3.9,3.0);
+  \draw[thick] (3.9,3.0) -- (4.0,3.0);
+  % 阀门 K1、K2
+  \fill (3.9,2.55) circle (1.5pt);
+  \node[left] at (3.82,2.48) {$K_1$};
+  \draw[thick] (4.35,3.0) -- (4.35,2.72);
+  \draw (4.24,2.72) -- (4.46,2.62);
+  \node[right] at (4.5,2.8) {$K_2$};
+  % 抽气方向
+  \draw[->, thick] (5.5,3.72) -- (5.5,4.55);
+  \node[right] at (5.55,4.3) {\small 抽气};
+\end{tikzpicture}

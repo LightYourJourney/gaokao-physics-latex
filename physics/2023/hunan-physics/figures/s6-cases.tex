@@ -1,0 +1,59 @@
+% 第 6 题解析：粒子在区域Ⅱ中五种情形下的轨迹（甲—戊，TikZ 重绘）
+% 取 GF 到 C 的水平距离为 1（作图单位）：甲 r=1/2、乙 r=1/4、丙 r=1、
+% 丁 r=2/√3、戊 r=√2；圆心均在 C 正下方，圆心角依次为 90°、90°、90°、60°、45°
+\newcommand{\panelbase}[1]{%
+  \draw[dashed] (0,0) -- (1,1) -- (1,-1) -- cycle;
+  \foreach \p in {(0.45,0.4),(0.45,-0.45),(0.78,0.75),(0.78,-0.15),(0.78,-0.7)} {
+    \fill \p circle (1.2pt);}
+  \node[above left] at (0,0) {$C$};
+  \node[above right] at (1,1) {$G$};
+  \node[below right] at (1,-1) {$F$};
+  \node[below] at (0.5,-1.5) {#1};
+}
+\begin{tikzpicture}[font=\small, >=Stealth]
+  % 甲：r = 1/2，从 CF 中点射出，圆心角 90°
+  \begin{scope}[scale=1.4]
+    \panelbase{甲}
+    \coordinate (S) at (0,-0.5);
+    \draw[thick] (S) ++(90:0.5) arc[start angle=90, end angle=0, radius=0.5];
+    \draw[dashed] (S) -- (0.5,-0.5);
+    \fill (S) circle (1.4pt) node[below left]{$O'$};
+    \fill (0.5,-0.5) circle (1.4pt);
+  \end{scope}
+  % 乙：r = 1/4，仍从 CF 射出，圆心角 90°
+  \begin{scope}[xshift=2.8cm, scale=1.4]
+    \panelbase{乙}
+    \coordinate (S) at (0,-0.25);
+    \draw[thick] (S) ++(90:0.25) arc[start angle=90, end angle=0, radius=0.25];
+    \draw[dashed] (S) -- (0.25,-0.25);
+    \fill (S) circle (1.4pt);
+    \fill (0.25,-0.25) circle (1.4pt);
+  \end{scope}
+  % 丙：r = 1，恰好从 F 点射出，圆心角 90°
+  \begin{scope}[xshift=5.6cm, scale=1.4]
+    \panelbase{丙}
+    \coordinate (S) at (0,-1);
+    \draw[thick] (S) ++(90:1) arc[start angle=90, end angle=0, radius=1];
+    \draw[dashed] (S) -- (1,-1);
+    \fill (S) circle (1.4pt);
+    \fill (1,-1) circle (1.4pt);
+  \end{scope}
+  % 丁：r = 2/√3，从 FG 边界射出，圆心角 60°
+  \begin{scope}[xshift=8.4cm, scale=1.4]
+    \panelbase{丁}
+    \coordinate (S) at (0,-1.1547);
+    \draw[thick] (S) ++(90:1.1547) arc[start angle=90, end angle=30, radius=1.1547];
+    \draw[dashed] (S) -- (1,-0.5774);
+    \fill (S) circle (1.4pt);
+    \fill (1,-0.5774) circle (1.4pt);
+  \end{scope}
+  % 戊：r = √2，从 FG 边界射出，圆心角 45°
+  \begin{scope}[xshift=11.2cm, scale=1.4]
+    \panelbase{戊}
+    \coordinate (S) at (0,-1.4142);
+    \draw[thick] (S) ++(90:1.4142) arc[start angle=90, end angle=45, radius=1.4142];
+    \draw[dashed] (S) -- (1,-0.4142);
+    \fill (S) circle (1.4pt);
+    \fill (1,-0.4142) circle (1.4pt);
+  \end{scope}
+\end{tikzpicture}
