@@ -1,0 +1,61 @@
+% 第 22 题：游标卡尺读数装置（图 a 装置示意 + 图 b 读数放大）
+\begin{tikzpicture}[font=\small, >=Stealth, scale=1.0]
+  % ---------- 图（a）装置 ----------
+  \begin{scope}
+    % 底座
+    \draw[thick] (0,0) -- (2.6,0);
+    % 主尺（竖直立柱）
+    \draw[thick] (0.15,0) rectangle (0.45,3.9);
+    \node[rotate=90,font=\scriptsize] at (0.3,1.3) {主尺};
+    % 游标（可沿主尺滑动的小框）
+    \draw[thick] (0.05,1.85) rectangle (0.62,2.75);
+    \node[left,font=\scriptsize] at (0.02,2.3) {游标};
+    % 支架立柱
+    \draw[thick] (2.05,0) rectangle (2.35,4.3);
+    % 指针（自游标伸向右侧弹簧）
+    \draw[thick] (0.62,2.3) -- (1.55,2.3);
+    \node[above,font=\scriptsize] at (1.05,2.32) {指针};
+    % 弹簧
+    \draw[thick,decorate,decoration={coil,aspect=0.5,segment length=1.6mm,amplitude=2.6mm}]
+       (1.6,4.15) -- (1.6,2.6);
+    % 托盘
+    \draw[thick] (1.3,2.5) -- (1.9,2.5) -- (1.75,2.28) -- (1.45,2.28) -- cycle;
+    % 弹簧上端固定件
+    \draw[thick] (1.35,4.15) -- (1.85,4.15);
+    \node[below,font=\scriptsize] at (1.3,-0.35) {图（a）};
+  \end{scope}
+  % ---------- 图（b）读数放大 ----------
+  \begin{scope}[xshift=4.6cm]
+    % 主尺（右侧竖线，带刻度）
+    \draw[thick] (1.35,0) -- (1.35,4.3);
+    \foreach \i in {0,1,...,40} {
+      \pgfmathsetmacro\y{0.1*\i}
+      \draw (1.35,\y) -- (1.75,\y);
+    }
+    \foreach \i in {0,10,20,30,40} {
+      \pgfmathsetmacro\y{0.1*\i}
+      \draw (1.35,\y) -- (2.1,\y);
+    }
+    % 主尺数字（3、4 在上；5 在下）
+    \node[right,font=\scriptsize] at (2.1,3.05) {3};
+    \node[right,font=\scriptsize] at (2.1,2.05) {4};
+    \node[right,font=\scriptsize] at (2.1,1.05) {5};
+    \node[below,font=\scriptsize] at (1.6,-0.3) {主尺};
+    \node[below,font=\scriptsize] at (1.6,-0.62) {cm};
+    % 游标（左侧，20 分度，刻度朝右）
+    \draw[thick] (0.62,0) -- (0.62,4.3);
+    \foreach \i in {0,1,...,20} {
+      \pgfmathsetmacro\y{0.1*\i}
+      \draw (0.62,\y) -- (0.32,\y);
+    }
+    \foreach \i in {0,10,20} {
+      \pgfmathsetmacro\y{0.1*\i}
+      \draw (0.62,\y) -- (0.12,\y);
+    }
+    \node[left,font=\scriptsize] at (0.12,2.0) {0};
+    \node[left,font=\scriptsize] at (0.12,3.0) {10};
+    \node[left,font=\scriptsize] at (0.12,4.0) {20};
+    \node[below,font=\scriptsize] at (0.37,-0.3) {游标};
+    \node[below,font=\scriptsize] at (1.0,-1.0) {图（b）};
+  \end{scope}
+\end{tikzpicture}

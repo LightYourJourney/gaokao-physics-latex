@@ -1,0 +1,31 @@
+% 第 10 题丙：游标卡尺读数（放大示意）
+% 主尺 0–13 cm；游标 20 分度，读数 1.02 cm（主尺 1.0 cm + 游标第 4 格 × 0.05 mm？按原图 1.02 cm 读数）
+\begin{tikzpicture}[font=\small, scale=0.92]
+  % 主尺
+  \draw[thick] (0,2.6) rectangle (13.2,3.4);
+  \foreach \i in {0,1,...,13} {
+    \draw (\i+0.15,2.6) -- (\i+0.15,3.05);
+    \node[above,font=\scriptsize] at (\i+0.15,3.4) {\i};
+  }
+  \foreach \i in {0,1,...,130} {
+    \ifnum\i<130
+      \draw ({0.15+0.1*\i},2.6) -- ({0.15+0.1*\i},2.75);
+    \fi
+  }
+  \node[right,font=\scriptsize] at (13.2,3.0) {cm};
+  % 游标（置于 1.02 cm 处）
+  \begin{scope}[xshift=1.02cm]
+    \draw[thick] (0,1.15) rectangle (2.0,2.18);
+    \foreach \i in {0,1,...,20} {
+      \draw ({0.02+0.1*\i},1.15) -- ({0.02+0.1*\i},1.7);
+    }
+    \foreach \i in {0,10,20} {
+      \draw ({0.02+0.1*\i},1.15) -- ({0.02+0.1*\i},1.95);
+      \node[below,font=\scriptsize] at ({0.02+0.1*\i},1.15) {\i};
+    }
+    \node[below,font=\scriptsize] at (1.0,0.95) {游标};
+  \end{scope}
+  % 读数标注
+  \draw[->,thick,dashed] (1.08,3.4) -- (1.08,4.05);
+  \node[above,font=\scriptsize] at (1.08,4.05) {读数 $1.02$~cm};
+\end{tikzpicture}

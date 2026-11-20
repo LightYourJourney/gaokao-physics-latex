@@ -1,0 +1,24 @@
+% 第 23 题图（c）：电阻箱读数（×100、×10、×1、×0.1 四个旋钮）
+\begin{tikzpicture}[font=\small, scale=1.0]
+  % 外框（圆角）
+  \draw[thick,rounded corners=12pt] (0,0) rectangle (5.4,5.9);
+  % 四个旋钮：位置与倍率
+  \foreach \x/\y/\mul in {1.45/4.55/100, 3.85/4.55/10, 1.45/2.35/1, 3.85/2.35/0.1} {
+    % 刻度盘
+    \draw[thick] (\x,\y) circle (0.95);
+    % 内部正多边形状旋钮
+    \fill[gray!35] (\x,\y) -- ++(72:0.52) -- ++(144:0.52) -- ++(216:0.52) -- ++(288:0.52) -- cycle;
+    \draw[thick] (\x,\y) -- ++(72:0.52) -- ++(144:0.52) -- ++(216:0.52) -- ++(288:0.52) -- cycle;
+    % 10 个刻度（0--9 环绕）
+    \foreach \k in {0,1,...,9} {
+      \pgfmathsetmacro\ang{90-36*\k}
+      \draw (\x,\y) ++(\ang:0.95) -- ++(\ang:0.14);
+      \node[font=\tiny] at ([shift={(\ang:1.18)}]\x,\y) {\k};
+    }
+    % 指示三角
+    \fill (\x,\y-1.28) -- ++(-0.14,0) -- ++(0.14,-0.22);
+    % 倍率标注
+    \node[below,font=\small] at (\x,\y-1.62) {$\times\num{\mul}$};
+  }
+  \node[below,font=\small] at (2.7,-1.1) {图（c）};
+\end{tikzpicture}

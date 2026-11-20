@@ -1,0 +1,12 @@
+% 第 16 题：三个固定带电小球 a、b、c（直角三角形，ab=5、bc=3、ca=4）
+\begin{tikzpicture}[font=\small, scale=1.5]
+  \coordinate (A) at (0,0);
+  \coordinate (B) at (5,0);
+  \coordinate (C) at (3.2,2.4);
+  \draw[dashed] (A) -- (B);
+  \draw[dashed] (A) -- (C);
+  \draw[dashed] (B) -- (C);
+  \fill (A) circle (1.8pt) node[below left] {$a$};
+  \fill (B) circle (1.8pt) node[below right] {$b$};
+  \fill (C) circle (1.8pt) node[above] {$c$};
+\end{tikzpicture}

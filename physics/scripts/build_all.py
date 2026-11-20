@@ -26,12 +26,19 @@ def compile_one(pdir: Path) -> dict:
         if not tex.exists():
             out["errors"].append(f"{entry}: 无源文件")
             continue
-        for _ in range(2):  # 题号回链要两遍才能解析
+        # 交叉引用需要多遍才能稳定（有的卷题目与解析同文档，需 3 遍）。
+        # 最多 4 遍，某遍后日志中不再出现未定义引用即停止。
+        for _ in range(4):
             r = subprocess.run(
                 ["xelatex", "-interaction=nonstopmode", "-halt-on-error", entry],
                 cwd=pdir, capture_output=True, text=True)
             if r.returncode != 0:
                 break
+            logf = pdir / f"{entry}.log"
+            if logf.exists():
+                t = logf.read_text(encoding="utf-8", errors="ignore")
+                if "undefined" not in t and "Rerun to get" not in t:
+                    break
         log = pdir / f"{entry}.log"
         errs = 0
         if not log.exists():

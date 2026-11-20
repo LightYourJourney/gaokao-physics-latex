@@ -1,0 +1,22 @@
+% 第 18 题：运动员原地起跳扣篮（重心上升最大高度 H）
+\begin{tikzpicture}[font=\small, >=Stealth, scale=0.92]
+  % 地面
+  \draw[thick] (0,0) -- (7.2,0);
+  \foreach \x in {0.1,0.45,...,7.1} { \draw (\x,0) -- (\x-0.13,-0.2); }
+  % 篮球架：立柱 + 篮板 + 篮筐
+  \draw[thick] (6.6,0) -- (6.6,5.4);
+  \draw[thick] (5.3,3.9) rectangle (6.6,5.2);
+  \draw[thick] (4.75,4.25) -- (5.3,4.25);
+  \draw[thick] (4.75,4.25) arc[start angle=180, end angle=360, radius=0.3];
+  % 运动员（起跳中，双臂上举）
+  \fill (2.3,3.05) circle (0.22);
+  \draw[thick] (2.3,2.83) -- (2.3,1.85);
+  \draw[thick] (2.3,1.85) -- (2.05,1.0);
+  \draw[thick] (2.3,1.85) -- (2.62,1.0);
+  \draw[thick] (2.3,2.55) -- (1.85,3.55);
+  \draw[thick] (2.3,2.55) -- (2.85,3.55);
+  % 高度 H
+  \draw[<->] (3.4,0) -- (3.4,4.25);
+  \node[right] at (3.4,2.1) {$H$};
+  \draw[dashed] (3.35,4.25) -- (4.45,4.25);
+\end{tikzpicture}

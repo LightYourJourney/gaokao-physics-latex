@@ -1,0 +1,36 @@
+% 第 12 题解析：伏安法接线图（按原图矢量重绘）
+% 电源 -- 滑动变阻器（限流） -- 电流表 -- 水泥块；电压表跨接在水泥块两端
+\begin{tikzpicture}[font=\small, >=Stealth, scale=0.95]
+  % 电源
+  \draw[thick] (0.4,1.0) rectangle (2.2,2.5);
+  \node[above,font=\scriptsize] at (1.3,2.5) {$E$};
+  \node[left,font=\scriptsize] at (0.4,2.3) {$+$};
+  \node[right,font=\scriptsize] at (2.2,2.3) {$-$};
+  % 滑动变阻器
+  \draw[thick] (4.2,1.9) rectangle (6.9,2.35);
+  \draw[thick] (4.9,2.35) -- (4.9,2.75);
+  \draw[thick] (4.6,2.75) -- (5.2,2.75);
+  \draw[thick] (6.9,2.35) -- (6.9,2.6);
+  \node[above,font=\scriptsize] at (5.55,2.75) {$R_1$};
+  % 电流表
+  \draw[thick] (8.1,1.6) circle (0.55);
+  \node[font=\scriptsize] at (8.1,1.6) {A};
+  % 水泥块
+  \draw[thick] (9.4,1.5) rectangle (11.4,2.35);
+  \node at (10.4,1.9) {$R$};
+  % 电压表
+  \draw[thick] (9.9,3.2) circle (0.5);
+  \node[font=\scriptsize] at (9.9,3.2) {V};
+  % 上回路连线
+  \draw[thick] (2.2,2.3) -- (4.2,2.3);
+  \draw[thick] (4.2,2.3) -- (4.2,1.9);
+  \draw[thick] (6.9,1.9) -- (7.55,1.9);
+  \draw[thick] (8.65,1.6) -- (9.4,1.6);
+  \draw[thick] (11.4,1.9) -- (12.0,1.9) -- (12.0,0.5) -- (1.3,0.5) -- (1.3,1.0);
+  % 电压表跨接
+  \draw[thick] (9.4,1.75) -- (9.4,2.7);
+  \draw[thick] (9.4,2.7) -- (9.9,2.7);
+  \draw[thick] (9.9,2.7) -- (9.9,3.2);
+  \draw[thick] (11.4,1.75) -- (11.4,2.7);
+  \draw[thick] (11.4,2.7) -- (9.9,2.7);
+\end{tikzpicture}

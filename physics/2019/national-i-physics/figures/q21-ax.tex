@@ -1,0 +1,17 @@
+% 第 21 题：a–x 图（实线为 P、虚线为 Q）
+% P：截距 3a0，横轴交点 x0；Q：截距 a0，横轴交点 2x0
+\begin{tikzpicture}[font=\small, >=Stealth, scale=0.95]
+  \draw[->] (-0.2,0) -- (9.4,0) node[right] {$x$};
+  \draw[->] (0,-0.9) -- (0,5.0) node[above] {$a$};
+  % 实线 P：自 (0,4.0) 过 (2.6,0)
+  \draw[thick] (0,4.0) -- (3.5,-1.0);
+  % 虚线 Q：自 (0,1.35) 过 (5.2,0)
+  \draw[thick,dashed] (0,1.35) -- (8.4,-1.0);
+  % 标注
+  \node[left] at (-0.05,4.0) {$3a_{0}$};
+  \node[left] at (-0.05,1.35) {$a_{0}$};
+  \draw (2.6,0) -- (2.6,-0.18) node[below] {$x_{0}$};
+  \draw (5.2,0) -- (5.2,-0.18) node[below] {$2x_{0}$};
+  \node[above] at (1.7,2.9) {$P$};
+  \node[above] at (6.1,0.75) {$Q$};
+\end{tikzpicture}

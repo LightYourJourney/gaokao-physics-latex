@@ -1,0 +1,36 @@
+% 第 11 题图 2：小球在黏性液体中下落的频闪照片示意（按原图重绘）
+% 量筒内盛黏性液体；小球自液面静止释放，每隔 0.5 s 记一个位置；
+% 右侧框给出各位置到液面的距离（单位 cm）。A 在液面处，E 最靠下。
+\begin{tikzpicture}[font=\small, >=Stealth, scale=0.95]
+  % 量筒
+  \draw[thick] (0,0) -- (0,7.2);
+  \draw[thick] (2.1,0) -- (2.1,7.2);
+  \draw[thick] (0,0) -- (0.68,0);
+  \draw[thick] (1.42,0) -- (2.1,0);
+  \draw[thick] (0,7.2) ellipse (1.05 and 0.24);
+  % 液面
+  \draw[thick] (0,5.95) ellipse (1.05 and 0.22);
+  % 液面处小球（A）
+  \fill[gray!70] (1.05,5.95) circle (0.11);
+  \draw[thick] (1.05,5.95) circle (0.11);
+  % 下落位置（B–E），间距按原图递增后趋稳
+  \foreach \y in {5.4,4.85,4.3,3.75} {
+    \fill[gray!70] (1.05,\y) circle (0.095);
+    \draw[thick] (1.05,\y) circle (0.095);
+  }
+  % 竖直虚线（球心轨迹）
+  \draw[dashed] (1.05,5.95) -- (1.05,3.75);
+  \node[font=\scriptsize,align=center] at (0.42,4.6) {黏\\性\\液\\体};
+  % 右侧读数框：位置由上到下为 A(5.00) B(5.49) C(6.00) D(6.51) E(7.02)
+  \draw[thick] (2.85,3.15) rectangle (5.9,6.75);
+  \foreach \i/\lab/\val in {0/A/5.00,1/B/5.49,2/C/6.00,3/D/6.51,4/E/7.02} {
+    \node[left] at (2.88,6.4-0.78*\i) {$\lab$};
+    \draw (2.96,6.4-0.78*\i) circle (0.07);
+    \draw (3.03,6.4-0.78*\i) -- (3.45,6.4-0.78*\i);
+    \node[right] at (3.5,6.4-0.78*\i) {\val};
+  }
+  \node[below] at (4.37,3.12) {单位：cm};
+  % 引出线：由小球位置指向读数框
+  \draw[thick] (1.15,5.4) -- (2.85,6.35);
+  \draw[thick] (1.15,3.75) -- (2.85,3.6);
+\end{tikzpicture}

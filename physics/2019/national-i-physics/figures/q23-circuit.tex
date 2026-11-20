@@ -1,0 +1,34 @@
+% 第 23 题图（a）：微安表改装与检测电路（虚线框内为改装后的电表）
+\begin{tikzpicture}[font=\small, >=Stealth, scale=0.86]
+  % 虚线框（改装后的电表）
+  \draw[thick,dashed] (0.35,2.55) rectangle (2.45,4.35);
+  \node[below,font=\scriptsize] at (1.4,2.5) {改装后的电表};
+  % 框内：微安表 + 并联电阻 R
+  \draw[thick] (1.4,3.75) circle (0.38);
+  \node[font=\scriptsize] at (1.4,3.75) {$\mu$A};
+  % 并联电阻 R（框外右侧）
+  \draw[thick] (3.3,4.05) rectangle (5.4,4.35);
+  \draw[->,thick] (4.35,3.6) -- (4.35,4.02);
+  \node[above,font=\scriptsize] at (4.35,4.35) {电阻箱};
+  % 标准毫安表
+  \draw[thick] (6.6,3.75) circle (0.38);
+  \node[font=\scriptsize] at (6.6,3.75) {mA};
+  \node[below,font=\scriptsize] at (7.6,3.62) {标准毫安表};
+  % 连线
+  \draw[thick] (0.35,3.75) -- (0.0,3.75) -- (0.0,1.15) -- (3.4,1.15);
+  \draw[thick] (1.4,4.13) -- (1.4,4.55);
+  \draw[thick] (1.78,3.75) -- (3.3,3.75) -- (3.3,4.05);
+  \draw[thick] (1.4,3.37) -- (1.4,3.2) -- (3.3,3.2) -- (3.3,3.75);
+  \draw[thick] (5.4,4.2) -- (6.22,4.2) -- (6.22,3.75);
+  \draw[thick] (6.98,3.75) -- (8.6,3.75) -- (8.6,1.15) -- (6.3,1.15);
+  % 开关
+  \draw (5.2,1.15) circle (0.06);
+  \draw (6.3,1.15) circle (0.06);
+  \draw[thick] (5.2,1.15) -- (5.95,1.45);
+  % 电源
+  \draw[thick] (3.4,1.15) -- (4.35,1.15);
+  \draw[thick] (4.35,0.95) -- (4.35,1.35);
+  \draw[thick] (4.6,0.85) -- (4.6,1.45);
+  \draw[thick] (4.6,1.15) -- (5.2,1.15);
+  \node[below] at (4.1,0.9) {图（a）};
+\end{tikzpicture}

@@ -1,0 +1,16 @@
+% 第 14 题：氢原子能级图
+\begin{tikzpicture}[font=\small, scale=0.88]
+  \node[above] at (-0.55,7.35) {$n$};
+  \node[above] at (5.2,7.35) {$E/\mathrm{eV}$};
+  % 能级线（自下而上：n=1..4, ∞）；位置按能级比例排布
+  \foreach \y/\n/\e/\sty in {%
+      0.35/1/{-13.60}/thick,%
+      3.75/2/{-3.40}/thick,%
+      5.55/3/{-1.51}/thick,%
+      6.15/4/{-0.85}/thick,%
+      6.75/{\infty}/{0}/dashed} {
+    \draw[\sty] (0.55,\y) -- (4.4,\y);
+    \node[left] at (0.5,\y) {$\n$};
+    \node[right] at (4.45,\y) {$\e$};
+  }
+\end{tikzpicture}

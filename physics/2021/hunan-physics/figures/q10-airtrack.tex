@@ -1,0 +1,36 @@
+% 第 10 题：气垫导轨实验装置（按原图矢量重绘）
+% 导轨倾斜；左端底座、右端高度 h 由垫块抬起；滑块（带遮光片）；加速度记录器接在导轨中段
+\begin{tikzpicture}[font=\small, >=Stealth, scale=0.92]
+  % 水平基准线
+  \draw[thick] (-0.3,0) -- (10.0,0);
+  % 气垫导轨（倾斜）
+  \draw[thick] (0.2,0.55) -- (8.4,2.15) -- (8.6,1.68) -- (0.25,0.18) -- cycle;
+  % 左端支座
+  \draw[thick] (0.55,0) -- (0.55,0.38) -- (1.05,0.38) -- (1.05,0) -- cycle;
+  % 右端垫块（高度 h）
+  \draw[thick] (6.95,0) -- (6.95,1.05) -- (7.95,1.05) -- (7.95,0) -- cycle;
+  \draw[thick] (7.05,1.05) -- (7.05,1.42) -- (7.85,1.42) -- (7.85,1.05) -- cycle;
+  % 高度标注 h
+  \draw[<->] (8.45,0) -- (8.45,1.42);
+  \node[right,font=\scriptsize] at (8.45,0.72) {$h$};
+  % 滑块（带遮光片）
+  \draw[thick] (5.15,1.72) rectangle (6.35,2.28);
+  \fill[gray!30] (5.15,1.72) rectangle (6.35,2.28);
+  \draw[thick] (5.35,2.28) -- (5.35,2.6);
+  \draw[thick] (5.5,2.28) -- (5.5,2.6);
+  \draw[thick] (6.0,2.28) -- (6.0,2.6);
+  \draw[thick] (6.15,2.28) -- (6.15,2.6);
+  % 加速度记录器
+  \draw[thick] (2.55,2.05) circle (0.16);
+  \draw[thick] (2.55,2.21) -- (2.55,2.55) -- (3.35,2.55) -- (3.35,2.95) -- (4.55,2.95) -- (4.55,2.55);
+  \node[above,font=\scriptsize] at (3.95,2.95) {加速度记录器};
+  % 引气管
+  \draw[thick] (8.5,1.9) .. controls (9.3,2.3) and (9.6,1.5) .. (9.8,0.9);
+  \node[right,font=\scriptsize,rotate=-70] at (9.75,0.75) {接气泵};
+  % 标注
+  \node[above,font=\scriptsize] at (1.55,0.95) {气垫导轨};
+  \node[above,font=\scriptsize] at (5.15,2.78) {滑块};
+  \draw[->,font=\scriptsize] (5.6,2.62) -- (5.42,2.35);
+  \node[above,font=\scriptsize] at (6.9,2.95) {遮光片};
+  \draw[->,font=\scriptsize] (6.72,2.78) -- (6.08,2.62);
+\end{tikzpicture}

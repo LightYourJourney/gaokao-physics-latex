@@ -1,0 +1,27 @@
+% 第 34 题(1)：三棱镜 ABC，红光垂直 AB 射入、从 AC 上 D 点射出
+\begin{tikzpicture}[font=\small, >=Stealth, scale=1.15]
+  \coordinate (A) at (0,0);
+  \coordinate (B) at (4.0,0);
+  \coordinate (C) at (0,2.3);
+  \draw[thick] (A) -- (B) -- (C) -- cycle;
+  \node[below left] at (A) {$A$};
+  \node[below right] at (B) {$B$};
+  \node[above left] at (C) {$C$};
+  % D 在 AC 上
+  \coordinate (D) at (0,1.45);
+  \fill (D) circle (1.6pt) node[left] {$D$};
+  % 入射光线（垂直 AB，自左向右）
+  \draw[->,thick] (-1.9,1.45) -- (D);
+  % 法线（过 D，垂直于 AC；AC 竖直，故法线水平）
+  \draw[dashed] (D) -- (1.15,1.45);
+  % 折射光线（与法线成 60°）
+  \draw[->,thick] (D) -- (1.5,0.55);
+  % 入射角标注
+  \coordinate (Na) at (0,0.5);
+  \coordinate (Nb) at (1.15,1.45);
+  \coordinate (Rb) at (1.5,0.55);
+  \pic[draw, angle radius=0.42cm, angle eccentricity=1.6, "$30^{\circ}$"]
+      {angle = Na--D--Nb};
+  \pic[draw, angle radius=0.5cm, angle eccentricity=1.5, "$60^{\circ}$"]
+      {angle = Nb--D--Rb};
+\end{tikzpicture}

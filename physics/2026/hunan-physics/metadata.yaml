@@ -16,5 +16,6 @@ status: complete
 notes: >
   结构：单选 6×4 + 多选 4×5 + 实验 2 题 + 计算 3 题，满分 100，限时 75 分钟。
   图策略：image2-5,8-9,11,13-20 重绘为 TikZ/circuitikz/pgfplots；
-  image6（心形气球）、image10（单摆装置照片）、image12（表盘照片）为非矢量例外，
-  保留原图。
+  image6（心形气球）已矢量重绘为 figures/q7-heart。
+  非矢量例外 2 张：image10（单摆装置的电压表/测微器刻度）、image12（电压表与螺旋测微器读数）
+  ——真实仪器刻度盘，保留原图。

@@ -1,0 +1,20 @@
+% 第 23 题图（b）：R2–t 坐标纸（空网格，供描点作图）
+\begin{tikzpicture}[font=\small]
+  \begin{axis}[
+      width=10.4cm, height=8.2cm,
+      axis lines=left,
+      axis line style={-Stealth},
+      xmin=0, xmax=100, ymin=0, ymax=1000,
+      xtick={0,20,40,60,80,100},
+      ytick={0,200,400,600,800,1000},
+      minor x tick num=9, minor y tick num=9,
+      grid=both,
+      major grid style={line width=0.5pt, draw=gray!70},
+      minor grid style={line width=0.2pt, draw=gray!40},
+      xlabel={$t/^{\circ}\mathrm{C}$}, ylabel={$R_{2}/\Omega$},
+      xlabel style={anchor=west}, ylabel style={anchor=south},
+      tick label style={font=\small}, label style={font=\small}]
+    % 七个待描点（不绘制，仅占位保持网格完整）
+  \end{axis}
+  \node[below,font=\small] at (5.2,-0.9) {图（b）};
+\end{tikzpicture}

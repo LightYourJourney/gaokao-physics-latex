@@ -1,0 +1,24 @@
+% 第 19 题：粗糙斜面 + 定滑轮 + 物块 M、N，水平拉力缓慢拉动 N
+\begin{tikzpicture}[font=\small, >=Stealth, scale=0.92]
+  % 地面
+  \draw[thick] (0,0) -- (8.8,0);
+  \foreach \x in {0.1,0.45,...,8.7} { \draw (\x,0) -- (\x-0.13,-0.2); }
+  % 斜面
+  \draw[thick] (0,0) -- (5.9,3.1);
+  \draw[thick] (0,0) -- (0,3.1) -- (5.9,3.1);
+  % 定滑轮
+  \fill[gray!45] (0.2,3.3) circle (0.27);
+  \draw[thick] (0.2,3.3) circle (0.27);
+  % M 在斜面上
+  \draw[thick,rotate=27.7] (2.75,1.75) rectangle ++(0.78,0.46);
+  \node[above] at (3.15,2.35) {$M$};
+  % 绳：M 到滑轮
+  \draw[thick] (3.28,2.04) -- (0.47,3.3);
+  % 绳：滑轮向下挂 N
+  \draw[thick] (0.2,3.03) -- (0.2,2.2);
+  % N
+  \draw[thick] (-0.42,1.45) rectangle (0.82,2.2);
+  \node at (0.2,1.83) {$N$};
+  % 水平拉力
+  \draw[->,thick] (-0.42,1.83) -- (-1.5,1.83);
+\end{tikzpicture}

@@ -1,0 +1,10 @@
+% 第 15 题：题面装置（弹簧 + 物块 P + 竖直向上的力 F）
+\begin{tikzpicture}[font=\small, >=Stealth, scale=0.9,
+    decoration={coil,aspect=0.5,segment length=2.0mm,amplitude=3.4mm}]
+  \draw[thick] (-1.0,0) -- (2.4,0);
+  \foreach \x in {-0.9,-0.55,...,2.3} { \draw (\x,0) -- (\x-0.14,-0.2); }
+  \draw[thick,decorate] (0.7,0.06) -- (0.7,2.05);
+  \draw[thick] (0.1,2.05) rectangle (1.3,3.0);
+  \node at (0.7,2.52) {$P$};
+  \draw[->,thick] (0.7,3.0) -- (0.7,3.95) node[right] {$F$};
+\end{tikzpicture}

@@ -1,0 +1,18 @@
+% 第 18 题：水平轨道 ab（长 2R）+ 四分之一圆弧 bc（半径 R）
+\begin{tikzpicture}[font=\small, >=Stealth, scale=1.25]
+  % 水平地面
+  \draw[thick] (-0.3,0) -- (4.6,0);
+  \foreach \x in {-0.2,0.15,...,4.5} { \draw (\x,0) -- (\x-0.13,-0.19); }
+  % 圆弧 bc：圆心在 (2,0)，半径 1.4，从 b(2,0) 到 c(2,1.4)
+  \draw[thick] (2,0) arc[start angle=0, end angle=90, radius=1.4];
+  % 半径虚线
+  \draw[dashed] (2,0) -- (2,1.4);
+  \node[right] at (2.05,0.7) {$R$};
+  % 标注
+  \fill (0.35,0) circle (1.6pt) node[below left] {$a$};
+  \fill (2,0) circle (1.6pt) node[below] {$b$};
+  \fill (2,1.4) circle (1.6pt) node[above right] {$c$};
+  % 长度 2R
+  \draw[<->] (0.35,-0.55) -- (2,-0.55);
+  \node[below] at (1.17,-0.55) {$2R$};
+\end{tikzpicture}

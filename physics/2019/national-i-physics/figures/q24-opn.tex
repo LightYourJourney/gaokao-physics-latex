@@ -1,0 +1,26 @@
+% 第 24 题：直角三角形 OPN 区域内的匀强磁场（垂直纸面向外）
+\begin{tikzpicture}[font=\small, >=Stealth, scale=0.9]
+  \draw[->] (-0.3,0) -- (5.6,0) node[right] {$x$};
+  \draw[->] (0,-0.3) -- (0,4.0) node[above] {$y$};
+  \node[below left,inner sep=2pt] at (-0.12,-0.12) {$O$};
+  % 三角形 OPN：OP 与 x 轴成 30°，N 在 y 轴上
+  \coordinate (P) at (4.8,2.77);
+  \coordinate (N) at (0,2.77);
+  \draw[thick,dashed] (0,0) -- (P);
+  \draw[thick,dashed] (0,2.77) -- (P);
+  \node[above left] at (N) {$N$};
+  \node[right] at (P) {$P$};
+  % 30° 角
+  \coordinate (Xpt) at (1.1,0);
+  \pic[draw, angle radius=0.75cm, angle eccentricity=1.5, "$30^{\circ}$"]
+      {angle = Xpt--O--P};
+  % 磁场（垂直纸面向外）
+  \foreach \x in {0.5,1.5,2.5,3.5,4.4} {
+    \foreach \y in {0.45,1.15,1.85,2.5} {
+      \fill (\x,\y) circle (1.4pt);
+    }
+  }
+  % 入射粒子（自左侧沿 +x 方向）
+  \draw[->,thick] (-0.9,3.3) -- (-0.1,3.3);
+  \fill (-1.0,3.3) circle (0.06);
+\end{tikzpicture}

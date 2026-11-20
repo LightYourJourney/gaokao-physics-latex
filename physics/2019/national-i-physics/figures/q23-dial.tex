@@ -1,0 +1,24 @@
+% 第 23 题图（c）：微安表表盘读数（指针在 200 μA 处）
+% 表盘类仪器刻度，按原图形状矢量重绘
+\begin{tikzpicture}[font=\small, scale=1.0]
+  % 表壳
+  \draw[thick,rounded corners=6pt] (0,0) rectangle (9.0,4.4);
+  \draw[thick,rounded corners=4pt] (0.22,0.22) rectangle (8.78,4.18);
+  % 圆弧刻度带（圆心在下方）
+  \coordinate (O) at (4.5,-1.6);
+  \draw[thick] (O) ++(125:4.6) arc[start angle=125, end angle=55, radius=4.6];
+  % 主刻度：0,50,100,150,200,250
+  \foreach \ang/\lab in {125/0,111/50,97/100,83/150,69/200,55/250} {
+    \draw[very thick] (O) ++(\ang:4.6) -- ++(\ang:0.42);
+    \node[font=\small] at ([shift={(\ang:5.2)}]O) {\lab};
+  }
+  % 次刻度
+  \foreach \ang in {123.4,121.8,120.2,118.6,117,115.4,113.8,112.2,110.6,109,107.4,105.8,104.2,102.6,101,99.4,97.8,96.2,94.6,93,91.4,89.8,88.2,86.6,85,83.4,81.8,80.2,78.6,77,75.4,73.8,72.2,70.6,69,67.4,65.8,64.2,62.6,61,59.4,57.8,56.6} {
+    \draw (O) ++(\ang:4.6) -- ++(\ang:0.26);
+  }
+  % 指针（指向 200 附近略偏左，对应约 190 μA）
+  \draw[very thick] (O) -- ++(83.5:4.3);
+  % 单位
+  \node[font=\small] at (3.6,0.95) {$\mu$A};
+  \node[below,font=\small] at (4.5,-0.75) {图（c）};
+\end{tikzpicture}

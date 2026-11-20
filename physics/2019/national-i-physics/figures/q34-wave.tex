@@ -1,0 +1,24 @@
+% 第 34 题(1)：波形图（a）与振动图像（b）
+% 图（a）：t = T/2 时刻，波形自原点上升，P 在波峰、Q 在 λ/2 处
+\begin{tikzpicture}[font=\small, >=Stealth, scale=0.92]
+  \begin{scope}
+    \draw[->] (0,0) -- (6.2,0) node[right] {$x$};
+    \draw[->] (0,-1.75) -- (0,1.95) node[above] {$y$};
+    \node[below left] at (0,0) {$0$};
+    \draw[thick,domain=0:5.7,samples=160] plot (\x,{1.35*sin((\x/4.0)*360)});
+    \fill (1.0,1.35) circle (1.6pt) node[above right] {$P$};
+    \fill (2.0,0) circle (1.6pt) node[above right] {$Q$};
+    \draw (2.0,0) -- (2.0,-0.18) node[below,font=\scriptsize] {$\dfrac{\lambda}{2}$};
+    \draw (4.0,0) -- (4.0,-0.18) node[below,font=\scriptsize] {$\lambda$};
+    \node[below,font=\scriptsize] at (3.0,-1.55) {图（a）};
+  \end{scope}
+  \begin{scope}[xshift=8.6cm]
+    \draw[->] (0,0) -- (5.2,0) node[right] {$t$};
+    \draw[->] (0,-1.75) -- (0,1.95) node[above] {$y$};
+    \node[below left] at (0,0) {$0$};
+    \draw[thick,domain=0:4.5,samples=140] plot (\x,{1.35*sin((\x/3.2)*360)});
+    \draw (1.6,0) -- (1.6,-0.18) node[below,font=\scriptsize] {$\dfrac{T}{2}$};
+    \draw (3.2,0) -- (3.2,-0.18) node[below,font=\scriptsize] {$T$};
+    \node[below,font=\scriptsize] at (2.4,-1.55) {图（b）};
+  \end{scope}
+\end{tikzpicture}

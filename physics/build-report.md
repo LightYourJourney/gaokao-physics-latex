@@ -1,7 +1,21 @@
 # 构建报告
 
 > 生成时间：本批次
-> 项目数：7，全通过：7
+> 项目数：9，全通过：9
+
+## 2018/national-i-physics
+
+- exam.pdf：✅ 8 页 | 错误 0 | Overfull 0 | 未定义引用 0 | 缺失字符 0
+- answer-key.pdf：✅ 9 页 | 错误 0 | Overfull 0 | 未定义引用 0 | 缺失字符 0
+- solutions.pdf：✅ 17 页 | 错误 0 | Overfull 0 | 未定义引用 0 | 缺失字符 0
+- complete.pdf：✅ 18 页 | 错误 0 | Overfull 0 | 未定义引用 0 | 缺失字符 0
+
+## 2019/national-i-physics
+
+- exam.pdf：✅ 8 页 | 错误 0 | Overfull 0 | 未定义引用 0 | 缺失字符 0
+- answer-key.pdf：✅ 9 页 | 错误 0 | Overfull 0 | 未定义引用 0 | 缺失字符 0
+- solutions.pdf：✅ 17 页 | 错误 0 | Overfull 0 | 未定义引用 0 | 缺失字符 0
+- complete.pdf：✅ 18 页 | 错误 0 | Overfull 0 | 未定义引用 0 | 缺失字符 0
 
 ## 2020/national-i-physics
 
@@ -40,10 +54,10 @@
 
 ## 2025/hunan-physics
 
-- exam.pdf：✅ 10 页 | 错误 0 | Overfull 0 | 未定义引用 0 | 缺失字符 0
-- answer-key.pdf：✅ 11 页 | 错误 0 | Overfull 0 | 未定义引用 0 | 缺失字符 0
-- solutions.pdf：✅ 21 页 | 错误 0 | Overfull 0 | 未定义引用 0 | 缺失字符 0
-- complete.pdf：✅ 22 页 | 错误 0 | Overfull 0 | 未定义引用 0 | 缺失字符 0
+- exam.pdf：✅ 9 页 | 错误 0 | Overfull 0 | 未定义引用 0 | 缺失字符 0
+- answer-key.pdf：✅ 10 页 | 错误 0 | Overfull 0 | 未定义引用 0 | 缺失字符 0
+- solutions.pdf：✅ 20 页 | 错误 0 | Overfull 0 | 未定义引用 0 | 缺失字符 0
+- complete.pdf：✅ 21 页 | 错误 0 | Overfull 0 | 未定义引用 0 | 缺失字符 0
 
 ## 2026/hunan-physics
 

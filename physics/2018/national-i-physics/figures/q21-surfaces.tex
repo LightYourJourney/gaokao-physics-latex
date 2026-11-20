@@ -1,0 +1,7 @@
+% 第 21 题：一组间距相等的等势面 a、b、c、d、f
+\begin{tikzpicture}[font=\small, scale=1.1]
+  \foreach \i/\lab in {0/a,1/b,2/c,3/d,4/f} {
+    \draw[thick,dashed] (1.25*\i,0) -- (1.25*\i,2.6);
+    \node[above] at (1.25*\i,2.6) {$\lab$};
+  }
+\end{tikzpicture}

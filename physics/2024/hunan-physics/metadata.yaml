@@ -16,5 +16,5 @@ status: complete
 notes: >
   结构：单选 6×4 + 多选 4×5 + 非选择题 5 小题共 56 分，满分 100，限时 75 分钟。
   图策略：源图 23 幅中 22 幅重绘为 TikZ/circuitikz/pgfplots（figures/，含
-  解析图 9 幅）；image2（Q2 第二幅插图，内容未能目视核实）为唯一非矢量例外，
-  原图保留于 photos/image2-wave.png。
+  解析图 9 幅）。image2 为第 2 题的第二幅插图，与题面已重绘的 figures/q2-wave 内容重复，
+  已删除该照片、保留矢量图；photos/ 为空，本卷无非矢量例外。

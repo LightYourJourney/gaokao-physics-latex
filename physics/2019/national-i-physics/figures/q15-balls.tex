@@ -1,0 +1,21 @@
+% 第 15 题：两带电小球 P、Q 悬挂在天花板下，空间有水平向右的匀强电场
+\begin{tikzpicture}[font=\small, >=Stealth, scale=0.9]
+  % 天花板
+  \draw[thick] (-0.3,4.3) -- (5.4,4.3);
+  \foreach \x in {-0.2,0.15,...,5.3} { \draw (\x,4.3) -- (\x-0.15,4.52); }
+  % 两细绳（竖直）
+  \draw[thick] (1.5,4.3) -- (1.5,2.72);
+  \draw[thick] (3.7,4.3) -- (3.7,2.72);
+  % 两球
+  \shade[ball color=gray!70] (1.5,2.45) circle (0.27);
+  \draw[thick] (1.5,2.45) circle (0.27);
+  \node[left] at (1.05,2.45) {$P$};
+  \shade[ball color=gray!70] (3.7,2.45) circle (0.27);
+  \draw[thick] (3.7,2.45) circle (0.27);
+  \node[right] at (4.15,2.45) {$Q$};
+  % 匀强电场（水平向右，仅画在球所在水平带）
+  \foreach \y in {0.95,1.6,3.35} {
+    \draw[->,thick] (-0.15,\y) -- (5.15,\y);
+  }
+  \node[left] at (-0.2,3.35) {$E$};
+\end{tikzpicture}

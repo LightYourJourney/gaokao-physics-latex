@@ -1,0 +1,34 @@
+% 第 34 题(2)：波形图（a）与 Q 点振动图像（b）
+\begin{tikzpicture}[font=\small, >=Stealth, scale=0.92]
+  % ---------- 图（a）：波形 ----------
+  \begin{scope}
+    \draw[->] (0,0) -- (6.0,0) node[right] {$x/\mathrm{cm}$};
+    \draw[->] (0,-1.85) -- (0,1.85) node[above] {$y$};
+    \node[below left,font=\scriptsize] at (0,0) {$O$};
+    \draw[thick,domain=0:5.6,samples=160] plot (\x,{1.25*sin((\x/3.6)*360-30)});
+    % 振幅与 -A/2 标注
+    \draw[dashed] (0,1.25) -- (0.6,1.25);
+    \node[left,font=\scriptsize] at (0,1.25) {$A$};
+    \draw[dashed] (-0.05,-1.05) -- (0.15,-1.05);
+    \node[left,font=\scriptsize] at (0,-1.05) {$-A/2$};
+    % P 点（x=3）
+    \fill (2.4,0) circle (1.5pt) node[below left] {$P$};
+    % Q 点（x=9 处对应的峰）
+    \fill (3.0,1.25) circle (1.5pt) node[above] {$Q$};
+    % 18 cm 标注（P 与 Q 的水平距离对应的图注位置）
+    \draw[<->] (2.4,-1.45) -- (4.8,-1.45);
+    \node[below,font=\scriptsize] at (3.6,-1.45) {$\SI{18}{\centi\metre}$};
+    \node[below,font=\scriptsize] at (3.0,-2.35) {图（a）};
+  \end{scope}
+  % ---------- 图（b）：振动图像 ----------
+  \begin{scope}[xshift=8.4cm]
+    \draw[->] (0,0) -- (4.0,0) node[right] {$t/\mathrm{s}$};
+    \draw[->] (0,-1.85) -- (0,1.85) node[above] {$y$};
+    \node[below left,font=\scriptsize] at (0,0) {$O$};
+    \draw[thick,domain=0:3.4,samples=120] plot (\x,{1.25*sin(\x*180)});
+    \foreach \t in {1,2} { \draw (\t,0.07) -- (\t,-0.07) node[below,font=\scriptsize] {\t}; }
+    \draw[dashed] (0,1.25) -- (0.5,1.25);
+    \node[left,font=\scriptsize] at (0,1.25) {$A$};
+    \node[below,font=\scriptsize] at (1.7,-2.35) {图（b）};
+  \end{scope}
+\end{tikzpicture}
